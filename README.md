@@ -1,50 +1,39 @@
-# Rayyan's Portfolio — v1.1 🚀
+# 🌐 Rayyan's Portfolio — Version 1.2
 
-Welcome to the source of my personal portfolio website — a minimalist, Gen Z-coded, cyber-inspired profile that blends design and dev life 🌐💻
-
-## 🔥 Version
-
-**v1.1 – Added Sections & Socials**
-
-### ✅ What’s New
-
-- ✨ Added new sections:
-  - **Skills**
-  - **Work Experience**
-  - **Social Links** (GitHub, LinkedIn, Email)
-- 💬 More structured content about me
-- 🧊 Improved content layout and visual hierarchy
-- 🛠️ Ready for GitHub Pages deployment
-
-## 💡 Features
-
-- Dark/light mode toggle (persistent via localStorage)
-- Glassmorphism effects and responsive design
-- Terminal-style intro section
-- Clean, single `index.html` file with embedded CSS & JS
-- Language selector (EN / 日本語)
-- Mobile-friendly layout
-
-## 🛠 Tech Stack
-
-- HTML5
-- CSS3
-- Vanilla JS (for theme + language switching)
-
-## 🚀 Deploy
-
-To host the portfolio via GitHub Pages:
-
-1. Push the `index.html` to a repository named: `rayyan-x95.github.io`
-2. Go to `Settings` → Pages → Set source to root of `main` branch
-3. Wait a few seconds… and you’re live at:  
-   **https://rayyan-x95.github.io**
-
-## 👤 About Me
-
-I'm **Rayyan**, a student, designer, and custom ROM developer from Melvisharam. I build custom Android experiences, tweak Linux kernels, and run a design micro-studio called **Ninety5**.
+> A clean, minimal, single-file portfolio site with embedded CSS & JS.  
+> Designed to be fast, responsive, and fully portable — no frameworks, no nonsense.
 
 ---
 
-Made with ☕, 🔧, and `</div>`  
-© 2025 Rayyan | Ninety5 Studio
+## 🚀 Overview
+
+Welcome to my personal portfolio!  
+Built with 💻 HTML + 🎨 CSS + 🔮 JavaScript — all in **one file**.  
+This version emphasizes clarity, simplicity, and that sleek dark aesthetic 😎
+
+---
+
+## 🎯 Features
+
+- 🌑 **Dark Mode** enabled by default (with emoji toggle 🌞/🌙)
+- 🖼️ Minimal header with avatar, name, and subtitle
+- 📚 Skills listed with a clean tag layout
+- 🛠️ Experience section for design + ROM dev projects
+- 📬 Contact section with email, GitHub, SourceForge
+- ⚡ Fully responsive across mobile & desktop
+- 💡 All code in `index.html` — no external CSS or JS required
+
+---
+
+## 🏷 Version
+
+**v1.2** – [Released: July 19, 2025]
+
+### ✅ Updates from v1.1:
+- Added emoji-based theme toggle 🌞 / 🌙
+- Optimized tag spacing in Skills section
+- Improved spacing for mobile view
+- Added footer with version and copyright
+- Refined color palette for better contrast
+
+---
