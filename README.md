@@ -1,4 +1,4 @@
-# 🌐 Rayyan's Portfolio — v1.4
+# 🌐 Rayyan's Portfolio — v1.4.1
 
 A clean, minimal portfolio built with ✨glassmorphism✨, smooth animations, and a Gen-Z twist!
 
@@ -29,5 +29,5 @@ LinkedIn: [mohammed-rayyan1948](https://www.linkedin.com/in/mohammed-rayyan1948/
 
 ---
 
-**Version:** `1.4`  
+**Version:** `1.4.1`  
 **Status:** 🎯 Finalized for deployment  

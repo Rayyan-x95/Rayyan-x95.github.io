@@ -1,217 +1,296 @@
+<!-- index.html — Portfolio v1.4.2 by Rayyan -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rayyan's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg-light: #f5f5f5;
       --bg-dark: #0f0f0f;
-      --glass: rgba(255, 255, 255, 0.1);
-      --text-light: #0f0f0f;
-      --text-dark: #f5f5f5;
-      --accent: #00ffd5;
-      --transition: 0.3s ease-in-out;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+      --bg-light: #f5f5f5;
+      --card-bg-dark: rgba(255, 255, 255, 0.05);
+      --card-bg-light: rgba(0, 0, 0, 0.05);
+      --text-dark: #ffffff;
+      --text-light: #111111;
+      --accent: #ff8c00;
     }
 
     body {
-      background: var(--bg-dark);
+      font-family: 'Ubuntu', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-dark);
       color: var(--text-dark);
-      transition: var(--transition);
-      padding: 2rem;
+      transition: all 0.3s ease;
     }
 
-    .light-mode {
-      background: var(--bg-light);
+    body.light {
+      background-color: var(--bg-light);
       color: var(--text-light);
-    }
-
-    .container {
-      max-width: 960px;
-      margin: auto;
-    }
-
-    .glass-card {
-      background: var(--glass);
-      border-radius: 1rem;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      transition: var(--transition);
     }
 
     header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
     }
 
     header img {
+      border-radius: 50%;
       width: 64px;
       height: 64px;
-      border-radius: 50%;
+      border: 2px solid var(--accent);
     }
 
-    .theme-toggle {
-      cursor: pointer;
+    .mode-toggle {
       font-size: 1.5rem;
+      cursor: pointer;
     }
 
-    h1 {
-      margin-top: 1rem;
-      font-size: 2.5rem;
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
 
-    p.subtitle {
-      color: var(--accent);
-      font-style: italic;
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: background 0.3s ease;
+    }
+
+    body.light .glass {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    h1, h2, h3 {
+      font-family: 'JetBrains Mono', monospace;
       margin-bottom: 1rem;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1rem;
     }
 
     .skill-card {
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 0.8rem;
-      text-align: center;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
+      perspective: 1000px;
     }
 
-    .skill-card:hover {
+    .card-inner {
+      background: var(--card-bg-dark);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+      height: 150px;
+      cursor: pointer;
+    }
+
+    body.light .card-inner {
+      background: var(--card-bg-light);
+    }
+
+    .card-inner:hover {
       transform: rotateY(180deg);
     }
 
-    .skill-card .front,
-    .skill-card .back {
+    .card-front,
+    .card-back {
       position: absolute;
-      backface-visibility: hidden;
       width: 100%;
       height: 100%;
-      top: 0;
-      left: 0;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
     }
 
-    .skill-card .back {
+    .card-back {
       transform: rotateY(180deg);
-      padding: 0.5rem;
-      font-size: 0.85rem;
     }
 
-    .social-icons {
+    .card-front svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5rem;
+    }
+
+    .socials {
       display: flex;
       gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .social-icons a {
-      color: inherit;
       font-size: 1.5rem;
-      transition: transform var(--transition);
+      margin-top: 1rem;
+      justify-content: center;
     }
 
-    .social-icons a:hover {
-      transform: scale(1.2);
+    .socials a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    button {
-      background: none;
-      border: 1px solid var(--accent);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      color: var(--accent);
-      cursor: pointer;
-      margin: 1rem 0;
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.6;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <img src="https://github.com/Rayyan-x95.png" alt="Rayyan's Avatar" />
-      <div class="theme-toggle" onclick="toggleTheme()">🌗</div>
-    </header>
 
-    <h1>M. Mohammed Rayyan</h1>
-    <p class="subtitle">Graphic Designer • Custom ROM Dev • Quirky Nerd 🧠</p>
+  <header>
+    <img src="https://github.com/Rayyan-x95.png" alt="Rayyan" />
+    <div class="mode-toggle" onclick="toggleMode()">🌙</div>
+  </header>
 
-    <div class="glass-card">
-      <h2>🧠 Skills</h2>
-      <button onclick="toggleSkills()">Expand / Collapse</button>
-      <div id="skills-section" class="skills-grid">
-        <!-- Sample Skill -->
+  <main>
+    <div class="glass">
+      <h1>Hey, I'm Rayyan 👋</h1>
+      <p>A curious soul crafting digital interfaces and hacking on custom ROMs. Welcome to my corner of the web!</p>
+    </div>
+
+    <div class="glass">
+      <h2>💡 Skills</h2>
+      <div class="skills-grid">
+        <!-- Sample Skill Card -->
         <div class="skill-card">
-          <div class="front">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" width="40" /><br />
-            Photoshop
-          </div>
-          <div class="back">
-            Professional image manipulation, retouching, layout design, and UI mockups.
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+              <h3>HTML5</h3>
+            </div>
+            <div class="card-back">
+              <p>Semantic markup, forms, SEO, and structure for modern web apps.</p>
+            </div>
           </div>
         </div>
+
         <div class="skill-card">
-          <div class="front">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" width="40" /><br />
-            Illustrator
-          </div>
-          <div class="back">
-            Expert in vector artwork, logo design, and digital illustration for branding.
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+              <h3>CSS3</h3>
+            </div>
+            <div class="card-back">
+              <p>Animations, layouts, responsive design with modern UI/UX flair.</p>
+            </div>
           </div>
         </div>
+
         <div class="skill-card">
-          <div class="front">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" width="40" /><br />
-            HTML
-          </div>
-          <div class="back">
-            Clean semantic structure, accessible markup, and responsive layout experience.
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">
+              <h3>JavaScript</h3>
+            </div>
+            <div class="card-back">
+              <p>Interactive frontend logic, toggles, animations & DOM manipulation.</p>
+            </div>
           </div>
         </div>
-        <!-- Add more with the same format -->
+
+        <div class="skill-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop">
+              <h3>Photoshop</h3>
+            </div>
+            <div class="card-back">
+              <p>Retouching, manipulation, poster design, and visual compositions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator">
+              <h3>Illustrator</h3>
+            </div>
+            <div class="card-back">
+              <p>Vector art, logos, iconography, and brand identity work.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg" alt="Blender">
+              <h3>Blender</h3>
+            </div>
+            <div class="card-back">
+              <p>3D modeling, motion design, and animation for creative visuals.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/DaVinci_Resolve_17_logo.svg" alt="DaVinci Resolve" width="40"/>
+              <h3>DaVinci</h3>
+            </div>
+            <div class="card-back">
+              <p>Pro-level video editing, color grading & smooth cinematic flows.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="glass-card">
-      <h2>💬 Languages</h2>
-      <p>(Placeholder) Switch between 🇬🇧 English / 🇯🇵 日本語</p>
+    <div class="glass">
+      <h2>🎓 Education</h2>
+      <p>Currently pursuing higher secondary education in Melvisharam with a focus on design, tech, and digital creation.</p>
     </div>
 
-    <div class="glass-card">
-      <h2>📨 Contact</h2>
+    <div class="glass">
+      <h2>🛠 Work Experience</h2>
+      <p>Freelance Graphic Designer | Custom ROM Developer @ Ninety5<br>Built EvolutionX ROMs for Redmi Note 10 Pro with custom kernel & battery tweaks.</p>
+    </div>
+
+    <div class="glass">
+      <h2>📨 Contact & Socials</h2>
       <p>Email: <a href="mailto:mmohammedrayyan0808@gmail.com">mmohammedrayyan0808@gmail.com</a></p>
-      <div class="social-icons">
-        <a href="https://github.com/Rayyan-x95" target="_blank">🐙</a>
-        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank">💼</a>
+      <div class="socials">
+        <a href="https://github.com/Rayyan-x95" target="_blank" title="GitHub"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="24"/></a>
+        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" title="LinkedIn"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-plain.svg" width="24"/></a>
+        <a href="https://twitter.com/Rayyan_x95" target="_blank" title="Twitter"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" width="24"/></a>
+        <a href="https://www.instagram.com/rayyan.x95/" target="_blank" title="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="24"/></a>
+        <a href="https://t.me/rayyanx95" target="_blank" title="Telegram"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" width="24"/></a>
+        <a href="https://www.behance.net/mmohammedrayyan" target="_blank" title="Behance"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111615.png" width="24"/></a>
       </div>
     </div>
-  </div>
+  </main>
+
+  <footer>
+    🚀 Designed & Deployed with ✨ by Rayyan — Version 1.4.1
+  </footer>
 
   <script>
-    const body = document.body;
-    function toggleTheme() {
-      body.classList.toggle("light-mode");
-    }
-
-    function toggleSkills() {
-      const el = document.getElementById("skills-section");
-      el.style.display = el.style.display === "none" ? "grid" : "none";
+    function toggleMode() {
+      document.body.classList.toggle('light');
+      const toggle = document.querySelector('.mode-toggle');
+      toggle.textContent = document.body.classList.contains('light') ? '🌞' : '🌙';
     }
   </script>
+
 </body>
 </html>
