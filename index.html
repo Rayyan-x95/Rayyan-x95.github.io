@@ -2,26 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rayyan's Portfolio</title>
-  <link rel="icon" href="https://github.com/Rayyan-x95.png" />
   <style>
     :root {
-      --bg-light: #fefefe;
-      --text-light: #1a1a1a;
-      --bg-dark: #1a1a1a;
-      --text-dark: #fefefe;
-      --glass-bg: rgba(255, 255, 255, 0.1);
-      --blur: 10px;
-      --accent: #6c63ff;
+      --bg-light: #f5f5f5;
+      --bg-dark: #0f0f0f;
+      --glass: rgba(255, 255, 255, 0.1);
+      --text-light: #0f0f0f;
+      --text-dark: #f5f5f5;
+      --accent: #00ffd5;
+      --transition: 0.3s ease-in-out;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      transition: background 0.3s, color 0.3s;
       background: var(--bg-dark);
       color: var(--text-dark);
+      transition: var(--transition);
+      padding: 2rem;
     }
 
     .light-mode {
@@ -29,190 +34,183 @@
       color: var(--text-light);
     }
 
-    header {
-      text-align: center;
+    .container {
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .glass-card {
+      background: var(--glass);
+      border-radius: 1rem;
       padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
     }
 
-    .toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      cursor: pointer;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .profile {
-      width: 120px;
+    header img {
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
-      border: 3px solid var(--accent);
-      margin-bottom: 1rem;
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      font-size: 1.5rem;
     }
 
     h1 {
-      margin: 0.3rem 0;
-      font-size: 2rem;
+      margin-top: 1rem;
+      font-size: 2.5rem;
     }
 
-    .section {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 1rem;
-      border-radius: 12px;
-      backdrop-filter: blur(var(--blur));
-      background: var(--glass-bg);
-      border: 1px solid rgba(255,255,255,0.15);
+    p.subtitle {
+      color: var(--accent);
+      font-style: italic;
+      margin-bottom: 1rem;
     }
 
-    .card {
-      display: flex;
-      flex-wrap: wrap;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
       gap: 1rem;
-      justify-content: center;
     }
 
-    .skill {
-      width: 120px;
-      height: 120px;
-      perspective: 800px;
-    }
-
-    .flip-inner {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-      position: relative;
-    }
-
-    .skill:hover .flip-inner {
-      transform: rotateY(180deg);
-    }
-
-    .front, .back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      backface-visibility: hidden;
-      background: var(--accent);
-      color: white;
-    }
-
-    .back {
-      transform: rotateY(180deg);
-      background: #444;
-    }
-
-    footer {
+    .skill-card {
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 0.8rem;
       text-align: center;
-      font-size: 0.9rem;
-      padding: 2rem;
-      opacity: 0.6;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
     }
 
-    a {
+    .skill-card:hover {
+      transform: rotateY(180deg);
+    }
+
+    .skill-card .front,
+    .skill-card .back {
+      position: absolute;
+      backface-visibility: hidden;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .skill-card .back {
+      transform: rotateY(180deg);
+      padding: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
       color: inherit;
-      text-decoration: none;
-    }
-
-    .socials a {
-      margin: 0 1rem;
       font-size: 1.5rem;
+      transition: transform var(--transition);
     }
 
-    @media(max-width: 600px) {
-      .card {
-        flex-direction: column;
-        align-items: center;
-      }
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
 
-      .skill {
-        width: 100px;
-        height: 100px;
-      }
+    button {
+      background: none;
+      border: 1px solid var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      color: var(--accent);
+      cursor: pointer;
+      margin: 1rem 0;
     }
   </style>
 </head>
 <body>
-  <div class="toggle" onclick="toggleTheme()">🌙</div>
-  <header>
-    <img src="https://github.com/Rayyan-x95.png" alt="Rayyan" class="profile"/>
+  <div class="container">
+    <header>
+      <img src="https://github.com/Rayyan-x95.png" alt="Rayyan's Avatar" />
+      <div class="theme-toggle" onclick="toggleTheme()">🌗</div>
+    </header>
+
     <h1>M. Mohammed Rayyan</h1>
-    <p>Freelance Graphic Designer & Custom ROM Developer</p>
-  </header>
+    <p class="subtitle">Graphic Designer • Custom ROM Dev • Quirky Nerd 🧠</p>
 
-  <section class="section">
-    <h2>About Me</h2>
-    <p>I’m a Gen Z creative rebel—designing, developing, and debugging pixels and kernel code with flair. Based in Melvisharam, I mix cyberpunk dreams with real-world builds. Let's break boundaries and craft something unforgettable.</p>
-  </section>
-
-  <section class="section">
-    <h2>Skills</h2>
-    <div class="card">
-      <div class="skill">
-        <div class="flip-inner">
-          <div class="front"><img src="https://cdn.simpleicons.org/html5/fff/30" alt="HTML" /></div>
-          <div class="back">HTML</div>
+    <div class="glass-card">
+      <h2>🧠 Skills</h2>
+      <button onclick="toggleSkills()">Expand / Collapse</button>
+      <div id="skills-section" class="skills-grid">
+        <!-- Sample Skill -->
+        <div class="skill-card">
+          <div class="front">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" width="40" /><br />
+            Photoshop
+          </div>
+          <div class="back">
+            Professional image manipulation, retouching, layout design, and UI mockups.
+          </div>
         </div>
-      </div>
-      <div class="skill">
-        <div class="flip-inner">
-          <div class="front"><img src="https://cdn.simpleicons.org/css3/fff/30" alt="CSS" /></div>
-          <div class="back">CSS</div>
+        <div class="skill-card">
+          <div class="front">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" width="40" /><br />
+            Illustrator
+          </div>
+          <div class="back">
+            Expert in vector artwork, logo design, and digital illustration for branding.
+          </div>
         </div>
-      </div>
-      <div class="skill">
-        <div class="flip-inner">
-          <div class="front"><img src="https://cdn.simpleicons.org/javascript/fff/30" alt="JS" /></div>
-          <div class="back">JavaScript</div>
+        <div class="skill-card">
+          <div class="front">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" width="40" /><br />
+            HTML
+          </div>
+          <div class="back">
+            Clean semantic structure, accessible markup, and responsive layout experience.
+          </div>
         </div>
-      </div>
-      <div class="skill">
-        <div class="flip-inner">
-          <div class="front"><img src="https://cdn.simpleicons.org/android/fff/30" alt="Android" /></div>
-          <div class="back">ROM Dev</div>
-        </div>
+        <!-- Add more with the same format -->
       </div>
     </div>
-  </section>
 
-  <section class="section">
-    <h2>Work Experience</h2>
-    <ul>
-      <li><strong>Founder, Ninety5 Studio</strong> – Design systems & branding (2024–Present)</li>
-      <li><strong>Custom ROM Dev</strong> – Building Android 15/16 for Xiaomi devices, Evolution X contributor</li>
-    </ul>
-  </section>
+    <div class="glass-card">
+      <h2>💬 Languages</h2>
+      <p>(Placeholder) Switch between 🇬🇧 English / 🇯🇵 日本語</p>
+    </div>
 
-  <section class="section socials">
-    <h2>Contact & Socials</h2>
-    <a href="mailto:mmohammedrayyan0808@gmail.com" title="Email">📧</a>
-    <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" title="LinkedIn">🔗</a>
-    <a href="https://github.com/Rayyan-x95" title="GitHub">💻</a>
-  </section>
-
-  <footer>Built with 💙 by Rayyan · v1.3</footer>
+    <div class="glass-card">
+      <h2>📨 Contact</h2>
+      <p>Email: <a href="mailto:mmohammedrayyan0808@gmail.com">mmohammedrayyan0808@gmail.com</a></p>
+      <div class="social-icons">
+        <a href="https://github.com/Rayyan-x95" target="_blank">🐙</a>
+        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank">💼</a>
+      </div>
+    </div>
+  </div>
 
   <script>
-    const toggle = document.querySelector('.toggle');
     const body = document.body;
-    const emoji = { dark: "🌙", light: "☀️" };
-
     function toggleTheme() {
-      const isLight = body.classList.toggle('light-mode');
-      toggle.textContent = isLight ? emoji.light : emoji.dark;
-      localStorage.setItem("theme", isLight ? "light" : "dark");
+      body.classList.toggle("light-mode");
     }
 
-    window.onload = () => {
-      if (localStorage.getItem("theme") === "light") {
-        body.classList.add("light-mode");
-        toggle.textContent = emoji.light;
-      }
+    function toggleSkills() {
+      const el = document.getElementById("skills-section");
+      el.style.display = el.style.display === "none" ? "grid" : "none";
     }
   </script>
 </body>

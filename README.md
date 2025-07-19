@@ -1,34 +1,33 @@
-# M. Mohammed Rayyan · Portfolio
+# 🌐 Rayyan's Portfolio — v1.4
 
-🎨 A clean, minimal, and responsive developer/designer portfolio built using pure HTML, CSS, and JavaScript.
+A clean, minimal portfolio built with ✨glassmorphism✨, smooth animations, and a Gen-Z twist!
 
-## 🌟 Version 1.3
+## 🔥 Features
 
-### What's New
-- 🌗 Light/Dark mode toggle with emoji toggle
-- 🧊 Glassmorphism card design
-- 🔁 Flip card animations for skills
-- 📱 Fully responsive layout
-- 🖼️ GitHub profile icon integration
-- 🔗 Active social/contact links
-
-## 👤 About
-
-> I’m Rayyan, a Gen Z designer and developer from Melvisharam. I build custom Android ROMs and create slick brand designs. This is my digital corner of the internet.
-
-## 🔗 Links
-
-- [GitHub](https://github.com/Rayyan-x95)
-- [LinkedIn](https://www.linkedin.com/in/mohammed-rayyan1948/)
-- Email: mmohammedrayyan0808@gmail.com
+- Light 🌞 / Dark 🌚 Mode Toggle (with emoji)
+- Glassmorphism UI with smooth shadows
+- Animated flip cards for skill explanations
+- Socials with emoji icons
+- Profile icon from GitHub
+- Responsive design (mobile-friendly!)
+- Expand/Collapse toggle for Skills 🧠
+- Language Switcher placeholder (JP/EN)
 
 ## 🛠️ Tech Stack
 
-- HTML5
-- CSS3 (Glassmorphism)
-- JavaScript (Toggle logic)
-- No frameworks, no fluff.
+- HTML5 + CSS3
+- JavaScript (vanilla, minimal)
+- Icons via Devicon CDN
+- Glass UI + subtle animations
 
-## 📄 License
+## 🧑‍💻 Author
 
-MIT License
+**M. Mohammed Rayyan**  
+Email: mmohammedrayyan0808@gmail.com  
+GitHub: [Rayyan-x95](https://github.com/Rayyan-x95)  
+LinkedIn: [mohammed-rayyan1948](https://www.linkedin.com/in/mohammed-rayyan1948/)
+
+---
+
+**Version:** `1.4`  
+**Status:** 🎯 Finalized for deployment  
