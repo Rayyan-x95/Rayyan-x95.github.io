@@ -1,40 +1,50 @@
-# Rayyan | Portfolio v1.0 – Initial Release
+# Rayyan's Portfolio — v1.1 🚀
 
-Welcome to my personal portfolio. This site is designed to reflect my identity as a **freelance graphic designer**, **custom ROM developer**, and a curious student navigating the realms of design and tech.
+Welcome to the source of my personal portfolio website — a minimalist, Gen Z-coded, cyber-inspired profile that blends design and dev life 🌐💻
 
-Built with ❤️ using nothing but HTML, CSS, and Vanilla JS – fully responsive and optimized for performance.
+## 🔥 Version
+
+**v1.1 – Added Sections & Socials**
+
+### ✅ What’s New
+
+- ✨ Added new sections:
+  - **Skills**
+  - **Work Experience**
+  - **Social Links** (GitHub, LinkedIn, Email)
+- 💬 More structured content about me
+- 🧊 Improved content layout and visual hierarchy
+- 🛠️ Ready for GitHub Pages deployment
+
+## 💡 Features
+
+- Dark/light mode toggle (persistent via localStorage)
+- Glassmorphism effects and responsive design
+- Terminal-style intro section
+- Clean, single `index.html` file with embedded CSS & JS
+- Language selector (EN / 日本語)
+- Mobile-friendly layout
+
+## 🛠 Tech Stack
+
+- HTML5
+- CSS3
+- Vanilla JS (for theme + language switching)
+
+## 🚀 Deploy
+
+To host the portfolio via GitHub Pages:
+
+1. Push the `index.html` to a repository named: `rayyan-x95.github.io`
+2. Go to `Settings` → Pages → Set source to root of `main` branch
+3. Wait a few seconds… and you’re live at:  
+   **https://rayyan-x95.github.io**
+
+## 👤 About Me
+
+I'm **Rayyan**, a student, designer, and custom ROM developer from Melvisharam. I build custom Android experiences, tweak Linux kernels, and run a design micro-studio called **Ninety5**.
 
 ---
 
-## 🔥 Features
-
-- 🌗 Dark/Light theme toggle with persistent storage
-- 🧪 Terminal-style intro for that hacker-core feel
-- 📊 GitHub stats card (auto-updating)
-- 🎞️ Animated onboarding with Lottie
-- 🌍 Language selector (🇬🇧 EN / 🇯🇵 JP)
-- 📱 Mobile-first responsive design
-- ⚡ Minimal JS, clean CSS, and no frameworks
-
----
-
-## 🧠 About Me
-
-**M. Mohammed Rayyan**  
-Freelance Graphic Designer | Custom ROM Dev | Student  
-Founder of *Ninety5*. Based in **Melvisharam, India**.  
-Currently building ROMs, designing interfaces, and geeking out on all things tech.
-
----
-
-## 🚀 Deployment
-
-This project is **static**, so you can deploy it anywhere:
-- GitHub Pages
-- Netlify
-- Vercel
-- Your own VPS
-
-> Just drag and drop `index.html` into the deploy tool of your choice.
-
----
+Made with ☕, 🔧, and `</div>`  
+© 2025 Rayyan | Ninety5 Studio
