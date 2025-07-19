@@ -1,39 +1,34 @@
-# 🌐 Rayyan's Portfolio — Version 1.2
+# M. Mohammed Rayyan · Portfolio
 
-> A clean, minimal, single-file portfolio site with embedded CSS & JS.  
-> Designed to be fast, responsive, and fully portable — no frameworks, no nonsense.
+🎨 A clean, minimal, and responsive developer/designer portfolio built using pure HTML, CSS, and JavaScript.
 
----
+## 🌟 Version 1.3
 
-## 🚀 Overview
+### What's New
+- 🌗 Light/Dark mode toggle with emoji toggle
+- 🧊 Glassmorphism card design
+- 🔁 Flip card animations for skills
+- 📱 Fully responsive layout
+- 🖼️ GitHub profile icon integration
+- 🔗 Active social/contact links
 
-Welcome to my personal portfolio!  
-Built with 💻 HTML + 🎨 CSS + 🔮 JavaScript — all in **one file**.  
-This version emphasizes clarity, simplicity, and that sleek dark aesthetic 😎
+## 👤 About
 
----
+> I’m Rayyan, a Gen Z designer and developer from Melvisharam. I build custom Android ROMs and create slick brand designs. This is my digital corner of the internet.
 
-## 🎯 Features
+## 🔗 Links
 
-- 🌑 **Dark Mode** enabled by default (with emoji toggle 🌞/🌙)
-- 🖼️ Minimal header with avatar, name, and subtitle
-- 📚 Skills listed with a clean tag layout
-- 🛠️ Experience section for design + ROM dev projects
-- 📬 Contact section with email, GitHub, SourceForge
-- ⚡ Fully responsive across mobile & desktop
-- 💡 All code in `index.html` — no external CSS or JS required
+- [GitHub](https://github.com/Rayyan-x95)
+- [LinkedIn](https://www.linkedin.com/in/mohammed-rayyan1948/)
+- Email: mmohammedrayyan0808@gmail.com
 
----
+## 🛠️ Tech Stack
 
-## 🏷 Version
+- HTML5
+- CSS3 (Glassmorphism)
+- JavaScript (Toggle logic)
+- No frameworks, no fluff.
 
-**v1.2** – [Released: July 19, 2025]
+## 📄 License
 
-### ✅ Updates from v1.1:
-- Added emoji-based theme toggle 🌞 / 🌙
-- Optimized tag spacing in Skills section
-- Improved spacing for mobile view
-- Added footer with version and copyright
-- Refined color palette for better contrast
-
----
+MIT License
