@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rayyan | Designer & Dev</title>
+  <style>
+    :root {
+      --bg-light: #f8f8f8;
+      --text-light: #1e1e1e;
+      --bg-dark: #0e0e0e;
+      --text-dark: #f2f2f2;
+      --accent: #7f5af0;
+      --glass: rgba(255, 255, 255, 0.1);
+      --blur: 20px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      transition: all 0.3s ease;
+    }
+
+    body.light {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: var(--glass);
+      backdrop-filter: blur(var(--blur));
+      border-bottom: 1px solid #444;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .terminal {
+      font-family: monospace;
+      background: #000;
+      color: #0f0;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin: 2rem;
+    }
+
+    .stats, .blog, .selector {
+      margin: 2rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background: var(--glass);
+      backdrop-filter: blur(var(--blur));
+    }
+
+    .blog h3, .stats h3 {
+      margin-top: 0;
+    }
+
+    .lottie-container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    select, button {
+      background: transparent;
+      color: inherit;
+      border: 1px solid #555;
+      padding: 0.5rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .terminal, .stats, .blog, .selector {
+        margin: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>&lt;/Rayyan&gt;</h1>
+    <p>Freelance Graphic Designer / Custom ROM Dev</p>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+  </header>
+
+  <section class="terminal">
+    > rayyan@portfolio:~$ whoami<br/>
+    > M. Mohammed Rayyan — designer, Linux tinkerer, student 🧠<br/>
+    > Building Ninety5. Based in Melvisharam.
+  </section>
+
+  <section class="lottie-container">
+    <script src="https://unpkg.com/lottie-web@5.9.4/build/player/lottie.min.js"></script>
+    <div id="lottie" style="width:100%; height:300px;"></div>
+    <script>
+      lottie.loadAnimation({
+        container: document.getElementById("lottie"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "https://assets10.lottiefiles.com/packages/lf20_kyu7xb1v.json"
+      });
+    </script>
+  </section>
+
+  <section class="stats">
+    <h3>GitHub Stats</h3>
+    <img src="https://github-readme-stats.vercel.app/api?username=Rayyan-x95&show_icons=true&theme=radical" alt="GitHub Stats">
+  </section>
+
+  <section class="blog">
+    <h3>Changelog / Blog</h3>
+    <p><strong>Jul 18, 2025:</strong> Ver 1.0 – Initial Release 🎉</p>
+  </section>
+
+  <section class="selector">
+    <h3>Language</h3>
+    <select id="langSelect" onchange="switchLang(this.value)">
+      <option value="en">🇬🇧 English</option>
+      <option value="jp">🇯🇵 日本語</option>
+    </select>
+  </section>
+
+  <footer>
+    &copy; 2025 M. Mohammed Rayyan | Designed with ☕ & love
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+      localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+    }
+
+    function switchLang(lang) {
+      document.documentElement.lang = lang;
+      alert("Language set to: " + (lang === "en" ? "English" : "日本語"));
+    }
+
+    (function setInitialTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") {
+        document.body.classList.add("light");
+      }
+    })();
+  </script>
+</body>
+</html>
