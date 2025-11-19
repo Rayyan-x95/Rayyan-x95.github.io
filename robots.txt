@@ -1,0 +1,17 @@
+# robots.txt for https://rayyan-x95.github.io/
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://rayyan-x95.github.io/sitemap.xml
+
+# Crawl-delay for specific bots
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 0
+
+# Block certain paths (if any)
+# Disallow: /private/
+# Disallow: /temp/
