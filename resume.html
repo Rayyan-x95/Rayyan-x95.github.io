@@ -52,6 +52,22 @@
             color: white;
             padding: 3rem 2.5rem 2rem;
             text-align: center;
+            position: relative;
+        }
+        
+        .profile-pic-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
         }
         
         .resume-header h1 {
@@ -331,6 +347,9 @@
 <body>
     <div class="resume-container">
         <header class="resume-header">
+            <div class="profile-pic-container">
+                <img src="https://avatars.githubusercontent.com/Rayyan-x95" alt="M Mohammed Rayyan" class="profile-pic">
+            </div>
             <h1>M MOHAMMED RAYYAN</h1>
             <p class="tagline">Web Developer | Graphic Designer | Creative Technologist</p>
             <div class="contact-info">
