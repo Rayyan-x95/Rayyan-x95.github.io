@@ -332,6 +332,7 @@ const landoNavLinks = document.querySelectorAll('.lando-nav-link');
 const landoNavbar = document.querySelector('.lando-nav');
 const landoMenuToggle = document.getElementById('landoMenuToggle');
 const landoNavLinksContainer = document.getElementById('landoNavLinks');
+const printResumeBtn = document.getElementById('printResumeBtn');
 
 if (landoNavbar) {
     window.addEventListener('scroll', throttle(() => {
@@ -388,6 +389,13 @@ if (landoMenuToggle && landoNavLinksContainer) {
         landoNavLinksContainer.classList.toggle('active');
         const expanded = landoMenuToggle.classList.contains('active');
         landoMenuToggle.setAttribute('aria-expanded', expanded);
+    });
+}
+
+if (printResumeBtn) {
+    printResumeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.print();
     });
 }
 

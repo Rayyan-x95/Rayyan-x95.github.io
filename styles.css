@@ -1675,6 +1675,75 @@ nav {
     transition: transform 0.1s ease;
 }
 
+/* Nav link underline animation */
+.lando-nav-link {
+    position: relative;
+}
+
+.lando-nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    background: var(--primary-color);
+    width: 0;
+    margin: 0 auto;
+    transition: width 0.25s ease;
+}
+
+.lando-nav-link:hover::after,
+.lando-nav-link.active::after {
+    width: 100%;
+}
+
+.lando-nav-link-accent {
+    font-weight: 700;
+}
+
+/* Print-friendly resume styles */
+@media print {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html, body { background: #ffffff !important; color: #000000 !important; }
+  a { color: #000 !important; text-decoration: none; }
+  a::after { content: " (" attr(href) ")"; font-size: 10px; }
+
+  /* Hide decorative/interactive elements */
+  .lando-nav,
+  .bubble-menu,
+  .bubble-menu-items,
+  .animated-bg,
+  .hero-blobs,
+  .hero-cta-group,
+  .hero-visual-v9,
+  .logo-loop-section,
+  .showcase-section,
+  #projects,
+  .lando-journey-section,
+  .floating-bubble-menu,
+  .contact-cta-wrapper,
+  .modal,
+  .project-filters,
+  .project-links,
+  .metric-glow,
+  .metric-divider,
+  .scroll-progress { display: none !important; }
+
+  /* Keep core sections concise */
+  #home { display: none !important; }
+  #about, #skills, #experience, #contact { break-inside: avoid; page-break-inside: avoid; }
+  .section { padding: 16px 0 !important; box-shadow: none !important; background: transparent !important; }
+  .section-header .section-label, .section-header .section-title, .section-description { color: #000 !important; }
+
+  /* Simplify skills visuals */
+  .skill-bar-bg, .skill-bar-fill { display: none !important; }
+  .skill-item-header { display: flex; justify-content: space-between; }
+
+  /* Typography adjustments for print readability */
+  h1, h2, h3 { color: #000 !important; -webkit-text-fill-color: initial !important; }
+}
+
 /* Noise Texture Overlay */
 .noise-texture {
     position: relative;
