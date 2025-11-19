@@ -566,13 +566,31 @@
         </div>
         
         <div class="action-buttons">
-            <button onclick="window.print()" class="btn btn-primary">
-                <i class="fas fa-print"></i> Print Resume
+            <button onclick="downloadPDF()" class="btn btn-primary">
+                <i class="fas fa-download"></i> Download PDF
+            </button>
+            <button onclick="window.print()" class="btn btn-secondary">
+                <i class="fas fa-print"></i> Print
             </button>
             <a href="index.html" class="btn btn-secondary">
                 <i class="fas fa-arrow-left"></i> Back to Portfolio
             </a>
         </div>
     </div>
+    
+    <script>
+        function downloadPDF() {
+            // Trigger the browser's print dialog with instructions
+            const message = document.createElement('div');
+            message.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#6366f1;color:white;padding:1rem 2rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:10000;font-family:Inter,sans-serif;font-size:14px;';
+            message.innerHTML = '<strong>💡 Tip:</strong> In the print dialog, select "Save as PDF" as the destination';
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                window.print();
+                setTimeout(() => message.remove(), 1000);
+            }, 100);
+        }
+    </script>
 </body>
 </html>
