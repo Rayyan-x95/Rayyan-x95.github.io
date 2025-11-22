@@ -13,7 +13,6 @@
     <meta name="keywords" content="Web Developer, Graphic Designer, React Developer, Python Developer, Android AOSP, UI/UX Designer, Blender 3D, Video Production, Freelance Developer, Tamil Nadu Developer, JavaScript, Node.js, Custom ROM Development">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow">
-    <meta name="language" content="English">
     
     <!-- Geo Tags for Local SEO -->
     <meta name="geo.region" content="IN-TN">
@@ -23,7 +22,6 @@
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://rayyan-x95.github.io/">
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     
     <!-- DNS Prefetch & Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,20 +76,23 @@
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     
     <!-- Critical CSS -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
     <!-- Materialize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></noscript>
     
-    <!-- Animation Libraries CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <!-- Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Main Stylesheet -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css">
     
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -240,6 +241,29 @@
     }
     </script>
     
+    <!-- Critical Inline Script -->
+    <script>
+        // Prevent FOUC and set theme immediately
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch(e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+        
+        // Preload critical resources
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() {
+                var link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = 'script.js';
+                document.head.appendChild(link);
+            });
+        }
+    </script>
+    
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -272,71 +296,6 @@
         </nav>
     </header>
 
-    <nav class="bubble-menu fixed" id="bubbleMenu" aria-label="Bubble navigation">
-        <a href="#home" class="bubble logo-bubble" aria-label="Home">
-            <div class="logo-content">
-                <svg class="bubble-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
-                    </defs>
-                    <circle cx="50" cy="50" r="45" fill="url(#gradient1)" opacity="0.1"/>
-                    <text font-size="10" font-weight="600" fill="#6366f1" letter-spacing="2">
-                        <textPath href="#circlePath" startOffset="0%">
-                            WEB DEVELOPER • GRAPHIC DESIGNER • 
-                        </textPath>
-                    </text>
-                    <text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="28" font-weight="800" fill="#6366f1">MR</text>
-                    <defs>
-                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" class="gradient-stop-start" />
-                            <stop offset="100%" class="gradient-stop-end" />
-                        </linearGradient>
-                    </defs>
-                </svg>
-            </div>
-        </a>
-        <button class="bubble toggle-bubble menu-btn" id="bubbleToggle" aria-label="Toggle menu" aria-expanded="false">
-            <span class="menu-line"></span>
-            <span class="menu-line"></span>
-            <span class="menu-line"></span>
-        </button>
-    </nav>
-
-    <div class="bubble-menu-items fixed" id="bubbleMenuItems" aria-hidden="true">
-        <ul class="pill-list" role="menu">
-            <li class="pill-col" role="none">
-                <a href="#home" class="pill-link" role="menuitem">
-                    <span class="pill-label">Home</span>
-                </a>
-            </li>
-            <li class="pill-col" role="none">
-                <a href="#about" class="pill-link" role="menuitem">
-                    <span class="pill-label">About</span>
-                </a>
-            </li>
-            <li class="pill-col" role="none">
-                <a href="#skills" class="pill-link" role="menuitem">
-                    <span class="pill-label">Skills</span>
-                </a>
-            </li>
-            <li class="pill-spacer" aria-hidden="true"></li>
-            <li class="pill-col" role="none">
-                <a href="#projects" class="pill-link" role="menuitem">
-                    <span class="pill-label">Projects</span>
-                </a>
-            </li>
-            <li class="pill-col" role="none">
-                <a href="#experience" class="pill-link" role="menuitem">
-                    <span class="pill-label">Experience</span>
-                </a>
-            </li>
-            <li class="pill-col" role="none">
-                <a href="#contact" class="pill-link" role="menuitem">
-                    <span class="pill-label">Contact</span>
-                </a>
-            </li>
-        </ul>
-    </div>
     
     <div class="animated-bg" aria-hidden="true">
         <div class="mesh-gradient"></div>
@@ -530,7 +489,7 @@
                     </div>
                     <div class="about-image-wrapper">
                         <div class="about-image-card">
-                            <img src="https://avatars.githubusercontent.com/Rayyan-x95?s=1200" alt="M Mohammed Rayyan - Professional Developer Portrait" class="about-image" loading="lazy" width="1200" height="1200">
+                            <img src="https://avatars.githubusercontent.com/Rayyan-x95?s=1200" alt="M Mohammed Rayyan - Professional Developer Portrait" class="about-image" loading="lazy" width="1200" height="1200" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -556,74 +515,6 @@
                 </div>
                 <div class="logo-loop-container">
                     <div class="logo-loop-track">
-                        <div class="logo-loop-item">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-node-js"></i>
-                            <span>Node.js</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-js"></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-android"></i>
-                            <span>Android</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-figma"></i>
-                            <span>Figma</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-docker"></i>
-                            <span>Docker</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-adobe"></i>
-                            <span>Photoshop</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-adobe"></i>
-                            <span>Illustrator</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fas fa-video"></i>
-                            <span>DaVinci Resolve</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fas fa-cube"></i>
-                            <span>Blender</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fas fa-database"></i>
-                            <span>MongoDB</span>
-                        </div>
-                        <div class="logo-loop-item">
-                            <i class="fab fa-npm"></i>
-                            <span>NPM</span>
-                        </div>
                         <div class="logo-loop-item">
                             <i class="fab fa-react"></i>
                             <span>React</span>
@@ -1052,17 +943,17 @@
                     <div class="section-divider"></div>
                 </div>
 
-                <div class="project-filters reveal-fade-up" data-animate="fade-up" data-delay="100">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="web">Web</button>
-                    <button class="filter-btn" data-filter="video">Video</button>
-                    <button class="filter-btn" data-filter="3d">3D</button>
-                    <button class="filter-btn" data-filter="android">Android</button>
+                <div class="project-filters reveal-fade-up" data-animate="fade-up" data-delay="100" role="tablist" aria-label="Project category filters">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" aria-controls="projects-grid">All</button>
+                    <button class="filter-btn" data-filter="web" role="tab" aria-selected="false" aria-controls="projects-grid">Web</button>
+                    <button class="filter-btn" data-filter="video" role="tab" aria-selected="false" aria-controls="projects-grid">Video</button>
+                    <button class="filter-btn" data-filter="3d" role="tab" aria-selected="false" aria-controls="projects-grid">3D</button>
+                    <button class="filter-btn" data-filter="android" role="tab" aria-selected="false" aria-controls="projects-grid">Android</button>
                 </div>
 
-                <div class="projects-grid reveal-stagger">
+                    <div class="projects-grid reveal-stagger" id="projects-grid" role="tabpanel">
                     <div class="project-card card-lift tilt-effect shimmer" data-category="web">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80" alt="Portfolio Website Project" class="project-image materialboxed" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80" alt="Portfolio Website Project" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
                         <div class="project-content">
                             <div class="project-badges">
                                 <span class="project-badge badge-live">Live</span>
@@ -1087,7 +978,7 @@
                     </div>
 
                     <div class="project-card card-lift tilt-effect shimmer" data-category="video">
-                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=800&fit=crop&q=80" alt="Video Production Channel" class="project-image materialboxed" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=800&fit=crop&q=80" alt="Video Production Channel" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
                         <div class="project-content">
                             <div class="project-badges">
                                 <span class="project-badge badge-active">Active</span>
@@ -1108,7 +999,7 @@
                     </div>
 
                     <div class="project-card card-lift tilt-effect shimmer" data-category="3d">
-                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop&q=80" alt="3D Design Portfolio" class="project-image materialboxed" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop&q=80" alt="3D Design Portfolio" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
                         <div class="project-content">
                             <div class="project-badges">
                                 <span class="project-badge badge-featured">Featured</span>
@@ -1129,7 +1020,7 @@
                     </div>
 
                     <div class="project-card card-lift tilt-effect shimmer" data-category="android">
-                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=1200&h=800&fit=crop&q=80" alt="Android Custom ROM Development" class="project-image materialboxed" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=1200&h=800&fit=crop&q=80" alt="Android Custom ROM Development" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
                         <div class="project-content">
                             <div class="project-badges">
                                 <span class="project-badge badge-active">Active</span>
@@ -1330,20 +1221,20 @@
                 <h4 class="modal-title">Get in Touch</h4>
                 <p class="modal-subtitle">Have a project in mind? Let's discuss how we can work together.</p>
                 
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm" novalidate>
                     <div class="input-field">
-                        <i class="fas fa-user prefix"></i>
-                        <input id="name" type="text" class="validate">
+                        <i class="fas fa-user prefix" aria-hidden="true"></i>
+                        <input id="name" type="text" class="validate" name="name" required aria-required="true" autocomplete="name">
                         <label for="name">Name</label>
                     </div>
                     <div class="input-field">
-                        <i class="fas fa-envelope prefix"></i>
-                        <input id="email" type="email" class="validate">
+                        <i class="fas fa-envelope prefix" aria-hidden="true"></i>
+                        <input id="email" type="email" class="validate" name="email" required aria-required="true" autocomplete="email">
                         <label for="email">Email</label>
                     </div>
                     <div class="input-field">
-                        <i class="fas fa-comment prefix"></i>
-                        <textarea id="message" class="materialize-textarea"></textarea>
+                        <i class="fas fa-comment prefix" aria-hidden="true"></i>
+                        <textarea id="message" class="materialize-textarea" name="message" required aria-required="true"></textarea>
                         <label for="message">Message</label>
                     </div>
                 </form>
@@ -1357,28 +1248,19 @@
         </div>
     </main>
 
-    <!-- Animation Libraries -->
-    <!-- GSAP Core + Plugins -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
-    
-    <!-- Motion One -->
-    <script src="https://cdn.jsdelivr.net/npm/motion@11.2.0/dist/motion.min.js"></script>
-    
-    <!-- Framer Motion -->
-    <script type="module">
-        import { motion, animate, scroll } from "https://cdn.skypack.dev/framer-motion@11.0.8";
-        window.framerMotion = { motion, animate, scroll };
-    </script>
+    <!-- Animation Libraries - Optimized -->
+    <!-- GSAP Core + Essential Plugins Only -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
     
     <!-- Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
     
     <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/dist/lenis.min.js" defer></script>
     
+    <!-- Main Script -->
     <script src="script.js" defer></script>
 </body>
 </html>

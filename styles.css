@@ -70,19 +70,15 @@
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-html {
-    scroll-behavior: smooth;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 .sr-only {
@@ -101,17 +97,6 @@ html {
     font-size: clamp(1rem, 2vw, 1.125rem);
     font-weight: 400;
     line-height: 1.7;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
 }
 
 /* Performance optimizations */
@@ -270,10 +255,18 @@ nav {
     background: rgba(99, 102, 241, 0.08);
 }
 
+.lando-nav-link:hover,
+.lando-nav-link:focus-visible,
 .lando-nav-link.active {
     color: white;
     background: var(--gradient-primary);
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.lando-nav-link:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 8px;
 }
 
 .lando-menu-toggle {
@@ -285,6 +278,15 @@ nav {
     cursor: pointer;
     padding: 0.5rem;
     z-index: 10;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.lando-menu-toggle:hover,
+.lando-menu-toggle:focus-visible {
+    background: rgba(99, 102, 241, 0.1);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .lando-menu-toggle .menu-line {
@@ -322,16 +324,57 @@ nav {
         gap: 0.5rem;
         border-radius: 0;
         box-shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+        z-index: 999;
+        max-height: calc(100vh - 72px);
+        overflow-y: auto;
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .lando-nav-links.active {
         display: flex;
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Mobile menu backdrop */
+    .lando-nav-links.active::before {
+        content: '';
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        backdrop-filter: blur(2px);
+    }
+    
+    /* Prevent body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
     }
     
     .lando-nav-link {
         width: 100%;
         text-align: center;
         padding: 1rem 1.5rem;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+        min-height: 44px; /* Ensure touch target is at least 44px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .lando-nav-link:hover,
+    .lando-nav-link:focus {
+        background: rgba(99, 102, 241, 0.1);
     }
     
     .lando-menu-toggle {
@@ -340,8 +383,12 @@ nav {
 }
 
 @media (max-width: 768px) {
+    .lando-nav {
+        padding: 0.5rem 0;
+    }
+    
     .lando-nav-container {
-        padding: 1rem 1.5rem;
+        padding: 0.75rem 1rem;
     }
     
     .logo-line-top {
@@ -4189,25 +4236,13 @@ button {
     }
 }
 
-/* Bubble Menu Styles */
+/* Bubble Menu Styles - REMOVED (duplicate navigation) */
 .bubble-menu {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 0 2em;
-    pointer-events: none;
-    z-index: 9999;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: none !important;
 }
 
 .bubble-menu.fixed {
-    position: fixed;
-    display: none;
+    display: none !important;
 }
 
 .bubble-menu.absolute {
@@ -4229,9 +4264,12 @@ button {
     cursor: pointer;
 }
 
-.bubble-menu .bubble:hover {
+.bubble-menu .bubble:hover,
+.bubble-menu .bubble:focus-visible {
     transform: scale(1.08);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(99, 102, 241, 0.15);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .bubble-menu .logo-bubble,
@@ -4342,25 +4380,13 @@ button {
     }
 }
 
+/* Bubble Menu Items - REMOVED (duplicate navigation) */
 .bubble-menu-items {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    z-index: 9998;
-    background: rgba(255, 255, 255, 0.95);
-    -webkit-backdrop-filter: blur(20px);
-    backdrop-filter: blur(20px);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    display: none !important;
 }
 
 .bubble-menu-items.active {
-    opacity: 1;
-    visibility: visible;
+    display: none !important;
 }
 
 .bubble-menu-items.fixed {
@@ -5975,5 +6001,47 @@ button {
     
     .journey-year {
         font-size: 2.5rem;
+    }
+}
+
+/* Notification animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    @keyframes slideIn,
+    @keyframes slideOut {
+        from, to {
+            transform: none;
+            opacity: 1;
+        }
+    }
+    
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
     }
 }
