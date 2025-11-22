@@ -1698,10 +1698,6 @@ nav {
     width: 100%;
 }
 
-.lando-nav-link-accent {
-    font-weight: 700;
-}
-
 /* Print-friendly resume styles */
 @media print {
   *, *::before, *::after { animation: none !important; transition: none !important; }
