@@ -26,13 +26,14 @@
     
     <style>
         :root {
-            --primary-color: #6366f1;
-            --text-primary: #0f172a;
-            --text-secondary: #334155;
-            --text-tertiary: #475569;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --border-light: #e2e8f0;
+            --primary-color: #5b4cdb;
+            --primary-dark: #4338ca;
+            --text-primary: #0c0a1d;
+            --text-secondary: #2e2a4a;
+            --text-tertiary: #4a4566;
+            --bg-primary: #fefeff;
+            --bg-secondary: #f8f7fc;
+            --border-light: #e4e2f0;
         }
         
         * {
@@ -59,7 +60,7 @@
         }
         
         .resume-header {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            background: linear-gradient(135deg, #5b4cdb 0%, #7c3aed 50%, #9333ea 100%);
             color: white;
             padding: 3rem 2.5rem 2rem;
             text-align: center;
@@ -289,9 +290,9 @@
         }
         
         .btn-primary:hover {
-            background: #4f46e5;
+            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 4px 12px rgba(91, 76, 219, 0.35);
         }
         
         .btn-secondary {
@@ -612,7 +613,7 @@
         function downloadPDF() {
             // Trigger the browser's print dialog with instructions
             const message = document.createElement('div');
-            message.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#6366f1;color:white;padding:1rem 2rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:10000;font-family:Inter,sans-serif;font-size:14px;';
+            message.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#5b4cdb;color:white;padding:1rem 2rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:10000;font-family:Inter,sans-serif;font-size:14px;';
             message.innerHTML = '<strong>💡 Tip:</strong> In the print dialog, select "Save as PDF" as the destination';
             document.body.appendChild(message);
             
