@@ -2,8 +2,11 @@
 const backToTop = document.getElementById('backToTop');
 
 const SECTION_OFFSET = 100;
-const SCROLL_THRESHOLD = 0.1;
+const SCROLL_THRESHOLD = 0.15;
 const BACK_TO_TOP_TRIGGER = 300;
+
+// Enable JS-dependent animations - elements visible by default, animated when JS loads
+document.documentElement.classList.add('js-enabled');
 
 // Initialize Lenis with error handling
 let lenis;
@@ -76,9 +79,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+// Register GSAP plugins only if GSAP is available
+if (typeof gsap !== 'undefined') {
+    if (typeof ScrollTrigger !== 'undefined' && typeof ScrollToPlugin !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    }
+}
 
-if (lenis && typeof ScrollTrigger !== 'undefined') {
+if (lenis && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     lenis.on('scroll', ScrollTrigger.update);
     
     gsap.ticker.add((time) => {
@@ -90,14 +98,23 @@ if (lenis && typeof ScrollTrigger !== 'undefined') {
 
 const typingText = document.getElementById('typing-text');
 if (typingText) {
-    const roles = ["WEB DEVELOPER", "ANDROID DEV", "VIDEO EDITOR", "3D ARTIST"];
+    const roles = [
+        "WEB DEVELOPER",
+        "UI/UX DESIGNER",
+        "ANDROID DEV",
+        "VIDEO EDITOR",
+        "3D ARTIST",
+        "PYTHON DEV",
+        "REACT EXPERT",
+        "CONTENT CREATOR",
+        "FREELANCER"
+    ];
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
     
     const typeRole = () => {
         const currentRole = roles[roleIndex];
-        const cursor = document.querySelector('.cursor');
         
         if (isDeleting) {
             typingText.textContent = currentRole.substring(0, charIndex - 1);
@@ -107,15 +124,16 @@ if (typingText) {
             charIndex++;
         }
         
-        let typeSpeed = isDeleting ? 50 : 100;
+        // Varying speeds for natural feel
+        let typeSpeed = isDeleting ? 40 : 80 + Math.random() * 50;
         
         if (!isDeleting && charIndex === currentRole.length) {
-            typeSpeed = 2000;
+            typeSpeed = 2500; // Pause at end
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             roleIndex = (roleIndex + 1) % roles.length;
-            typeSpeed = 500;
+            typeSpeed = 400; // Pause before next word
         }
         
         setTimeout(typeRole, typeSpeed);
@@ -124,17 +142,9 @@ if (typingText) {
     typeRole();
     
     const cursor = document.querySelector('.cursor');
-    if (cursor && typeof gsap !== 'undefined') {
-        gsap.to(cursor, {
-            opacity: 0,
-            duration: 0.5,
-            repeat: -1,
-            yoyo: true,
-            ease: "power1.inOut"
-        });
-    } else if (cursor) {
-        // Fallback CSS animation if GSAP not available
-        cursor.style.animation = 'blink 1s infinite';
+    if (cursor) {
+        // Add enhanced cursor class
+        cursor.classList.add('cursor-animated');
     }
 }
 
@@ -340,7 +350,7 @@ const initCounterAnimations = () => {
         counter.dataset.animated = 'true';
         
         const target = +counter.getAttribute('data-count');
-        const duration = 2000;
+        const duration = 1800; // Slightly faster animation
         const start = performance.now();
         const hasPlus = counter.textContent.includes('+');
         
@@ -348,8 +358,9 @@ const initCounterAnimations = () => {
             const elapsed = currentTime - start;
             const progress = Math.min(elapsed / duration, 1);
             
-            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-            const current = Math.floor(easeOutQuart * target);
+            // Smoother easeOutExpo curve
+            const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            const current = Math.floor(easeOutExpo * target);
             
             counter.textContent = hasPlus ? current + '+' : current;
             
@@ -366,22 +377,32 @@ const initCounterAnimations = () => {
     const allCounters = document.querySelectorAll('.metric-number, .quick-stat-number, .stat-number');
     
     if (allCounters && allCounters.length > 0) {
+        // Animate hero counters immediately (they're above the fold)
+        const heroCounters = document.querySelectorAll('.hero-metrics .metric-number');
+        heroCounters.forEach((counter, index) => {
+            setTimeout(() => animateCounter(counter), 600 + (index * 100));
+        });
+        
+        // Use IntersectionObserver for other counters
         const counterObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.dataset.animated) {
                     setTimeout(() => {
                         animateCounter(entry.target);
-                    }, 100);
+                    }, 50);
                     counterObserver.unobserve(entry.target);
                 }
             });
         }, { 
-            threshold: 0.2,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -30px 0px'
         });
 
         allCounters.forEach(counter => {
-            counterObserver.observe(counter);
+            // Skip hero counters, they're handled above
+            if (!counter.closest('.hero-metrics')) {
+                counterObserver.observe(counter);
+            }
         });
     }
 };
@@ -629,18 +650,12 @@ if (backToTop) {
         }
     });
 }
+
+// Animation observer options
 const observerOptions = {
     threshold: SCROLL_THRESHOLD,
     rootMargin: '0px 0px -100px 0px'
 };
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animated');
-        }
-    });
-}, observerOptions);
 
 const revealElements = document.querySelectorAll('[data-animate]');
 
@@ -681,4 +696,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         logoObserver.observe(logoTrack);
     }
+    
+    // Reveal stagger animations
+    const staggerElements = document.querySelectorAll('.reveal-stagger');
+    if (staggerElements.length > 0) {
+        const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Small delay to ensure smooth rendering
+                    requestAnimationFrame(() => {
+                        entry.target.classList.add('in-view');
+                    });
+                    staggerObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+        
+        staggerElements.forEach(el => staggerObserver.observe(el));
+    }
+    
+    // Reveal fade-up animations
+    const fadeUpElements = document.querySelectorAll('.reveal-fade-up');
+    if (fadeUpElements.length > 0) {
+        const fadeUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    requestAnimationFrame(() => {
+                        entry.target.classList.add('in-view');
+                    });
+                    fadeUpObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+        
+        fadeUpElements.forEach(el => fadeUpObserver.observe(el));
+    }
+    
+    // Lazy image loading with fade effect
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    lazyImages.forEach(img => {
+        if (img.complete) {
+            img.classList.add('loaded');
+        } else {
+            img.addEventListener('load', () => img.classList.add('loaded'));
+        }
+    });
 });
