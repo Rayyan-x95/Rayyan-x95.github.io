@@ -78,10 +78,11 @@
     <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     
-    <!-- Critical CSS -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" as="style" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <!-- Google Sans Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
     
     <!-- Materialize CSS -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" as="style" crossorigin>
@@ -109,7 +110,7 @@
       "sameAs": [
         "https://github.com/Rayyan-x95",
         "https://www.linkedin.com/in/mohammed-rayyan1948/",
-        "https://dribbble.com/NINETY5_DESIGNS",
+        "https://www.behance.net/mmohammedrayyan",
         "https://www.youtube.com/@JUNINZO"
       ],
       "jobTitle": "Web Developer and Graphic Designer & Computer Science Student",
@@ -302,6 +303,17 @@
     
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">MR</div>
+            <div class="loader-progress-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <a href="#main" class="skip-link">Skip to main content</a>
 
 
@@ -440,13 +452,13 @@
                                     </div>
                                 </a>
                                 
-                                <a href="https://dribbble.com/NINETY5_DESIGNS" target="_blank" rel="noopener noreferrer" class="social-card dribbble-card" aria-label="Dribbble Profile">
+                                <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" class="social-card behance-card" aria-label="Behance Profile">
                                     <div class="social-card-icon">
-                                        <i class="fab fa-dribbble"></i>
+                                        <i class="fab fa-behance"></i>
                                     </div>
                                     <div class="social-card-content">
-                                        <span class="social-card-label">Dribbble</span>
-                                        <span class="social-card-handle">@NINETY5_DESIGNS</span>
+                                        <span class="social-card-label">Behance</span>
+                                        <span class="social-card-handle">@mmohammedrayyan</span>
                                     </div>
                                     <div class="social-card-arrow">
                                         <i class="fas fa-arrow-right"></i>
@@ -980,12 +992,14 @@
                 <div class="project-filters reveal-fade-up" data-animate="fade-up" data-delay="100" role="tablist" aria-label="Project category filters">
                     <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" aria-controls="projects-grid">All</button>
                     <button class="filter-btn" data-filter="web" role="tab" aria-selected="false" aria-controls="projects-grid">Web</button>
-                    <button class="filter-btn" data-filter="video" role="tab" aria-selected="false" aria-controls="projects-grid">Video</button>
-                    <button class="filter-btn" data-filter="3d" role="tab" aria-selected="false" aria-controls="projects-grid">3D</button>
                     <button class="filter-btn" data-filter="android" role="tab" aria-selected="false" aria-controls="projects-grid">Android</button>
+                    <button class="filter-btn" data-filter="tools" role="tab" aria-selected="false" aria-controls="projects-grid">Tools</button>
+                    <button class="filter-btn" data-filter="design" role="tab" aria-selected="false" aria-controls="projects-grid">Design</button>
+                    <button class="filter-btn" data-filter="video" role="tab" aria-selected="false" aria-controls="projects-grid">Video</button>
                 </div>
 
-                    <div class="projects-grid reveal-stagger" id="projects-grid" role="tabpanel">
+                <div class="projects-grid reveal-stagger" id="projects-grid" role="tabpanel">
+                    <!-- Web Projects -->
                     <div class="project-card card-lift tilt-effect shimmer" data-category="web">
                         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80" alt="Portfolio Website Project" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
                         <div class="project-content">
@@ -1011,6 +1025,142 @@
                         </div>
                     </div>
 
+                    <div class="project-card card-lift tilt-effect shimmer" data-category="web">
+                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&h=800&fit=crop&q=80" alt="TaskZen Project" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="project-badge badge-active">Active</span>
+                            </div>
+                            <h3 class="project-title">TaskZen</h3>
+                            <p class="project-description">A streamlined productivity application designed to help users manage tasks efficiently with a clean and intuitive interface.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Rayyan-x95/TaskZen" target="_blank" rel="noopener" class="project-btn project-btn-cosmic magnetic-btn" aria-label="View source code on GitHub">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card card-lift tilt-effect shimmer" data-category="web">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=800&fit=crop&q=80" alt="AI Career Navigator" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="project-badge badge-new">New</span>
+                            </div>
+                            <h3 class="project-title">AI Career Navigator</h3>
+                            <p class="project-description">An intelligent tool helping users navigate their career paths using AI-driven insights and roadmap generation.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">AI Integration</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Rayyan-x95/AI-Career-Navigator" target="_blank" rel="noopener" class="project-btn project-btn-cosmic magnetic-btn" aria-label="View source code on GitHub">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Android Projects -->
+                    <div class="project-card card-lift tilt-effect shimmer" data-category="android">
+                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=1200&h=800&fit=crop&q=80" alt="Lunaris AOSP" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="project-badge badge-featured">Featured</span>
+                            </div>
+                            <h3 class="project-title">Lunaris AOSP</h3>
+                            <p class="project-description">Custom Android ROM project focusing on performance, stability, and UI customization. Part of the Lunaris-AOSP organization.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Android</span>
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">C++</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Lunaris-AOSP" target="_blank" rel="noopener" class="project-btn project-btn-cosmic magnetic-btn" aria-label="View Organization">
+                                    <i class="fab fa-github"></i> View Org
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card card-lift tilt-effect shimmer" data-category="android">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&h=800&fit=crop&q=80" alt="Xiaomi Sweet Device Tree" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
+                        <div class="project-content">
+                            <div class="project-badges">
+                                <span class="project-badge badge-active">Active</span>
+                            </div>
+                            <h3 class="project-title">Xiaomi Sweet Device Tree</h3>
+                            <p class="project-description">Open source device tree configuration for Xiaomi Redmi Note 10 Pro (sweet), enabling custom ROM support.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Makefile</span>
+                                <span class="project-tag">Device Config</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Bloody-Sweet-95/android_device_xiaomi_sweet" target="_blank" rel="noopener" class="project-btn project-btn-cosmic magnetic-btn" aria-label="View source code on GitHub">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card card-lift tilt-effect shimmer" data-category="android">
+                        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&h=800&fit=crop&q=80" alt="Habitate" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
+                        <div class="project-content">
+                            <h3 class="project-title">Habitate</h3>
+                            <p class="project-description">A modern habit tracking application built for Android to help users build and maintain positive routines.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Kotlin</span>
+                                <span class="project-tag">Android SDK</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Rayyan-x95/Habitate" target="_blank" rel="noopener" class="project-btn project-btn-cosmic magnetic-btn" aria-label="View source code on GitHub">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools Projects -->
+                    <div class="project-card card-lift tilt-effect shimmer" data-category="tools">
+                        <img src="https://images.unsplash.com/photo-1532906619279-a782cd00838d?w=1200&h=800&fit=crop&q=80" alt="F1 Telemetry" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
+                        <div class="project-content">
+                            <h3 class="project-title">F1 Telemetry</h3>
+                            <p class="project-description">Data analysis tool for Formula 1 telemetry data, providing insights into vehicle performance and race statistics.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Data Analysis</span>
+                                <span class="project-tag">Telemetry</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Rayyan-x95/F1-Telemetry" target="_blank" rel="noopener" class="project-btn project-btn-cosmic magnetic-btn" aria-label="View source code on GitHub">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card card-lift tilt-effect shimmer" data-category="tools">
+                        <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&h=800&fit=crop&q=80" alt="Resume Generator" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
+                        <div class="project-content">
+                            <h3 class="project-title">Resume Generator</h3>
+                            <p class="project-description">A utility tool to dynamically generate professional resumes based on user input and templates.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Automation</span>
+                                <span class="project-tag">Utility</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Rayyan-x95/Resume-Generator" target="_blank" rel="noopener" class="project-btn project-btn-cosmic magnetic-btn" aria-label="View source code on GitHub">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Design/Video Projects -->
                     <div class="project-card card-lift tilt-effect shimmer" data-category="video">
                         <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=800&fit=crop&q=80" alt="Video Production Channel" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
                         <div class="project-content">
@@ -1032,7 +1182,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card card-lift tilt-effect shimmer" data-category="3d">
+                    <div class="project-card card-lift tilt-effect shimmer" data-category="design">
                         <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop&q=80" alt="3D Design Portfolio" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
                         <div class="project-content">
                             <div class="project-badges">
@@ -1046,29 +1196,8 @@
                                 <span class="project-tag">Rendering</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://dribbble.com/NINETY5_DESIGNS" target="_blank" rel="noopener" class="project-btn project-btn-electric magnetic-btn" aria-label="View Dribbble portfolio">
-                                    <i class="fab fa-dribbble"></i> View Portfolio
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card card-lift tilt-effect shimmer" data-category="android">
-                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=1200&h=800&fit=crop&q=80" alt="Android Custom ROM Development" class="project-image materialboxed" loading="lazy" width="1200" height="800" decoding="async">
-                        <div class="project-content">
-                            <div class="project-badges">
-                                <span class="project-badge badge-active">Active</span>
-                            </div>
-                            <h3 class="project-title">Custom ROM Development</h3>
-                            <p class="project-description">Android operating system development and customization. Building performance-optimized custom ROMs for various devices.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Android</span>
-                                <span class="project-tag">Kotlin</span>
-                                <span class="project-tag">AOSP</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener" class="project-btn project-btn-cosmic magnetic-btn" aria-label="View GitHub projects">
-                                    <i class="fab fa-github"></i> View Code
+                                <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener" class="project-btn project-btn-electric magnetic-btn" aria-label="View Behance portfolio">
+                                    <i class="fab fa-behance"></i> View Portfolio
                                 </a>
                             </div>
                         </div>
@@ -1217,8 +1346,8 @@
                         <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener" class="action-bubble magnetic-btn" data-label="LinkedIn" aria-label="LinkedIn profile">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://dribbble.com/NINETY5_DESIGNS" target="_blank" rel="noopener" class="action-bubble magnetic-btn" data-label="Dribbble" aria-label="Dribbble portfolio">
-                            <i class="fab fa-dribbble"></i>
+                        <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener" class="action-bubble magnetic-btn" data-label="Behance" aria-label="Behance portfolio">
+                            <i class="fab fa-behance"></i>
                         </a>
                         <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener" class="action-bubble magnetic-btn" data-label="YouTube" aria-label="YouTube channel">
                             <i class="fab fa-youtube"></i>
@@ -1274,8 +1403,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
-                <a href="#!" class="waves-effect waves-light btn btn-primary-v9" id="send-message-btn">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat magnetic-btn">Cancel</a>
+                <a href="#!" class="waves-effect waves-light btn btn-primary-v9 magnetic-btn" id="send-message-btn">
                     Send Message <i class="fas fa-paper-plane right"></i>
                 </a>
             </div>
@@ -1283,7 +1412,7 @@
     </main>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <button id="backToTop" class="back-to-top magnetic-btn" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 

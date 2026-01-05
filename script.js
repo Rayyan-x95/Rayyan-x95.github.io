@@ -264,20 +264,37 @@ if (skillBars.length) {
 // COUNTER ANIMATIONS
 // ============================================
 const initCounterAnimations = () => {
+    const parseCounterMeta = (counter) => {
+        const original = counter.dataset.originalText || counter.textContent || '';
+        counter.dataset.originalText = original.trim();
+
+        const dataCount = parseFloat(counter.dataset.count);
+        const textNumber = parseFloat((original.match(/[\d.,]+/) || ['0'])[0].replace(/,/g, ''));
+        const target = Number.isFinite(dataCount) ? dataCount : (Number.isFinite(textNumber) ? textNumber : 0);
+
+        const prefix = (original.match(/^[^\d]+/) || [''])[0];
+        const suffix = (original.match(/[^0-9.,\s]+$/) || [''])[0];
+        return { target, prefix, suffix };
+    };
+
     const animateCounter = (counter) => {
         if (counter.dataset.animated) return;
         counter.dataset.animated = 'true';
         
-        const target = +counter.dataset.count;
+        const { target, prefix, suffix } = parseCounterMeta(counter);
         const start = performance.now();
-        const hasPlus = counter.textContent.includes('+');
         
         const updateCounter = (currentTime) => {
             const progress = Math.min((currentTime - start) / CONFIG.COUNTER_DURATION, 1);
             const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-            counter.textContent = Math.floor(eased * target) + (hasPlus ? '+' : '');
+            const value = Math.floor(eased * target).toLocaleString();
+            counter.textContent = `${prefix}${value}${suffix}`;
             
-            progress < 1 ? requestAnimationFrame(updateCounter) : (counter.textContent = target + (hasPlus ? '+' : ''));
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = `${prefix}${target.toLocaleString()}${suffix}`;
+            }
         };
         
         requestAnimationFrame(updateCounter);
@@ -360,6 +377,7 @@ if (landoNavLinks.length) {
                 landoNavLinksContainer.classList.remove('active');
                 landoMenuToggle?.classList.remove('active');
                 landoMenuToggle?.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
             }
         });
     });
@@ -370,6 +388,7 @@ if (landoMenuToggle && landoNavLinksContainer) {
         const isActive = landoMenuToggle.classList.toggle('active');
         landoNavLinksContainer.classList.toggle('active');
         landoMenuToggle.setAttribute('aria-expanded', isActive);
+        document.body.classList.toggle('menu-open');
     });
 }
 
@@ -445,12 +464,44 @@ const initParallax = () => {
     lenis ? lenis.on('scroll', ({ scroll }) => update(scroll)) : window.addEventListener('scroll', () => update(window.scrollY));
 };
 
+const initPreloader = () => {
+    const preloader = document.querySelector('.preloader');
+    const progressBar = document.querySelector('.loader-progress');
+    
+    if (!preloader) return;
+    
+    // Simulate loading progress
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress > 100) progress = 100;
+        
+        if (progressBar) progressBar.style.width = `${progress}%`;
+        
+        if (progress === 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                preloader.classList.add('loaded');
+                // Trigger hero animations after preloader
+                document.documentElement.classList.add('loaded-complete');
+                setTimeout(() => preloader.remove(), 500);
+            }, 500);
+        }
+    }, 150);
+    
+    window.addEventListener('load', () => {
+        progress = 100;
+        if (progressBar) progressBar.style.width = '100%';
+    });
+};
+
 const initModernEffects = () => {
     initMagneticButtons();
     initTiltEffect();
     initSpotlightEffect();
     initScrollProgress();
     initParallax();
+    initPreloader();
 };
 
 document.readyState === 'loading' 
