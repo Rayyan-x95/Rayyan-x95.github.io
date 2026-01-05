@@ -17,33 +17,46 @@ document.documentElement.classList.add('js-enabled');
 // ============================================
 const lenis = (() => {
     if (typeof Lenis === 'undefined') return null;
+    // Enhanced error handling with fallback
     try {
         return new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smooth: true,
             smoothTouch: false,
+            wheelMultiplier: 0.8,
+            touchMultiplier: 2
         });
-    } catch {
+    } catch (error) {
+        console.warn('Lenis initialization failed, falling back to native scrolling:', error);
         return null;
     }
 })();
 
-// ============================================
-// SMOOTH SCROLL ANCHORS
-// ============================================
+// Enhanced smooth scroll with better error handling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
         const targetId = anchor.getAttribute('href');
         if (targetId === '#') return;
         
         const target = document.querySelector(targetId);
-        if (!target) return;
+        if (!target) {
+            console.warn(`Target element not found: ${targetId}`);
+            return;
+        }
         
         e.preventDefault();
-        lenis 
-            ? lenis.scrollTo(target, { offset: -80, duration: 1.5 })
-            : target.scrollIntoView({ behavior: 'smooth' });
+        
+        try {
+            if (lenis) {
+                lenis.scrollTo(target, { offset: -80, duration: 1.5 });
+            } else {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        } catch (error) {
+            console.warn('Smooth scroll failed, using fallback:', error);
+            target.scrollIntoView();
+        }
     });
 });
 
@@ -85,33 +98,8 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 // ============================================
 // TYPING EFFECT
 // ============================================
-const typingText = document.getElementById('typing-text');
-if (typingText) {
-    const roles = ["WEB DEVELOPER", "UI/UX DESIGNER", "ANDROID DEV", "VIDEO EDITOR", "3D ARTIST", "PYTHON DEV", "REACT EXPERT", "CONTENT CREATOR", "FREELANCER"];
-    let roleIndex = 0, charIndex = 0, isDeleting = false;
-    
-    const typeRole = () => {
-        const currentRole = roles[roleIndex];
-        charIndex += isDeleting ? -1 : 1;
-        typingText.textContent = currentRole.substring(0, charIndex);
-        
-        let typeSpeed = isDeleting ? 40 : 80 + Math.random() * 50;
-        
-        if (!isDeleting && charIndex === currentRole.length) {
-            typeSpeed = CONFIG.TYPING_PAUSE;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            typeSpeed = 400;
-        }
-        
-        setTimeout(typeRole, typeSpeed);
-    };
-    
-    typeRole();
-    document.querySelector('.cursor')?.classList.add('cursor-animated');
-}
+// Removed duplicate typing effect code to prevent conflicts with initEnhancedTyping
+
 
 // ============================================
 // PROJECT FILTERING
@@ -131,13 +119,23 @@ if (filterBtns.length && projectCards.length) {
                 const show = filter === 'all' || card.dataset.category === filter;
                 
                 if (typeof gsap !== 'undefined') {
-                    gsap.to(card, {
-                        scale: show ? 1 : 0.8,
-                        opacity: show ? 1 : 0,
-                        duration: 0.4,
-                        display: show ? 'block' : 'none',
-                        ease: show ? 'power2.out' : 'power2.in'
-                    });
+                    if (show) {
+                        gsap.set(card, { display: 'block' });
+                        gsap.to(card, {
+                            scale: 1,
+                            opacity: 1,
+                            duration: 0.4,
+                            ease: 'power2.out'
+                        });
+                    } else {
+                        gsap.to(card, {
+                            scale: 0.8,
+                            opacity: 0,
+                            duration: 0.4,
+                            ease: 'power2.in',
+                            onComplete: () => gsap.set(card, { display: 'none' })
+                        });
+                    }
                 } else {
                     Object.assign(card.style, {
                         display: show ? 'block' : 'none',
@@ -159,38 +157,124 @@ const sendBtn = document.getElementById('send-message-btn');
 if (sendBtn) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     
-    sendBtn.addEventListener('click', (e) => {
+    // Real-time validation
+    const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            if (input.value.trim()) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+            } else {
+                input.classList.remove('valid');
+            }
+        });
+    });
+
+    sendBtn.addEventListener('click', async (e) => {
         e.preventDefault();
         const form = document.querySelector('.contact-form');
-        const name = document.getElementById('name')?.value.trim();
-        const email = document.getElementById('email')?.value.trim();
-        const message = document.getElementById('message')?.value.trim();
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
         
-        if (!name || !email || !message) {
-            return showNotification('Please fill in all fields', 'error');
-        }
-        if (!emailRegex.test(email)) {
-            return showNotification('Please enter a valid email address', 'error');
+        const name = nameInput?.value.trim();
+        const email = emailInput?.value.trim();
+        const message = messageInput?.value.trim();
+        
+        let isValid = true;
+
+        if (!name) {
+            nameInput.classList.add('invalid');
+            isValid = false;
         }
         
+        if (!email || !emailRegex.test(email)) {
+            emailInput.classList.add('invalid');
+            isValid = false;
+        }
+        
+        if (!message) {
+            messageInput.classList.add('invalid');
+            isValid = false;
+        }
+
+        if (!isValid) {
+            return showNotification('Please check the highlighted fields', 'error');
+        }
+        
+        const originalBtnContent = sendBtn.innerHTML;
         sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         sendBtn.disabled = true;
+        sendBtn.classList.add('disabled');
         
-        // Simulate form submission
-        setTimeout(() => {
-            sendBtn.innerHTML = 'Message Sent <i class="fas fa-check"></i>';
+        // Formspree Integration
+        const FORMSPREE_ID = 'myzpekgq'; 
+        
+        try {
+            if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
+                throw new Error('Formspree ID not configured');
+            }
+
+            const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message
+                })
+            });
+
+            if (response.ok) {
+                sendBtn.innerHTML = 'Message Sent <i class="fas fa-check"></i>';
+                sendBtn.classList.remove('btn-primary-v9');
+                sendBtn.classList.add('green');
+                showNotification('Message sent successfully!', 'success');
+                
+                form.reset();
+                inputs.forEach(input => input.classList.remove('valid', 'invalid'));
+                
+                setTimeout(() => {
+                    const modal = document.getElementById('contact-modal');
+                    M?.Modal?.getInstance(modal)?.close() ?? (modal.style.display = 'none');
+                    
+                    // Reset button state
+                    setTimeout(() => {
+                        sendBtn.innerHTML = originalBtnContent;
+                        sendBtn.classList.remove('green', 'disabled');
+                        sendBtn.classList.add('btn-primary-v9');
+                        sendBtn.disabled = false;
+                    }, 500);
+                }, 1500);
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        } catch (error) {
+            console.warn('Form submission failed, falling back to mailto:', error);
+            
+            // Fallback to mailto
+            const subject = `Portfolio Contact from ${name}`;
+            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            window.location.href = `mailto:mmohammedrayyan0808@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            sendBtn.innerHTML = 'Opened Email Client <i class="fas fa-envelope"></i>';
             sendBtn.classList.add('green');
-            showNotification('Message sent successfully!', 'success');
+            showNotification('Opening your email client...', 'success');
             
             setTimeout(() => {
                 const modal = document.getElementById('contact-modal');
                 M?.Modal?.getInstance(modal)?.close() ?? (modal.style.display = 'none');
                 form?.reset();
-                sendBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane right"></i>';
-                sendBtn.classList.remove('green');
+                inputs.forEach(input => input.classList.remove('valid', 'invalid'));
+                
+                sendBtn.innerHTML = originalBtnContent;
+                sendBtn.classList.remove('green', 'disabled');
                 sendBtn.disabled = false;
-            }, 1500);
-        }, 1500);
+            }, 2000);
+        }
     });
 }
 
@@ -397,13 +481,29 @@ if (landoMenuToggle && landoNavLinksContainer) {
 // ============================================
 const initMagneticButtons = () => {
     document.querySelectorAll('.magnetic-btn').forEach(btn => {
+        let isAnimating = false;
+        
         btn.addEventListener('mousemove', (e) => {
+            if (isAnimating) return;
+            isAnimating = true;
+            
             const rect = btn.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width / 2) * 0.2;
-            const y = (e.clientY - rect.top - rect.height / 2) * 0.2;
-            btn.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const deltaX = (e.clientX - centerX) * 0.15;
+            const deltaY = (e.clientY - centerY) * 0.15;
+            
+            requestAnimationFrame(() => {
+                btn.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(1.02)`;
+                isAnimating = false;
+            });
         });
-        btn.addEventListener('mouseleave', () => btn.style.transform = '');
+        
+        btn.addEventListener('mouseleave', () => {
+            requestAnimationFrame(() => {
+                btn.style.transform = '';
+            });
+        });
     });
 };
 
@@ -432,7 +532,7 @@ const initSpotlightEffect = () => {
             el.style.setProperty('--spotlight-x', x);
             el.style.setProperty('--spotlight-y', y);
             el.style.setProperty('--x', x);
-            el.style.setProperty('--y', y);
+             el.style.setProperty('--y', y);
         });
         el.addEventListener('mouseleave', () => {
             ['--spotlight-x', '--spotlight-y', '--x', '--y'].forEach(p => el.style.removeProperty(p));
@@ -464,49 +564,315 @@ const initParallax = () => {
     lenis ? lenis.on('scroll', ({ scroll }) => update(scroll)) : window.addEventListener('scroll', () => update(window.scrollY));
 };
 
-const initPreloader = () => {
-    const preloader = document.querySelector('.preloader');
-    const progressBar = document.querySelector('.loader-progress');
+// ============================================
+// PREMIUM PARTICLE EFFECTS
+// ============================================
+const initParticleEffects = () => {
+    const container = document.getElementById('particleContainer');
+    if (!container) return;
+    
+    const createParticle = () => {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random positioning and properties
+        const startX = Math.random() * window.innerWidth;
+        const size = Math.random() * 3 + 2;
+        const duration = Math.random() * 10 + 10;
+        const delay = Math.random() * 5;
+        
+        particle.style.cssText = `
+            left: ${startX}px;
+            width: ${size}px;
+            height: ${size}px;
+            animation-duration: ${duration}s;
+            animation-delay: ${delay}s;
+            background: ${Math.random() > 0.5 ? 'var(--primary-color)' : 'var(--secondary-color)'};
+        `;
+        
+        container.appendChild(particle);
+        
+        // Remove particle after animation
+        setTimeout(() => particle.remove(), (duration + delay) * 1000);
+    };
+    
+    // Create initial particles
+    for (let i = 0; i < 20; i++) {
+        setTimeout(createParticle, i * 200);
+    }
+    
+    // Continuously create new particles
+    setInterval(createParticle, 2000);
+};
+
+// ============================================
+// ENHANCED PRELOADER
+// ============================================
+const initEnhancedPreloader = () => {
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.getElementById('loaderProgress');
     
     if (!preloader) return;
     
-    // Simulate loading progress
     let progress = 0;
-    const interval = setInterval(() => {
-        progress += Math.random() * 15;
+    const increment = () => {
+        progress += Math.random() * 3 + 1;
         if (progress > 100) progress = 100;
         
-        if (progressBar) progressBar.style.width = `${progress}%`;
+        if (progressBar) {
+            progressBar.style.width = `${progress}%`;
+        }
         
-        if (progress === 100) {
-            clearInterval(interval);
+        if (progress >= 100) {
             setTimeout(() => {
                 preloader.classList.add('loaded');
-                // Trigger hero animations after preloader
                 document.documentElement.classList.add('loaded-complete');
-                setTimeout(() => preloader.remove(), 500);
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                    setTimeout(() => preloader.remove(), 500);
+                }, 300);
             }, 500);
+        } else {
+            requestAnimationFrame(increment);
         }
-    }, 150);
+    };
     
+    requestAnimationFrame(increment);
+    
+    // Fallback for window load
     window.addEventListener('load', () => {
         progress = 100;
         if (progressBar) progressBar.style.width = '100%';
     });
 };
 
-const initModernEffects = () => {
-    initMagneticButtons();
-    initTiltEffect();
-    initSpotlightEffect();
-    initScrollProgress();
-    initParallax();
-    initPreloader();
+// ============================================
+// SCROLL INDICATOR
+// ============================================
+const initScrollIndicator = () => {
+    const indicator = document.getElementById('scrollIndicator');
+    if (!indicator) return;
+    
+    const updateIndicator = () => {
+        const scrollY = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        // Hide when scrolled past hero section
+        const heroHeight = document.querySelector('.hero-v9')?.offsetHeight || windowHeight;
+        indicator.style.opacity = scrollY > heroHeight * 0.5 ? '0' : '0.7';
+    };
+    
+    const scrollHandler = lenis 
+        ? () => lenis.on('scroll', updateIndicator)
+        : () => window.addEventListener('scroll', updateIndicator);
+    
+    scrollHandler();
+    
+    // Click to scroll to next section
+    indicator.addEventListener('click', () => {
+        const nextSection = document.querySelector('#about');
+        if (nextSection) {
+            lenis 
+                ? lenis.scrollTo(nextSection, { offset: -80, duration: 1.5 })
+                : nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 };
 
+// ============================================
+// ENHANCED TYPING EFFECT
+// ============================================
+const initEnhancedTyping = () => {
+    const typingText = document.getElementById('typing-text');
+    const cursor = document.querySelector('.cursor');
+    
+    if (!typingText) return;
+    
+    const roles = [
+        "WEB DEVELOPER", 
+        "UI/UX DESIGNER", 
+        "ANDROID DEV", 
+        "VIDEO EDITOR", 
+        "3D ARTIST", 
+        "PYTHON DEV", 
+        "REACT EXPERT", 
+        "CONTENT CREATOR", 
+        "FREELANCER",
+        "CREATIVE TECH"
+    ];
+    
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let isPaused = false;
+    
+    const typeRole = () => {
+        if (isPaused) {
+            isPaused = false;
+            setTimeout(typeRole, 100);
+            return;
+        }
+        
+        const currentRole = roles[roleIndex];
+        
+        if (!isDeleting) {
+            typingText.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            
+            if (charIndex === currentRole.length) {
+                isDeleting = true;
+                isPaused = true;
+                cursor?.classList.add('cursor-blink');
+                setTimeout(typeRole, CONFIG.TYPING_PAUSE);
+                return;
+            }
+        } else {
+            typingText.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            
+            if (charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                cursor?.classList.remove('cursor-blink');
+            }
+        }
+        
+        const typeSpeed = isDeleting ? 40 : 80 + Math.random() * 50;
+        setTimeout(typeRole, typeSpeed);
+    };
+    
+    // Add cursor animation
+    if (cursor) {
+        cursor.classList.add('cursor-animated');
+    }
+    
+    // Start typing after a short delay
+    setTimeout(typeRole, 500);
+};
+
+// ============================================
+// ENHANCED INTERACTIONS
+// ============================================
+const initEnhancedInteractions = () => {
+    // Magnetic buttons with enhanced physics
+    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+        let isAnimating = false;
+        let currentX = 0;
+        let currentY = 0;
+        
+        btn.addEventListener('mousemove', (e) => {
+            if (isAnimating) return;
+            isAnimating = true;
+            
+            const rect = btn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const targetX = (e.clientX - centerX) * 0.15;
+            const targetY = (e.clientY - centerY) * 0.15;
+            
+            // Smooth transition to target position
+            const animate = () => {
+                currentX += (targetX - currentX) * 0.1;
+                currentY += (targetY - currentY) * 0.1;
+                
+                btn.style.transform = `translate(${currentX}px, ${currentY}px) scale(1.02)`;
+                
+                if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    isAnimating = false;
+                }
+            };
+            
+            requestAnimationFrame(animate);
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            const resetAnimation = () => {
+                currentX *= 0.8;
+                currentY *= 0.8;
+                
+                btn.style.transform = `translate(${currentX}px, ${currentY}px) scale(1)`;
+                
+                if (Math.abs(currentX) > 0.1 || Math.abs(currentY) > 0.1) {
+                    requestAnimationFrame(resetAnimation);
+                } else {
+                    btn.style.transform = '';
+                    currentX = 0;
+                    currentY = 0;
+                }
+            };
+            
+            requestAnimationFrame(resetAnimation);
+        });
+    });
+    
+    // Enhanced card tilt effects
+    document.querySelectorAll('.minimal-card, .social-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+            const y = ((e.clientY - rect.top) / rect.height - 0.5) * -20;
+            
+            card.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg) translateZ(10px)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+};
+
+// ============================================
+// INIT ALL PREMIUM FEATURES
+// ============================================
+const initPremiumFeatures = () => {
+    initParticleEffects();
+    initEnhancedPreloader();
+    initScrollIndicator();
+    initEnhancedTyping();
+    initEnhancedInteractions();
+    initTiltEffect();
+    initSpotlightEffect();
+};
+
+// Initialize when DOM is ready
 document.readyState === 'loading' 
-    ? document.addEventListener('DOMContentLoaded', initModernEffects) 
-    : initModernEffects();
+    ? document.addEventListener('DOMContentLoaded', initPremiumFeatures)
+    : initPremiumFeatures();
+
+
+
+// Remove duplicate initialization
+const initModernEffects = () => {
+    // All premium effects are now handled by initPremiumFeatures()
+    // This function is kept for compatibility but no longer needed
+};
+
+// ============================================
+// CURSOR ANIMATIONS
+// ============================================
+const cursorStyles = `
+.cursor-animated {
+    animation: cursorBlink 1s infinite;
+}
+
+.cursor-blink {
+    animation: cursorBlink 0.5s infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+`;
+
+// Inject cursor styles
+const styleSheet = document.createElement('style');
+styleSheet.textContent = cursorStyles;
+document.head.appendChild(styleSheet);
 
 // ============================================
 // BACK TO TOP

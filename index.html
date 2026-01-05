@@ -48,6 +48,15 @@
     <meta property="og:locale:alternate" content="en_GB">
     <meta property="article:author" content="M Mohammed Rayyan">
     <meta property="article:tag" content="Web Development">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Rayyan_x95">
+    <meta name="twitter:creator" content="@Rayyan_x95">
+    <meta name="twitter:title" content="M Mohammed Rayyan - Web Developer and Graphic Designer">
+    <meta name="twitter:description" content="Professional Web Developer and Graphic Designer specializing in React, Python, Android AOSP, 3D Design & Video Production.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=1200&h=630&fit=crop&q=80">
+    <meta name="twitter:image:alt" content="M Mohammed Rayyan - Web Developer and Graphic Designer">
     <meta property="article:tag" content="React">
     <meta property="article:tag" content="Python">
     <meta property="article:tag" content="UI/UX Design">
@@ -304,17 +313,22 @@
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
 
+    <div class="particle-container" id="particleContainer"></div>
+    
     <!-- Preloader -->
-    <div class="preloader">
+    <div class="preloader" id="preloader">
         <div class="loader-content">
             <div class="loader-logo">MR</div>
             <div class="loader-progress-bar">
-                <div class="loader-progress"></div>
+                <div class="loader-progress" id="loaderProgress"></div>
             </div>
         </div>
     </div>
 
     <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
 
 
     <header class="lando-nav" id="navbar">
