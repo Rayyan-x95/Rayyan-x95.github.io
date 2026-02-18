@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="view-transition" content="same-origin">
     
-    <title>404 - Page Not Found | M Mohammed Rayyan</title>
-    <meta name="description" content="The page you are looking for does not exist. Return to M Mohammed Rayyan's portfolio.">
+    <title>404 - Page Not Found | Mohammed Rayyan Portfolio</title>
+    <meta name="description" content="The page you are looking for does not exist. Return to Mohammed Rayyan's portfolio - Graphic Designer, Engineering Student & ROM Developer.">
     <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://rayyan-x95.github.io/">
     
+    <!-- Open Graph -->
+    <meta property="og:title" content="404 - Page Not Found | Mohammed Rayyan">
+    <meta property="og:description" content="This page doesn't exist. Visit Mohammed Rayyan's portfolio instead.">
+    <meta property="og:url" content="https://rayyan-x95.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mohammed Rayyan - Graphic Designer & ROM Developer Portfolio">
+
     <!-- Theme Color -->
     <meta name="theme-color" content="#5b4cdb">
     
@@ -23,10 +32,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Critical Inline Script: match theme from main site -->
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0f1a' : '#5b4cdb');
+            } catch(e) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
     
     <style>
         body {
@@ -36,11 +59,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #0f0c29; /* Fallback */
+            background-color: #0f0c29;
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: #fff;
             font-family: 'Google Sans Flex', sans-serif;
             overflow: hidden;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        [data-theme="light"] body {
+            background-color: #f0eef6;
+            background: linear-gradient(135deg, #f0eef6, #e8e4f4, #ddd8ee);
+            color: #0c0a1d;
         }
         
         .error-container {
@@ -57,9 +87,15 @@
             margin: 0;
             background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px rgba(0, 242, 254, 0.3);
             animation: float 6s ease-in-out infinite;
+        }
+
+        [data-theme="light"] .error-code {
+            background: linear-gradient(to right, #5b4cdb 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
         }
         
         .error-message {
@@ -74,6 +110,10 @@
             max-width: 500px;
             margin: 0 auto 2.5rem;
             line-height: 1.6;
+        }
+
+        [data-theme="light"] .error-description {
+            color: rgba(12, 10, 29, 0.6);
         }
         
         .home-btn {
@@ -112,6 +152,11 @@
             background: #764ba2;
             animation: moveBlob1 20s infinite alternate;
         }
+
+        [data-theme="light"] .blob-1 {
+            background: #b4a3e0;
+            opacity: 0.3;
+        }
         
         .blob-2 {
             bottom: -10%;
@@ -120,6 +165,11 @@
             height: 400px;
             background: #4facfe;
             animation: moveBlob2 15s infinite alternate;
+        }
+
+        [data-theme="light"] .blob-2 {
+            background: #93b8f7;
+            opacity: 0.3;
         }
         
         @keyframes float {
@@ -135,6 +185,11 @@
         @keyframes moveBlob2 {
             0% { transform: translate(0, 0) scale(1); }
             100% { transform: translate(-50px, -50px) scale(1.1); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .error-code, .blob-1, .blob-2 { animation: none; }
+            body { transition: none; }
         }
     </style>
 </head>
