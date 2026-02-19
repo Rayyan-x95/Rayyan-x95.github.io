@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="view-transition" content="same-origin">
     <title>Resume - Mohammed Rayyan | Graphic Designer & ROM Developer | Ninety5 Studio</title>
@@ -27,7 +27,7 @@
     <meta name="msapplication-TileColor" content="#5b4cdb">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    
+
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
     <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
@@ -56,15 +56,29 @@
     <meta name="twitter:description" content="Professional resume: 4+ years experience, 100+ clients, 400+ designs delivered. Graphic Designer, Engineering Student & ROM Developer.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=1200&h=630&fit=crop&q=80">
     <meta name="twitter:image:alt" content="Mohammed Rayyan - Professional Resume">
-    
-    <!-- Fonts -->
+
+    <!-- DNS Prefetch & Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts (same as main site) -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></noscript>
+
+    <!-- Font Awesome -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- Main Stylesheet (shared) -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css">
 
     <!-- Critical Inline Script: match theme from main site -->
     <script>
@@ -79,350 +93,132 @@
             }
         })();
     </script>
-    
-    <style>
-        :root {
-            --primary-color: #5b4cdb;
-            --primary-dark: #4338ca;
-            --text-primary: #0c0a1d;
-            --text-secondary: #2e2a4a;
-            --text-tertiary: #4a4566;
-            --bg-primary: #fefeff;
-            --bg-secondary: #f8f7fc;
-            --border-light: #e4e2f0;
-        }
 
-        [data-theme="dark"] {
-            --text-primary: #e8e6f0;
-            --text-secondary: #b8b4c8;
-            --text-tertiary: #8a86a0;
-            --bg-primary: #161228;
-            --bg-secondary: #0b0f1a;
-            --border-light: #2a2644;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-secondary);
-            padding: 2rem 1rem;
-        }
-        
+    <!-- Resume-specific styles (page layout only — tokens come from styles.css) -->
+    <style>
+        .resume-page { padding-top: 100px; }
         .resume-container {
             max-width: 850px;
-            margin: 0 auto;
+            margin: 0 auto 3rem;
             background: var(--bg-primary);
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            border-radius: var(--border-radius);
             overflow: hidden;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
         }
-
-        [data-theme="dark"] .resume-container {
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-        }
-        
+        [data-theme="dark"] .resume-container { box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
         .resume-header {
-            background: linear-gradient(135deg, #5b4cdb 0%, #7c3aed 50%, #9333ea 100%);
+            background: var(--gradient-primary);
             color: white;
             padding: 3rem 2.5rem 2rem;
             text-align: center;
-            position: relative;
         }
-        
-        .profile-pic-container {
-            margin-bottom: 1.5rem;
-        }
-        
+        .profile-pic-container { margin-bottom: 1.5rem; }
         .profile-pic {
-            width: 120px;
-            height: 120px;
+            width: 120px; height: 120px;
             border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            border: 4px solid rgba(255,255,255,0.3);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
             object-fit: cover;
-            margin: 0 auto;
-            display: block;
+            margin: 0 auto; display: block;
         }
-        
-        .resume-header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.5px;
+        .resume-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+        .resume-header .tagline { font-size: 1.125rem; opacity: 0.95; font-weight: 500; margin-bottom: 1.5rem; }
+        .resume-contact-info {
+            display: flex; flex-wrap: wrap; justify-content: center;
+            gap: 1.5rem; font-size: 0.875rem; opacity: 0.9;
         }
-        
-        .resume-header .tagline {
-            font-size: 1.125rem;
-            opacity: 0.95;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            font-size: 0.875rem;
-            opacity: 0.9;
-        }
-        
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .resume-contact-info a {
+            color: white; text-decoration: none;
+            display: flex; align-items: center; gap: 0.5rem;
             transition: opacity 0.2s;
         }
-        
-        .contact-info a:hover {
-            opacity: 0.8;
-        }
-        
-        .resume-content {
-            padding: 2.5rem;
-        }
-        
-        .section {
-            margin-bottom: 2.5rem;
-        }
-        
-        .section:last-child {
-            margin-bottom: 0;
-        }
-        
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .resume-contact-info a:hover { opacity: 0.8; }
+        .resume-content { padding: 2.5rem; }
+        .resume-section { margin-bottom: 2.5rem; }
+        .resume-section:last-child { margin-bottom: 0; }
+        .resume-section-title {
+            font-size: 1.5rem; font-weight: 700;
             color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem; padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--border-light);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            display: flex; align-items: center; gap: 0.75rem;
         }
-        
-        .section-title i {
-            font-size: 1.25rem;
-        }
-        
-        .summary {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-        
-        .experience-item,
-        .education-item {
-            margin-bottom: 2rem;
-        }
-        
-        .experience-item:last-child,
-        .education-item:last-child {
-            margin-bottom: 0;
-        }
-        
+        .resume-section-title i { font-size: 1.25rem; }
+        .summary { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); }
+        .experience-item, .education-item { margin-bottom: 2rem; }
+        .experience-item:last-child, .education-item:last-child { margin-bottom: 0; }
         .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.75rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;
         }
-        
-        .item-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--text-primary);
+        .item-title { font-size: 1.125rem; font-weight: 700; color: var(--text-primary); }
+        .item-company { font-size: 1rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.25rem; }
+        .item-date { font-size: 0.875rem; color: var(--text-tertiary); font-weight: 500; }
+        .item-description { color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem; }
+        .item-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .resume-skill-tag {
+            padding: 0.25rem 0.75rem; background: var(--bg-secondary);
+            color: var(--primary-color); border-radius: var(--radius-sm);
+            font-size: 0.8125rem; font-weight: 500;
         }
-        
-        .item-company {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.25rem;
+        .resume-skills-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;
         }
-        
-        .item-date {
-            font-size: 0.875rem;
-            color: var(--text-tertiary);
-            font-weight: 500;
-        }
-        
-        .item-description {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 0.75rem;
-        }
-        
-        .item-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .skill-tag {
-            padding: 0.25rem 0.75rem;
-            background: var(--bg-secondary);
-            color: var(--primary-color);
-            border-radius: 4px;
-            font-size: 0.8125rem;
-            font-weight: 500;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .skill-category h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-        }
-        
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .skill-item {
+        .skill-category h3 { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; }
+        .resume-skill-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .resume-skill-item {
             padding: 0.375rem 0.875rem;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-primary);
+            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(139,92,246,0.1));
+            border: 1px solid rgba(99,102,241,0.2);
+            border-radius: var(--radius-sm); font-size: 0.875rem;
+            font-weight: 500; color: var(--text-primary);
         }
-        
-        .achievements-list {
-            list-style: none;
-            padding: 0;
-        }
-        
+        .achievements-list { list-style: none; padding: 0; }
         .achievements-list li {
-            padding-left: 1.75rem;
-            margin-bottom: 0.75rem;
-            position: relative;
-            color: var(--text-secondary);
-            line-height: 1.7;
+            padding-left: 1.75rem; margin-bottom: 0.75rem;
+            position: relative; color: var(--text-secondary); line-height: 1.7;
         }
-        
-        .achievements-list li:before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: 700;
+        .achievements-list li::before {
+            content: '→'; position: absolute; left: 0;
+            color: var(--primary-color); font-weight: 700;
         }
-        
         .action-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            padding: 2rem;
-            background: var(--bg-secondary);
+            display: flex; gap: 1rem; justify-content: center;
+            padding: 2rem; background: var(--bg-secondary);
             border-top: 1px solid var(--border-light);
         }
-        
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
-            font-size: 0.9375rem;
+        .resume-btn {
+            padding: 0.75rem 1.5rem; border-radius: var(--radius-sm);
+            font-weight: 600; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: all 0.2s; cursor: pointer; border: none; font-size: 0.9375rem;
+            font-family: inherit;
         }
-        
-        .btn-primary {
-            background: var(--primary-color);
-            color: white;
+        .resume-btn-primary { background: var(--primary-color); color: white; }
+        .resume-btn-primary:hover {
+            background: var(--primary-dark); transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(91,76,219,0.35);
         }
-        
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(91, 76, 219, 0.35);
-        }
-        
-        .btn-secondary {
-            background: white;
-            color: var(--primary-color);
+        .resume-btn-secondary {
+            background: var(--bg-primary); color: var(--primary-color);
             border: 2px solid var(--primary-color);
         }
-        
-        .btn-secondary:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
+        .resume-btn-secondary:hover {
+            background: var(--primary-color); color: white; transform: translateY(-2px);
         }
-        
         @media print {
-            body {
-                padding: 0;
-                background: white;
-            }
-            
-            .resume-container {
-                box-shadow: none;
-                border-radius: 0;
-            }
-            
-            .action-buttons {
-                display: none;
-            }
-            
-            .section {
-                page-break-inside: avoid;
-            }
+            .lando-nav, .site-footer, .back-to-top, .action-buttons { display: none !important; }
+            .resume-page { padding-top: 0; }
+            body { background: white !important; }
+            .resume-container { box-shadow: none; border-radius: 0; }
+            .resume-section { page-break-inside: avoid; }
         }
-        
         @media (max-width: 768px) {
-            body {
-                padding: 1rem 0.5rem;
-            }
-            
-            .resume-header {
-                padding: 2rem 1.5rem 1.5rem;
-            }
-            
-            .resume-header h1 {
-                font-size: 2rem;
-            }
-            
-            .resume-content {
-                padding: 1.5rem;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.75rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
+            .resume-header { padding: 2rem 1.5rem 1.5rem; }
+            .resume-header h1 { font-size: 2rem; }
+            .resume-content { padding: 1.5rem; }
+            .resume-contact-info { flex-direction: column; align-items: center; gap: 0.75rem; }
+            .resume-skills-grid { grid-template-columns: 1fr; }
         }
     </style>
 
@@ -450,270 +246,336 @@
     </script>
 </head>
 <body>
-    <div class="resume-container">
-        <header class="resume-header">
-            <div class="profile-pic-container">
-                <img src="https://avatars.githubusercontent.com/Rayyan-x95" alt="Mohammed Rayyan" class="profile-pic">
-            </div>
-            <h1>Mohammed Rayyan</h1>
-            <p class="tagline">Web Developer | Graphic Designer | Creative Technologist</p>
-            <div class="contact-info">
-                <a href="mailto:mmohammedrayyan0808@gmail.com">
-                    <i class="fas fa-envelope"></i> mmohammedrayyan0808@gmail.com
-                </a>
-                <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i> Rayyan-x95
-                </a>
-                <a href="https://linkedin.com/in/mohammed-rayyan1948" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin"></i> mohammed-rayyan1948
-                </a>
-                <a href="https://rayyan-x95.github.io" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-globe"></i> rayyan-x95.github.io
-                </a>
-            </div>
-        </header>
-        
-        <div class="resume-content">
-            <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-user"></i>
-                    Professional Summary
-                </h2>
-                <p class="summary">
-                    Dynamic and results-driven Graphic Designer, Engineering Student & ROM Developer with 4+ years of hands-on experience building innovative digital solutions. Founder of Ninety5 Studio. Specialized in web development, custom Android ROMs, and creative design with expertise in UI/UX, 3D visualization, and video production. Proven track record of serving 100+ clients with 400+ designs delivered worldwide. Currently pursuing B.E in Computer Science at Dhaanish Ahmed College of Engineering while maintaining an active freelance practice. Passionate about creating seamless user experiences and pushing the boundaries of technology.
-                </p>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-briefcase"></i>
-                    Professional Experience
-                </h2>
-                
-                <div class="experience-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-company">Ninety5 Design Studio (Freelance)</div>
-                            <div class="item-title">Founder & Lead Designer</div>
-                        </div>
-                        <div class="item-date">2021 - Present</div>
-                    </div>
-                    <p class="item-description">
-                        Founded and operate a freelance digital design studio, delivering comprehensive web development and design solutions to clients globally. Manage full project lifecycle from initial consultation to deployment and maintenance.
-                    </p>
-                    <ul class="achievements-list">
-                        <li>Successfully served 100+ clients with 400+ designs delivered and 98% client retention rate</li>
-                        <li>Architected and deployed scalable web applications serving 2000+ active users</li>
-                        <li>Developed custom design systems and component libraries for enterprise clients</li>
-                        <li>Implemented modern CI/CD pipelines reducing deployment time by 60%</li>
-                        <li>Provided technical mentorship and code reviews for junior developers</li>
-                    </ul>
-                    <div class="item-skills">
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">UI/UX Design</span>
-                        <span class="skill-tag">Project Management</span>
-                    </div>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Shared Navigation -->
+    <header class="lando-nav" id="navbar">
+        <nav class="lando-nav-container">
+            <a href="index.html" class="lando-logo" aria-label="Home">
+                <div class="logo-stack">
+                    <span class="logo-line-top">MOHAMMED</span>
+                    <span class="logo-line-bottom">RAYYAN</span>
                 </div>
-                
-                <div class="experience-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-company">Open Source Community</div>
-                            <div class="item-title">Android ROM Developer</div>
-                        </div>
-                        <div class="item-date">2020 - Present</div>
-                    </div>
-                    <p class="item-description">
-                        Contributing to Android Open Source Project (AOSP) development with focus on performance optimization and custom feature implementation for mobile devices.
-                    </p>
-                    <ul class="achievements-list">
-                        <li>Built and maintained custom Android ROMs with 15+ device support</li>
-                        <li>Optimized system performance achieving 25% battery life improvement</li>
-                        <li>Implemented custom UI/UX modifications enhancing user experience</li>
-                        <li>Collaborated with international developer community on feature development</li>
-                    </ul>
-                    <div class="item-skills">
-                        <span class="skill-tag">Android AOSP</span>
-                        <span class="skill-tag">Kotlin</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Git</span>
-                    </div>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-company">YouTube (@JUNINZO)</div>
-                            <div class="item-title">Video Editor & Content Creator</div>
-                        </div>
-                        <div class="item-date">2019 - Present</div>
-                    </div>
-                    <p class="item-description">
-                        Creating and editing professional tech content including tutorials, reviews, and creative storytelling videos. Specializing in advanced post-production workflows.
-                    </p>
-                    <ul class="achievements-list">
-                        <li>Produced 100+ high-quality video tutorials and tech reviews</li>
-                        <li>Implemented professional color grading and motion graphics workflows</li>
-                        <li>Managed multi-camera productions and post-production pipelines</li>
-                    </ul>
-                    <div class="item-skills">
-                        <span class="skill-tag">DaVinci Resolve</span>
-                        <span class="skill-tag">After Effects</span>
-                        <span class="skill-tag">Premiere Pro</span>
-                        <span class="skill-tag">Content Strategy</span>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-graduation-cap"></i>
-                    Education
-                </h2>
-                
-                <div class="education-item">
-                    <div class="item-header">
-                        <div>
-                            <div class="item-title">Bachelor of Engineering - Computer Science & Engineering</div>
-                            <div class="item-company">Dhaanish Ahmed College of Engineering</div>
-                        </div>
-                        <div class="item-date">2025 - 2029</div>
-                    </div>
-                    <p class="item-description">
-                        Currently pursuing B.E in Computer Science while maintaining active freelance practice. Focusing on software engineering, artificial intelligence, and modern web technologies. Balancing academic excellence with real-world project experience.
-                    </p>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-code"></i>
-                    Technical Skills
-                </h2>
-                
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Languages</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">JavaScript</span>
-                            <span class="skill-item">Python</span>
-                            <span class="skill-item">TypeScript</span>
-                            <span class="skill-item">Kotlin</span>
-                            <span class="skill-item">HTML5</span>
-                            <span class="skill-item">CSS3</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Frontend</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">React</span>
-                            <span class="skill-item">GSAP</span>
-                            <span class="skill-item">Tailwind CSS</span>
-                            <span class="skill-item">Material UI</span>
-                            <span class="skill-item">Responsive Design</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Backend</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Node.js</span>
-                            <span class="skill-item">Express</span>
-                            <span class="skill-item">REST APIs</span>
-                            <span class="skill-item">MongoDB</span>
-                            <span class="skill-item">Firebase</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Mobile</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Android Studio</span>
-                            <span class="skill-item">AOSP</span>
-                            <span class="skill-item">Jetpack Compose</span>
-                            <span class="skill-item">Custom ROMs</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Design</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Figma</span>
-                            <span class="skill-item">Adobe XD</span>
-                            <span class="skill-item">Photoshop</span>
-                            <span class="skill-item">Illustrator</span>
-                            <span class="skill-item">Blender 3D</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Video Production</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">DaVinci Resolve</span>
-                            <span class="skill-item">After Effects</span>
-                            <span class="skill-item">Premiere Pro</span>
-                            <span class="skill-item">Motion Graphics</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Tools & DevOps</h3>
-                        <div class="skill-list">
-                            <span class="skill-item">Git</span>
-                            <span class="skill-item">GitHub</span>
-                            <span class="skill-item">Docker</span>
-                            <span class="skill-item">VS Code</span>
-                            <span class="skill-item">npm/yarn</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-trophy"></i>
-                    Key Achievements
-                </h2>
-                <ul class="achievements-list">
-                    <li>Served 100+ clients with 400+ designs delivered and 98% client retention rate</li>
-                    <li>Built scalable web applications serving 2000+ active users</li>
-                    <li>Contributed to open-source Android development supporting 15+ devices</li>
-                    <li>Created comprehensive design systems for enterprise clients</li>
-                    <li>Produced 100+ professional tech tutorial videos</li>
-                    <li>Mastered 15+ technologies across full-stack, mobile, and design domains</li>
-                    <li>Maintained active freelance practice while pursuing formal education</li>
-                </ul>
-            </section>
-        </div>
-        
-        <div class="action-buttons">
-            <button onclick="downloadPDF()" class="btn btn-primary">
-                <i class="fas fa-download"></i> Download PDF
-            </button>
-            <button onclick="window.print()" class="btn btn-secondary">
-                <i class="fas fa-print"></i> Print
-            </button>
-            <a href="index.html" class="btn btn-secondary">
-                <i class="fas fa-arrow-left"></i> Back to Portfolio
             </a>
+            <div class="lando-nav-links" id="landoNavLinks">
+                <a href="index.html" class="lando-nav-link" data-section="home">HOME</a>
+                <a href="index.html#about" class="lando-nav-link" data-section="about">ABOUT</a>
+                <a href="projects.html" class="lando-nav-link" data-section="projects">PROJECTS</a>
+                <a href="services.html" class="lando-nav-link" data-section="services">SERVICES</a>
+                <a href="blog.html" class="lando-nav-link" data-section="blog">BLOG</a>
+                <a href="index.html#contact" class="lando-nav-link nav-cta nav-cta-secondary" data-section="contact">CONTACT</a>
+                <a href="resume.html" class="lando-nav-link nav-cta nav-cta-primary active" aria-label="View full resume">RESUME</a>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+                <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+            </button>
+            <button class="lando-menu-toggle" id="landoMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main" class="resume-page">
+        <div class="resume-container">
+            <header class="resume-header">
+                <div class="profile-pic-container">
+                    <img src="https://avatars.githubusercontent.com/Rayyan-x95" alt="Mohammed Rayyan" class="profile-pic" width="120" height="120">
+                </div>
+                <h1>Mohammed Rayyan</h1>
+                <p class="tagline">Web Developer | Graphic Designer | Creative Technologist</p>
+                <div class="resume-contact-info">
+                    <a href="mailto:mmohammedrayyan0808@gmail.com"><i class="fas fa-envelope"></i> mmohammedrayyan0808@gmail.com</a>
+                    <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Rayyan-x95</a>
+                    <a href="https://linkedin.com/in/mohammed-rayyan1948" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> mohammed-rayyan1948</a>
+                    <a href="https://rayyan-x95.github.io" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe"></i> rayyan-x95.github.io</a>
+                </div>
+            </header>
+
+            <div class="resume-content">
+                <section class="resume-section">
+                    <h2 class="resume-section-title"><i class="fas fa-user"></i> Professional Summary</h2>
+                    <p class="summary">Dynamic and results-driven Graphic Designer, Engineering Student & ROM Developer with 4+ years of hands-on experience building innovative digital solutions. Founder of Ninety5 Studio. Specialized in web development, custom Android ROMs, and creative design with expertise in UI/UX, 3D visualization, and video production. Proven track record of serving 100+ clients with 400+ designs delivered worldwide. Currently pursuing B.E in Computer Science at Dhaanish Ahmed College of Engineering while maintaining an active freelance practice. Passionate about creating seamless user experiences and pushing the boundaries of technology.</p>
+                </section>
+
+                <section class="resume-section">
+                    <h2 class="resume-section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-company">Ninety5 Design Studio (Freelance)</div>
+                                <div class="item-title">Founder & Lead Designer</div>
+                            </div>
+                            <div class="item-date">2021 - Present</div>
+                        </div>
+                        <p class="item-description">Founded and operate a freelance digital design studio, delivering comprehensive web development and design solutions to clients globally. Manage full project lifecycle from initial consultation to deployment and maintenance.</p>
+                        <ul class="achievements-list">
+                            <li>Successfully served 100+ clients with 400+ designs delivered and 98% client retention rate</li>
+                            <li>Architected and deployed scalable web applications serving 2000+ active users</li>
+                            <li>Developed custom design systems and component libraries for enterprise clients</li>
+                            <li>Implemented modern CI/CD pipelines reducing deployment time by 60%</li>
+                            <li>Provided technical mentorship and code reviews for junior developers</li>
+                        </ul>
+                        <div class="item-skills">
+                            <span class="resume-skill-tag">React</span>
+                            <span class="resume-skill-tag">Python</span>
+                            <span class="resume-skill-tag">Node.js</span>
+                            <span class="resume-skill-tag">UI/UX Design</span>
+                            <span class="resume-skill-tag">Project Management</span>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-company">Open Source Community</div>
+                                <div class="item-title">Android ROM Developer</div>
+                            </div>
+                            <div class="item-date">2020 - Present</div>
+                        </div>
+                        <p class="item-description">Contributing to Android Open Source Project (AOSP) development with focus on performance optimization and custom feature implementation for mobile devices.</p>
+                        <ul class="achievements-list">
+                            <li>Built and maintained custom Android ROMs with 15+ device support</li>
+                            <li>Optimized system performance achieving 25% battery life improvement</li>
+                            <li>Implemented custom UI/UX modifications enhancing user experience</li>
+                            <li>Collaborated with international developer community on feature development</li>
+                        </ul>
+                        <div class="item-skills">
+                            <span class="resume-skill-tag">Android AOSP</span>
+                            <span class="resume-skill-tag">Kotlin</span>
+                            <span class="resume-skill-tag">Linux</span>
+                            <span class="resume-skill-tag">Git</span>
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-company">YouTube (@JUNINZO)</div>
+                                <div class="item-title">Video Editor & Content Creator</div>
+                            </div>
+                            <div class="item-date">2019 - Present</div>
+                        </div>
+                        <p class="item-description">Creating and editing professional tech content including tutorials, reviews, and creative storytelling videos. Specializing in advanced post-production workflows.</p>
+                        <ul class="achievements-list">
+                            <li>Produced 100+ high-quality video tutorials and tech reviews</li>
+                            <li>Implemented professional color grading and motion graphics workflows</li>
+                            <li>Managed multi-camera productions and post-production pipelines</li>
+                        </ul>
+                        <div class="item-skills">
+                            <span class="resume-skill-tag">DaVinci Resolve</span>
+                            <span class="resume-skill-tag">After Effects</span>
+                            <span class="resume-skill-tag">Premiere Pro</span>
+                            <span class="resume-skill-tag">Content Strategy</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="resume-section">
+                    <h2 class="resume-section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <div class="education-item">
+                        <div class="item-header">
+                            <div>
+                                <div class="item-title">Bachelor of Engineering - Computer Science & Engineering</div>
+                                <div class="item-company">Dhaanish Ahmed College of Engineering</div>
+                            </div>
+                            <div class="item-date">2025 - 2029</div>
+                        </div>
+                        <p class="item-description">Currently pursuing B.E in Computer Science while maintaining active freelance practice. Focusing on software engineering, artificial intelligence, and modern web technologies. Balancing academic excellence with real-world project experience.</p>
+                    </div>
+                </section>
+
+                <section class="resume-section">
+                    <h2 class="resume-section-title"><i class="fas fa-code"></i> Technical Skills</h2>
+                    <div class="resume-skills-grid">
+                        <div class="skill-category">
+                            <h3>Languages</h3>
+                            <div class="resume-skill-list">
+                                <span class="resume-skill-item">JavaScript</span>
+                                <span class="resume-skill-item">Python</span>
+                                <span class="resume-skill-item">TypeScript</span>
+                                <span class="resume-skill-item">Kotlin</span>
+                                <span class="resume-skill-item">HTML5</span>
+                                <span class="resume-skill-item">CSS3</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Frontend</h3>
+                            <div class="resume-skill-list">
+                                <span class="resume-skill-item">React</span>
+                                <span class="resume-skill-item">GSAP</span>
+                                <span class="resume-skill-item">Tailwind CSS</span>
+                                <span class="resume-skill-item">Material UI</span>
+                                <span class="resume-skill-item">Responsive Design</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Backend</h3>
+                            <div class="resume-skill-list">
+                                <span class="resume-skill-item">Node.js</span>
+                                <span class="resume-skill-item">Express</span>
+                                <span class="resume-skill-item">REST APIs</span>
+                                <span class="resume-skill-item">MongoDB</span>
+                                <span class="resume-skill-item">Firebase</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Mobile</h3>
+                            <div class="resume-skill-list">
+                                <span class="resume-skill-item">Android Studio</span>
+                                <span class="resume-skill-item">AOSP</span>
+                                <span class="resume-skill-item">Jetpack Compose</span>
+                                <span class="resume-skill-item">Custom ROMs</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Design</h3>
+                            <div class="resume-skill-list">
+                                <span class="resume-skill-item">Figma</span>
+                                <span class="resume-skill-item">Adobe XD</span>
+                                <span class="resume-skill-item">Photoshop</span>
+                                <span class="resume-skill-item">Illustrator</span>
+                                <span class="resume-skill-item">Blender 3D</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Video Production</h3>
+                            <div class="resume-skill-list">
+                                <span class="resume-skill-item">DaVinci Resolve</span>
+                                <span class="resume-skill-item">After Effects</span>
+                                <span class="resume-skill-item">Premiere Pro</span>
+                                <span class="resume-skill-item">Motion Graphics</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Tools & DevOps</h3>
+                            <div class="resume-skill-list">
+                                <span class="resume-skill-item">Git</span>
+                                <span class="resume-skill-item">GitHub</span>
+                                <span class="resume-skill-item">Docker</span>
+                                <span class="resume-skill-item">VS Code</span>
+                                <span class="resume-skill-item">npm/yarn</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="resume-section">
+                    <h2 class="resume-section-title"><i class="fas fa-trophy"></i> Key Achievements</h2>
+                    <ul class="achievements-list">
+                        <li>Served 100+ clients with 400+ designs delivered and 98% client retention rate</li>
+                        <li>Built scalable web applications serving 2000+ active users</li>
+                        <li>Contributed to open-source Android development supporting 15+ devices</li>
+                        <li>Created comprehensive design systems for enterprise clients</li>
+                        <li>Produced 100+ professional tech tutorial videos</li>
+                        <li>Mastered 15+ technologies across full-stack, mobile, and design domains</li>
+                        <li>Maintained active freelance practice while pursuing formal education</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="action-buttons">
+                <button onclick="downloadPDF()" class="resume-btn resume-btn-primary"><i class="fas fa-download"></i> Download PDF</button>
+                <button onclick="window.print()" class="resume-btn resume-btn-secondary"><i class="fas fa-print"></i> Print</button>
+                <a href="index.html" class="resume-btn resume-btn-secondary"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
         </div>
-    </div>
-    
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-line-top">MOHAMMED</span>
+                        <span class="logo-line-bottom">RAYYAN</span>
+                    </div>
+                    <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <nav aria-label="Footer navigation">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="projects.html" class="footer-link">Projects</a>
+                        <a href="services.html" class="footer-link">Services</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="index.html#contact" class="footer-link">Contact</a>
+                    </nav>
+                </div>
+                <div class="footer-social">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="footer-social-links">
+                        <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; <span id="currentYear">2025</span> Mohammed Rayyan. All rights reserved.</p>
+                <p class="footer-credit">Built with passion &amp; clean code</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
     <script>
+        /* Theme toggle for sub-pages (light version of main script) */
+        (function() {
+            const root = document.documentElement;
+            const btn = document.getElementById('themeToggle');
+            const menuToggle = document.getElementById('landoMenuToggle');
+            const navLinks = document.getElementById('landoNavLinks');
+            const backToTop = document.getElementById('backToTop');
+            const yearEl = document.getElementById('currentYear');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            /* Theme */
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    btn.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+                    var meta = document.querySelector('meta[name="theme-color"]');
+                    if (meta) meta.setAttribute('content', next === 'dark' ? '#0b0f1a' : '#5b4cdb');
+                });
+                btn.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'light' ? 'true' : 'false');
+            }
+
+            /* Mobile menu */
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.toggle('active');
+                    menuToggle.classList.toggle('active', isOpen);
+                    menuToggle.setAttribute('aria-expanded', isOpen);
+                });
+            }
+
+            /* Back to top */
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    backToTop.classList.toggle('visible', window.scrollY > 400);
+                }, { passive: true });
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        })();
+
         function downloadPDF() {
-            // Trigger the browser's print dialog with instructions
-            const message = document.createElement('div');
-            message.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#5b4cdb;color:white;padding:1rem 2rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:10000;font-family:Inter,sans-serif;font-size:14px;';
-            message.innerHTML = '<strong>💡 Tip:</strong> In the print dialog, select "Save as PDF" as the destination';
-            document.body.appendChild(message);
-            
-            setTimeout(() => {
-                window.print();
-                setTimeout(() => message.remove(), 1000);
-            }, 100);
+            const msg = document.createElement('div');
+            msg.style.cssText = 'position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--primary-color,#5b4cdb);color:white;padding:1rem 2rem;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:10000;font-family:inherit;font-size:14px;';
+            msg.innerHTML = '<strong>Tip:</strong> In the print dialog, select "Save as PDF" as the destination';
+            document.body.appendChild(msg);
+            setTimeout(function() { window.print(); setTimeout(function() { msg.remove(); }, 1000); }, 100);
         }
     </script>
 </body>

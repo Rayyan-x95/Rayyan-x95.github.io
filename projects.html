@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="view-transition" content="same-origin">
+
+    <!-- Primary Meta Tags -->
+    <title>Projects | Mohammed Rayyan - Web, Android, Design &amp; More</title>
+    <meta name="description" content="Browse all projects by Mohammed Rayyan — full-stack web apps, custom Android ROMs, 3D design, video production, and developer tools. Open-source portfolio from Ninety5 Studio.">
+    <meta name="keywords" content="Mohammed Rayyan projects, portfolio, web development, Android ROM, Ninety5 Studio, open source, Blender 3D, video production">
+    <meta name="author" content="Mohammed Rayyan">
+    <meta name="robots" content="index, follow, max-snippet:-1">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <link rel="canonical" href="https://rayyan-x95.github.io/projects.html">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN-TN">
+    <meta name="geo.placename" content="Tamil Nadu">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#5b4cdb">
+    <meta name="msapplication-TileColor" content="#5b4cdb">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rayyan-x95.github.io/projects.html">
+    <meta property="og:site_name" content="Mohammed Rayyan - Graphic Designer & ROM Developer Portfolio">
+    <meta property="og:title" content="Projects | Mohammed Rayyan">
+    <meta property="og:description" content="Full-stack web apps, custom Android ROMs, 3D design, video production, and developer tools.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop&q=80">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Rayyan_x95">
+    <meta name="twitter:title" content="Projects | Mohammed Rayyan">
+    <meta name="twitter:description" content="Full-stack web apps, custom Android ROMs, 3D design, video production, and developer tools.">
+
+    <!-- DNS Prefetch & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></noscript>
+
+    <!-- Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- Main Stylesheet -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Critical Inline Script -->
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0f1a' : '#5b4cdb');
+            } catch(e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
+
+    <!-- Page-specific styles -->
+    <style>
+        .subpage-hero {
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .subpage-hero .section-number { display: block; margin-bottom: 0.5rem; }
+        .subpage-hero .section-label { display: block; margin-bottom: 0.5rem; }
+
+        /* Filter bar */
+        .proj-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .proj-filter-btn {
+            padding: 0.5rem 1.1rem;
+            border: 1px solid var(--border-light);
+            border-radius: 100px;
+            background: var(--card-bg);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .proj-filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        .proj-filter-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Projects grid */
+        .proj-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+            padding-bottom: 4rem;
+        }
+        .proj-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .proj-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+        .proj-card[hidden] { display: none; }
+
+        .proj-card-img-wrap { position: relative; overflow: hidden; }
+        .proj-card-img {
+            width: 100%; height: 200px;
+            object-fit: cover; display: block;
+            transition: transform 0.4s ease;
+        }
+        .proj-card:hover .proj-card-img { transform: scale(1.04); }
+        .proj-card-badges {
+            position: absolute; top: 0.75rem; left: 0.75rem;
+            display: flex; gap: 0.4rem;
+        }
+        .proj-badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .proj-badge-live { background: #10b981; color: white; }
+        .proj-badge-featured { background: var(--gradient-primary); color: white; }
+        .proj-badge-active { background: #3b82f6; color: white; }
+        .proj-badge-new { background: #f59e0b; color: #1a1a2e; }
+
+        .proj-card-body { padding: 1.5rem; }
+        .proj-card-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .proj-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        .proj-card-desc {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .proj-card-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+        .proj-tag {
+            padding: 0.2rem 0.6rem;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .proj-card-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .proj-action {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .proj-action-primary { background: var(--gradient-primary); color: white; }
+        .proj-action-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); color: white; }
+        .proj-action-outline { border: 1px solid var(--border-light); color: var(--text-primary); }
+        .proj-action-outline:hover { border-color: var(--primary-color); color: var(--primary-color); transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .proj-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Mohammed Rayyan's Projects",
+      "url": "https://rayyan-x95.github.io/projects.html",
+      "author": { "@type": "Person", "name": "Mohammed Rayyan" },
+      "description": "Full project portfolio — web applications, Android ROMs, design work, developer tools, and video production."
+    }
+    </script>
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Shared Navigation -->
+    <header class="lando-nav" id="navbar">
+        <nav class="lando-nav-container">
+            <a href="index.html" class="lando-logo" aria-label="Home">
+                <div class="logo-stack">
+                    <span class="logo-line-top">MOHAMMED</span>
+                    <span class="logo-line-bottom">RAYYAN</span>
+                </div>
+            </a>
+            <div class="lando-nav-links" id="landoNavLinks">
+                <a href="index.html" class="lando-nav-link" data-section="home">HOME</a>
+                <a href="index.html#about" class="lando-nav-link" data-section="about">ABOUT</a>
+                <a href="projects.html" class="lando-nav-link active" data-section="projects">PROJECTS</a>
+                <a href="services.html" class="lando-nav-link" data-section="services">SERVICES</a>
+                <a href="blog.html" class="lando-nav-link" data-section="blog">BLOG</a>
+                <a href="index.html#contact" class="lando-nav-link nav-cta nav-cta-secondary" data-section="contact">CONTACT</a>
+                <a href="resume.html" class="lando-nav-link nav-cta nav-cta-primary" aria-label="View full resume">RESUME</a>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+                <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+            </button>
+            <button class="lando-menu-toggle" id="landoMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <!-- Hero -->
+        <section class="subpage-hero">
+            <div class="container">
+                <span class="section-number">PROJECTS</span>
+                <span class="section-label">PORTFOLIO</span>
+                <h1 class="section-title-bold">FEATURED WORK</h1>
+                <div class="section-divider"></div>
+            </div>
+        </section>
+
+        <!-- Filter + Grid -->
+        <section class="section">
+            <div class="container">
+                <div class="proj-filters" role="tablist" aria-label="Project category filters">
+                    <button class="proj-filter-btn active" data-filter="all" role="tab" aria-selected="true"><i class="fas fa-th-large"></i> All</button>
+                    <button class="proj-filter-btn" data-filter="web" role="tab" aria-selected="false"><i class="fas fa-globe"></i> Web</button>
+                    <button class="proj-filter-btn" data-filter="android" role="tab" aria-selected="false"><i class="fab fa-android"></i> Android</button>
+                    <button class="proj-filter-btn" data-filter="tools" role="tab" aria-selected="false"><i class="fas fa-tools"></i> Tools</button>
+                    <button class="proj-filter-btn" data-filter="design" role="tab" aria-selected="false"><i class="fas fa-palette"></i> Design</button>
+                    <button class="proj-filter-btn" data-filter="video" role="tab" aria-selected="false"><i class="fas fa-video"></i> Video</button>
+                </div>
+
+                <div class="proj-grid" id="projGrid">
+
+                    <!-- Portfolio Website -->
+                    <article class="proj-card" data-cat="web">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=680&h=400&fit=crop&q=80" alt="Portfolio Website" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                            <div class="proj-card-badges">
+                                <span class="proj-badge proj-badge-live">Live</span>
+                                <span class="proj-badge proj-badge-featured">Featured</span>
+                            </div>
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">Web Development &middot; Ninety5 Studio</div>
+                            <h2 class="proj-card-title">Portfolio Website</h2>
+                            <p class="proj-card-desc">Modern, responsive portfolio with glassmorphism design, GSAP scroll animations, dark/light themes, and optimized Lighthouse scores. Built from scratch with vanilla HTML, CSS &amp; JavaScript.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">HTML5</span>
+                                <span class="proj-tag">CSS3</span>
+                                <span class="proj-tag">JavaScript</span>
+                                <span class="proj-tag">GSAP</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://rayyan-x95.github.io" target="_blank" rel="noopener" class="proj-action proj-action-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                <a href="https://github.com/Rayyan-x95/Rayyan-x95.github.io" target="_blank" rel="noopener" class="proj-action proj-action-outline"><i class="fab fa-github"></i> Source</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- TaskZen Web -->
+                    <article class="proj-card" data-cat="web">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=680&h=400&fit=crop&q=80" alt="TaskZen Productivity App" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                            <div class="proj-card-badges"><span class="proj-badge proj-badge-active">Active</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">Web App</div>
+                            <h2 class="proj-card-title">TaskZen</h2>
+                            <p class="proj-card-desc">Next-gen productivity app with Task Manager, Pomodoro timer, and offline-first architecture for distraction-free work.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">HTML</span>
+                                <span class="proj-tag">CSS</span>
+                                <span class="proj-tag">JavaScript</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://github.com/Rayyan-x95/TaskZen" target="_blank" rel="noopener" class="proj-action proj-action-outline"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- TaskZen Android -->
+                    <article class="proj-card" data-cat="android">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=680&h=400&fit=crop&q=80" alt="TaskZen Android App" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                            <div class="proj-card-badges"><span class="proj-badge proj-badge-new">New</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">Android App</div>
+                            <h2 class="proj-card-title">TaskZen Android</h2>
+                            <p class="proj-card-desc">Native Android companion for TaskZen built with Kotlin and Jetpack Compose for material design productivity tracking.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">Kotlin</span>
+                                <span class="proj-tag">Jetpack Compose</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://github.com/Rayyan-x95/TaskZen-Android" target="_blank" rel="noopener" class="proj-action proj-action-outline"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- AI Career Navigator -->
+                    <article class="proj-card" data-cat="web">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=680&h=400&fit=crop&q=80" alt="AI Career Navigator" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                            <div class="proj-card-badges"><span class="proj-badge proj-badge-new">New</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">AI / Web App</div>
+                            <h2 class="proj-card-title">AI Career Navigator</h2>
+                            <p class="proj-card-desc">Intelligent career path navigator powered by AI-driven insights, personalized roadmap generation, and learning path recommendations.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">JavaScript</span>
+                                <span class="proj-tag">AI Integration</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://github.com/Rayyan-x95/AI-Career-Navigator" target="_blank" rel="noopener" class="proj-action proj-action-outline"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Custom Android ROMs -->
+                    <article class="proj-card" data-cat="android">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=680&h=400&fit=crop&q=80" alt="Custom Android ROMs" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                            <div class="proj-card-badges"><span class="proj-badge proj-badge-featured">Featured</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">Android AOSP</div>
+                            <h2 class="proj-card-title">Custom Android ROMs</h2>
+                            <p class="proj-card-desc">Building and maintaining custom ROMs (Lunaris, Evolution X, Clover) for Xiaomi devices with performance tuning and UX optimizations.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">Android AOSP</span>
+                                <span class="proj-tag">Java</span>
+                                <span class="proj-tag">C++</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://github.com/Lunaris-AOSP" target="_blank" rel="noopener" class="proj-action proj-action-outline"><i class="fab fa-github"></i> Lunaris</a>
+                                <a href="https://sourceforge.net/projects/juninzo/" target="_blank" rel="noopener" class="proj-action proj-action-primary"><i class="fas fa-download"></i> Downloads</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Xiaomi Sweet Device Tree -->
+                    <article class="proj-card" data-cat="android">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=680&h=400&fit=crop&q=80" alt="Xiaomi Sweet Device Tree" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                            <div class="proj-card-badges"><span class="proj-badge proj-badge-active">Active</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">Device Tree</div>
+                            <h2 class="proj-card-title">Xiaomi Sweet Device Tree</h2>
+                            <p class="proj-card-desc">Open-source device tree for Redmi Note 10 Pro enabling custom ROM support, kernel configuration, and hardware abstraction.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">Makefile</span>
+                                <span class="proj-tag">Device Config</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://github.com/Bloody-Sweet-95/android_device_xiaomi_sweet" target="_blank" rel="noopener" class="proj-action proj-action-outline"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Habitate -->
+                    <article class="proj-card" data-cat="android">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=680&h=400&fit=crop&q=80" alt="Habitate Habit Tracker" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">Android App</div>
+                            <h2 class="proj-card-title">Habitate</h2>
+                            <p class="proj-card-desc">Modern Android habit tracker helping users build and maintain positive daily routines with streak tracking and reminders.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">Kotlin</span>
+                                <span class="proj-tag">Android SDK</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://github.com/Rayyan-x95/Habitate" target="_blank" rel="noopener" class="proj-action proj-action-outline"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- LUT Playground -->
+                    <article class="proj-card" data-cat="tools">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=680&h=400&fit=crop&q=80" alt="LUT Playground" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">Creative Tool</div>
+                            <h2 class="proj-card-title">LUT Playground</h2>
+                            <p class="proj-card-desc">Interactive color grading playground for previewing and applying LUTs to images in the browser with real-time preview.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">HTML</span>
+                                <span class="proj-tag">JavaScript</span>
+                                <span class="proj-tag">MIT License</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://github.com/Rayyan-x95/LUT-Playground" target="_blank" rel="noopener" class="proj-action proj-action-outline"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- F1 Telemetry -->
+                    <article class="proj-card" data-cat="tools">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1532906619279-a782cd00838d?w=680&h=400&fit=crop&q=80" alt="F1 Telemetry Analysis" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">Data Tool</div>
+                            <h2 class="proj-card-title">F1 Telemetry</h2>
+                            <p class="proj-card-desc">Data analysis tool for Formula 1 telemetry providing vehicle performance metrics and race insights with interactive charts.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">Data Analysis</span>
+                                <span class="proj-tag">Telemetry</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://github.com/Rayyan-x95/F1-Telemetry" target="_blank" rel="noopener" class="proj-action proj-action-outline"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Resume Generator -->
+                    <article class="proj-card" data-cat="tools">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=680&h=400&fit=crop&q=80" alt="Resume Generator" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">Utility</div>
+                            <h2 class="proj-card-title">Resume Generator</h2>
+                            <p class="proj-card-desc">Dynamic utility for generating professional resumes from customizable templates and structured user input.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">Automation</span>
+                                <span class="proj-tag">Utility</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://github.com/Rayyan-x95/Resume-Generator" target="_blank" rel="noopener" class="proj-action proj-action-outline"><i class="fab fa-github"></i> View Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- YouTube Channel -->
+                    <article class="proj-card" data-cat="video">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=680&h=400&fit=crop&q=80" alt="YouTube Channel" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                            <div class="proj-card-badges"><span class="proj-badge proj-badge-active">Active</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">Video Production</div>
+                            <h2 class="proj-card-title">YouTube Channel</h2>
+                            <p class="proj-card-desc">Professional video production for tech reviews, tutorials, and creative content with DaVinci Resolve, After Effects, and Premiere Pro.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">DaVinci Resolve</span>
+                                <span class="proj-tag">After Effects</span>
+                                <span class="proj-tag">Premiere Pro</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener" class="proj-action proj-action-primary"><i class="fab fa-youtube"></i> Watch Now</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 3D Design Portfolio -->
+                    <article class="proj-card" data-cat="design">
+                        <div class="proj-card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=680&h=400&fit=crop&q=80" alt="3D Design Portfolio" class="proj-card-img" loading="lazy" width="680" height="400" decoding="async">
+                            <div class="proj-card-badges"><span class="proj-badge proj-badge-featured">Featured</span></div>
+                        </div>
+                        <div class="proj-card-body">
+                            <div class="proj-card-category">3D Design</div>
+                            <h2 class="proj-card-title">3D Design Portfolio</h2>
+                            <p class="proj-card-desc">3D models, renders, and animations in Blender for product visualization, character design, and marketing assets.</p>
+                            <div class="proj-card-tags">
+                                <span class="proj-tag">Blender</span>
+                                <span class="proj-tag">3D Modeling</span>
+                                <span class="proj-tag">Rendering</span>
+                            </div>
+                            <div class="proj-card-actions">
+                                <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener" class="proj-action proj-action-primary"><i class="fab fa-behance"></i> View Portfolio</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-line-top">MOHAMMED</span>
+                        <span class="logo-line-bottom">RAYYAN</span>
+                    </div>
+                    <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <nav aria-label="Footer navigation">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="projects.html" class="footer-link">Projects</a>
+                        <a href="services.html" class="footer-link">Services</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="index.html#contact" class="footer-link">Contact</a>
+                    </nav>
+                </div>
+                <div class="footer-social">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="footer-social-links">
+                        <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; <span id="currentYear">2025</span> Mohammed Rayyan. All rights reserved.</p>
+                <p class="footer-credit">Built with passion &amp; clean code</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        (function() {
+            const root = document.documentElement;
+            const btn = document.getElementById('themeToggle');
+            const menuToggle = document.getElementById('landoMenuToggle');
+            const navLinks = document.getElementById('landoNavLinks');
+            const backToTop = document.getElementById('backToTop');
+            const yearEl = document.getElementById('currentYear');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            /* Theme toggle */
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    btn.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+                    var meta = document.querySelector('meta[name="theme-color"]');
+                    if (meta) meta.setAttribute('content', next === 'dark' ? '#0b0f1a' : '#5b4cdb');
+                });
+                btn.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'light' ? 'true' : 'false');
+            }
+            /* Mobile menu */
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.toggle('active');
+                    menuToggle.classList.toggle('active', isOpen);
+                    menuToggle.setAttribute('aria-expanded', isOpen);
+                });
+            }
+            /* Back to top */
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    backToTop.classList.toggle('visible', window.scrollY > 400);
+                }, { passive: true });
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            /* Category filter */
+            var filters = document.querySelectorAll('.proj-filter-btn');
+            var cards = document.querySelectorAll('.proj-card');
+            filters.forEach(function(f) {
+                f.addEventListener('click', function() {
+                    var cat = this.getAttribute('data-filter');
+                    filters.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+                    this.classList.add('active');
+                    this.setAttribute('aria-selected', 'true');
+                    cards.forEach(function(c) {
+                        if (cat === 'all' || c.getAttribute('data-cat') === cat) {
+                            c.hidden = false;
+                        } else {
+                            c.hidden = true;
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

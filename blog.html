@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="view-transition" content="same-origin">
+
+    <!-- Primary Meta Tags -->
+    <title>Blog & Changelog | Mohammed Rayyan - Graphic Designer & ROM Developer</title>
+    <meta name="description" content="Tech blog and project changelog by Mohammed Rayyan. Read about web development, Android ROM development, design systems, and creative workflows at Ninety5 Studio.">
+    <meta name="keywords" content="Mohammed Rayyan blog, web development blog, Android ROM changelog, Ninety5 Studio updates, design engineering, tech tutorials">
+    <meta name="author" content="Mohammed Rayyan">
+    <meta name="robots" content="index, follow, max-snippet:-1">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <link rel="canonical" href="https://rayyan-x95.github.io/blog.html">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN-TN">
+    <meta name="geo.placename" content="Tamil Nadu">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#5b4cdb">
+    <meta name="msapplication-TileColor" content="#5b4cdb">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rayyan-x95.github.io/blog.html">
+    <meta property="og:site_name" content="Mohammed Rayyan - Graphic Designer & ROM Developer Portfolio">
+    <meta property="og:title" content="Blog & Changelog | Mohammed Rayyan">
+    <meta property="og:description" content="Tech blog and project changelog. Web development, Android ROM development, design systems, and creative workflows.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?w=1200&h=630&fit=crop&q=80">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Rayyan_x95">
+    <meta name="twitter:creator" content="@Rayyan_x95">
+    <meta name="twitter:title" content="Blog & Changelog | Mohammed Rayyan">
+    <meta name="twitter:description" content="Tech blog and project changelog. Web development, Android ROM development, design systems.">
+
+    <!-- DNS Prefetch & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></noscript>
+
+    <!-- Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- Main Stylesheet -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Critical Inline Script -->
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0f1a' : '#5b4cdb');
+            } catch(e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
+
+    <!-- Page-specific styles -->
+    <style>
+        .subpage-hero {
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .subpage-hero .section-number { display: block; margin-bottom: 0.5rem; }
+        .subpage-hero .section-label { display: block; margin-bottom: 0.5rem; }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+            padding-bottom: 4rem;
+        }
+        .blog-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-xl);
+        }
+        .blog-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .blog-card-body { padding: 1.5rem; }
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+        }
+        .blog-card-tag {
+            padding: 0.2rem 0.6rem;
+            background: linear-gradient(135deg, rgba(91,76,219,0.12), rgba(124,58,237,0.12));
+            border-radius: var(--radius-sm);
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .blog-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        .blog-card-excerpt {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .blog-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: gap 0.2s ease;
+        }
+        .blog-card-link:hover { gap: 0.75rem; }
+
+        /* Changelog section */
+        .changelog-section { padding: 3rem 0 4rem; }
+        .changelog-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .changelog-item:last-child { border-bottom: none; }
+        .changelog-version {
+            min-width: 70px;
+            padding: 0.3rem 0.75rem;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 0.8125rem;
+            text-align: center;
+            align-self: flex-start;
+        }
+        .changelog-body { flex: 1; }
+        .changelog-date {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.25rem;
+        }
+        .changelog-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .changelog-desc {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .changelog-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+        .changelog-tag {
+            padding: 0.2rem 0.6rem;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .changelog-item { flex-direction: column; gap: 0.75rem; }
+            .changelog-version { align-self: flex-start; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Mohammed Rayyan's Blog & Changelog",
+      "url": "https://rayyan-x95.github.io/blog.html",
+      "author": { "@type": "Person", "name": "Mohammed Rayyan" }
+    }
+    </script>
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Shared Navigation -->
+    <header class="lando-nav" id="navbar">
+        <nav class="lando-nav-container">
+            <a href="index.html" class="lando-logo" aria-label="Home">
+                <div class="logo-stack">
+                    <span class="logo-line-top">MOHAMMED</span>
+                    <span class="logo-line-bottom">RAYYAN</span>
+                </div>
+            </a>
+            <div class="lando-nav-links" id="landoNavLinks">
+                <a href="index.html" class="lando-nav-link" data-section="home">HOME</a>
+                <a href="index.html#about" class="lando-nav-link" data-section="about">ABOUT</a>
+                <a href="projects.html" class="lando-nav-link" data-section="projects">PROJECTS</a>
+                <a href="services.html" class="lando-nav-link" data-section="services">SERVICES</a>
+                <a href="blog.html" class="lando-nav-link active" data-section="blog">BLOG</a>
+                <a href="index.html#contact" class="lando-nav-link nav-cta nav-cta-secondary" data-section="contact">CONTACT</a>
+                <a href="resume.html" class="lando-nav-link nav-cta nav-cta-primary" aria-label="View full resume">RESUME</a>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+                <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+            </button>
+            <button class="lando-menu-toggle" id="landoMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <!-- Hero -->
+        <section class="subpage-hero">
+            <div class="container">
+                <span class="section-number">BLOG</span>
+                <span class="section-label">THOUGHTS & UPDATES</span>
+                <h1 class="section-title-bold">BLOG &amp; CHANGELOG</h1>
+                <div class="section-divider"></div>
+            </div>
+        </section>
+
+        <!-- Blog Posts -->
+        <section class="section">
+            <div class="container">
+                <div class="blog-grid">
+
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=680&h=400&fit=crop&q=80" alt="Performance Optimization" class="blog-card-img" loading="lazy" width="680" height="400" decoding="async">
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">
+                                <span class="blog-card-tag">Performance</span>
+                                <time datetime="2026-02-19">Feb 19, 2026</time>
+                            </div>
+                            <h2 class="blog-card-title">Optimizing CSS Animations for 60fps on Mobile</h2>
+                            <p class="blog-card-excerpt">How I rebuilt every animation in my portfolio to use only transform and opacity &mdash; achieving silky-smooth 60fps scrolling even on mid-range Android devices.</p>
+                            <span class="blog-card-link">Read more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=680&h=400&fit=crop&q=80" alt="Custom ROM Development" class="blog-card-img" loading="lazy" width="680" height="400" decoding="async">
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">
+                                <span class="blog-card-tag">Android</span>
+                                <time datetime="2026-01-28">Jan 28, 2026</time>
+                            </div>
+                            <h2 class="blog-card-title">Building Lunaris: A Custom Android ROM from Scratch</h2>
+                            <p class="blog-card-excerpt">A deep dive into the AOSP build process, device tree management, and the challenges of maintaining a custom ROM for Xiaomi devices.</p>
+                            <span class="blog-card-link">Read more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=680&h=400&fit=crop&q=80" alt="3D Design Workflow" class="blog-card-img" loading="lazy" width="680" height="400" decoding="async">
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">
+                                <span class="blog-card-tag">Design</span>
+                                <time datetime="2026-01-12">Jan 12, 2026</time>
+                            </div>
+                            <h2 class="blog-card-title">My Blender Workflow: From Concept to Product Render</h2>
+                            <p class="blog-card-excerpt">Sharing the modeling, texturing, and lighting techniques I use in Blender for photorealistic product visualization and marketing assets.</p>
+                            <span class="blog-card-link">Read more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=680&h=400&fit=crop&q=80" alt="Portfolio Redesign" class="blog-card-img" loading="lazy" width="680" height="400" decoding="async">
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">
+                                <span class="blog-card-tag">Web Dev</span>
+                                <time datetime="2025-12-20">Dec 20, 2025</time>
+                            </div>
+                            <h2 class="blog-card-title">Redesigning My Portfolio: Glassmorphism &amp; GSAP</h2>
+                            <p class="blog-card-excerpt">The design decisions and technical approach behind building a modern portfolio with glassmorphism, scroll-driven animations, and dual theme support.</p>
+                            <span class="blog-card-link">Read more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=680&h=400&fit=crop&q=80" alt="AI Career Navigator" class="blog-card-img" loading="lazy" width="680" height="400" decoding="async">
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">
+                                <span class="blog-card-tag">AI</span>
+                                <time datetime="2025-11-15">Nov 15, 2025</time>
+                            </div>
+                            <h2 class="blog-card-title">Building an AI-Powered Career Navigator</h2>
+                            <p class="blog-card-excerpt">How I integrated AI-driven insights to generate personalized career roadmaps and learning paths for students and professionals.</p>
+                            <span class="blog-card-link">Read more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=680&h=400&fit=crop&q=80" alt="Color Grading" class="blog-card-img" loading="lazy" width="680" height="400" decoding="async">
+                        <div class="blog-card-body">
+                            <div class="blog-card-meta">
+                                <span class="blog-card-tag">Video</span>
+                                <time datetime="2025-10-08">Oct 8, 2025</time>
+                            </div>
+                            <h2 class="blog-card-title">Color Grading for the Web: LUT Playground</h2>
+                            <p class="blog-card-excerpt">Creating an interactive color grading tool in the browser and the challenges of bringing DaVinci Resolve concepts to JavaScript.</p>
+                            <span class="blog-card-link">Read more <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Changelog -->
+        <section class="section changelog-section section-bg-secondary">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">LOG</span>
+                    <span class="section-label">VERSION HISTORY</span>
+                    <h2 class="section-title-bold">CHANGELOG</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="changelog-item">
+                    <span class="changelog-version">v3.2</span>
+                    <div class="changelog-body">
+                        <div class="changelog-date">February 19, 2026</div>
+                        <h3 class="changelog-title">Animation Performance Overhaul</h3>
+                        <p class="changelog-desc">Rebuilt all CSS and JS animations to use transform/opacity only. Consolidated duplicate keyframes, added prefers-reduced-motion guards, GPU-composited cursor, and reduced particle count for mobile.</p>
+                        <div class="changelog-tags">
+                            <span class="changelog-tag">Performance</span>
+                            <span class="changelog-tag">CSS</span>
+                            <span class="changelog-tag">JavaScript</span>
+                            <span class="changelog-tag">Accessibility</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="changelog-item">
+                    <span class="changelog-version">v3.1</span>
+                    <div class="changelog-body">
+                        <div class="changelog-date">February 18, 2026</div>
+                        <h3 class="changelog-title">Multi-Page Architecture & New Pages</h3>
+                        <p class="changelog-desc">Added Blog, Projects, Services, and Links pages. Synced navigation, footer, theme system, and design tokens across all pages for consistent UI/UX.</p>
+                        <div class="changelog-tags">
+                            <span class="changelog-tag">Architecture</span>
+                            <span class="changelog-tag">UI/UX</span>
+                            <span class="changelog-tag">Navigation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="changelog-item">
+                    <span class="changelog-version">v3.0</span>
+                    <div class="changelog-body">
+                        <div class="changelog-date">February 15, 2026</div>
+                        <h3 class="changelog-title">Complete Portfolio Redesign</h3>
+                        <p class="changelog-desc">Full redesign with glassmorphism theme, GSAP scroll animations, pill navigation, dual dark/light mode, interactive project cards, and comprehensive SEO with structured data.</p>
+                        <div class="changelog-tags">
+                            <span class="changelog-tag">Redesign</span>
+                            <span class="changelog-tag">GSAP</span>
+                            <span class="changelog-tag">SEO</span>
+                            <span class="changelog-tag">Theming</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="changelog-item">
+                    <span class="changelog-version">v2.0</span>
+                    <div class="changelog-body">
+                        <div class="changelog-date">September 2025</div>
+                        <h3 class="changelog-title">Resume Page & GitHub Stats</h3>
+                        <p class="changelog-desc">Added dedicated resume page with print/PDF support, GitHub activity cards, and enhanced contact form with backend integration.</p>
+                        <div class="changelog-tags">
+                            <span class="changelog-tag">Resume</span>
+                            <span class="changelog-tag">GitHub API</span>
+                            <span class="changelog-tag">Forms</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="changelog-item">
+                    <span class="changelog-version">v1.0</span>
+                    <div class="changelog-body">
+                        <div class="changelog-date">January 2025</div>
+                        <h3 class="changelog-title">Initial Launch</h3>
+                        <p class="changelog-desc">First version of the portfolio site with basic sections, dark mode, and responsive layout. Deployed on GitHub Pages.</p>
+                        <div class="changelog-tags">
+                            <span class="changelog-tag">Launch</span>
+                            <span class="changelog-tag">HTML/CSS/JS</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-line-top">MOHAMMED</span>
+                        <span class="logo-line-bottom">RAYYAN</span>
+                    </div>
+                    <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <nav aria-label="Footer navigation">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="projects.html" class="footer-link">Projects</a>
+                        <a href="services.html" class="footer-link">Services</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="index.html#contact" class="footer-link">Contact</a>
+                    </nav>
+                </div>
+                <div class="footer-social">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="footer-social-links">
+                        <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; <span id="currentYear">2025</span> Mohammed Rayyan. All rights reserved.</p>
+                <p class="footer-credit">Built with passion &amp; clean code</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        (function() {
+            const root = document.documentElement;
+            const btn = document.getElementById('themeToggle');
+            const menuToggle = document.getElementById('landoMenuToggle');
+            const navLinks = document.getElementById('landoNavLinks');
+            const backToTop = document.getElementById('backToTop');
+            const yearEl = document.getElementById('currentYear');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    btn.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+                    var meta = document.querySelector('meta[name="theme-color"]');
+                    if (meta) meta.setAttribute('content', next === 'dark' ? '#0b0f1a' : '#5b4cdb');
+                });
+                btn.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'light' ? 'true' : 'false');
+            }
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.toggle('active');
+                    menuToggle.classList.toggle('active', isOpen);
+                    menuToggle.setAttribute('aria-expanded', isOpen);
+                });
+            }
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    backToTop.classList.toggle('visible', window.scrollY > 400);
+                }, { passive: true });
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

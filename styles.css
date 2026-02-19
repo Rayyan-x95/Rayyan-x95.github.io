@@ -41,43 +41,33 @@
 
 @keyframes blobFloat {
     0%, 100% {
-        transform: translate(0, 0) scale(1) rotate(0deg);
+        transform: translate3d(0, 0, 0) scale(1);
         border-radius: 50%;
     }
-    20% {
-        transform: translate(80px, -60px) scale(1.15) rotate(45deg);
+    33% {
+        transform: translate3d(60px, -50px, 0) scale(1.1);
         border-radius: 42% 58% 62% 38% / 45% 55% 45% 55%;
     }
-    40% {
-        transform: translate(-60px, 80px) scale(0.88) rotate(120deg);
+    66% {
+        transform: translate3d(-40px, 60px, 0) scale(0.92);
         border-radius: 60% 40% 35% 65% / 50% 60% 40% 50%;
-    }
-    60% {
-        transform: translate(40px, 60px) scale(1.08) rotate(200deg);
-        border-radius: 38% 62% 55% 45% / 58% 42% 58% 42%;
-    }
-    80% {
-        transform: translate(-30px, -40px) scale(0.95) rotate(300deg);
-        border-radius: 52% 48% 42% 58% / 40% 60% 40% 60%;
     }
 }
 
-/* Premium gradient animations */
+/* Premium gradient animations — uses shared gradientShift keyframe */
 .animated-gradient {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
 }
 
+/* Shared gradient position shift — used by .animated-gradient, .gradient-text, #typing-text etc. */
 @keyframes gradientShift {
-    0% {
+    0%, 100% {
         background-position: 0% 50%;
     }
     50% {
         background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
     }
 }
 
@@ -116,7 +106,6 @@
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     transform-style: preserve-3d;
-    will-change: transform;
 }
 
 .minimal-card::before {
@@ -137,7 +126,7 @@
 }
 
 .minimal-card:hover {
-    transform: translateY(-10px) rotateX(4deg) scale(1.02);
+    transform: translateY(-10px) scale(1.02);
     box-shadow: 0 30px 60px -15px rgba(91, 76, 219, 0.2);
 }
 
@@ -239,12 +228,11 @@
     }
 }
 
-/* Enhanced text animations */
+/* Enhanced text animations — transform/opacity only */
 .hero-title-stacked .hero-line-huge {
     opacity: 0;
     transform: translateY(60px) rotateX(12deg);
     animation: titleReveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    filter: blur(8px);
 }
 
 .hero-title-stacked .hero-line-huge:nth-child(1) {
@@ -258,36 +246,28 @@
 .hero-title-stacked .hero-line-accent {
     opacity: 0;
     transform: translateY(30px);
-    filter: blur(6px);
     animation: titleAccentReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
 }
 
 @keyframes titleReveal {
-    0% {
+    from {
         opacity: 0;
         transform: translateY(60px) rotateX(12deg);
-        filter: blur(8px);
     }
-    60% {
-        filter: blur(0px);
-    }
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0) rotateX(0);
-        filter: blur(0px);
     }
 }
 
 @keyframes titleAccentReveal {
-    0% {
+    from {
         opacity: 0;
         transform: translateY(30px);
-        filter: blur(6px);
     }
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
-        filter: blur(0px);
     }
 }
 
@@ -400,7 +380,7 @@
 
 @keyframes particleFloat {
     0% {
-        transform: translateY(100vh) rotate(0deg);
+        transform: translate3d(0, 100vh, 0);
         opacity: 0;
     }
     10% {
@@ -410,7 +390,7 @@
         opacity: 0.3;
     }
     100% {
-        transform: translateY(-100vh) rotate(360deg);
+        transform: translate3d(0, -100vh, 0);
         opacity: 0;
     }
 }
@@ -441,23 +421,14 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Premium gradient text */
+/* Premium gradient text — reuses shared gradientShift keyframe */
 .gradient-text-enhanced {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientTextShift 8s ease infinite;
-}
-
-@keyframes gradientTextShift {
-    0%, 100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
+    animation: gradientShift 8s ease infinite;
 }
 
 /* Enhanced hover states */
@@ -1155,11 +1126,20 @@ img {
 }
 
 .hero-blobs .blob,
-.magnetic-btn,
 .logo-loop-track {
     will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
+}
+
+/* Layout containment for cards (isolates paint/layout) */
+.project-card,
+.skill-card,
+.stat-card,
+.journey-card,
+.social-card,
+.timeline-card {
+    contain: layout style;
 }
 
 /* Ensure elements are visible by default */
@@ -1169,17 +1149,15 @@ img {
     transform: none;
 }
 
-/* Only hide when JS adds the class */
+/* Only hide when JS adds the class — transform/opacity only for perf */
 .js-enabled .reveal-fade-up {
     opacity: 0;
     transform: translateY(40px);
-    filter: blur(4px);
 }
 
 .js-enabled .reveal-stagger > * {
     opacity: 0;
     transform: translateY(25px);
-    filter: blur(3px);
 }
 
 /* Hero elements should animate immediately on load */
@@ -1202,18 +1180,13 @@ img {
 .js-enabled .hero-content-v9 .reveal-stagger > *:nth-child(6) { animation-delay: 0.6s; }
 
 @keyframes heroFadeIn {
-    0% {
+    from {
         opacity: 0;
         transform: translateY(40px);
-        filter: blur(4px);
     }
-    50% {
-        filter: blur(0px);
-    }
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
-        filter: blur(0px);
     }
 }
 
@@ -1937,12 +1910,7 @@ a.contact-detail-item:hover {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradient-text-shift 3s ease infinite;
-}
-
-@keyframes gradient-text-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    animation: gradientShift 3s ease infinite;
 }
 
 /* Base reveal classes */
@@ -2448,12 +2416,7 @@ button {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 200%;
-    animation: gradientTextShift 4s ease infinite;
-}
-
-@keyframes gradientTextShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    animation: gradientShift 4s ease infinite;
 }
 
 /* Skip Link - Enhanced Accessibility */
@@ -3135,6 +3098,7 @@ button {
     animation: rotate 6s linear infinite;
     z-index: 1;
     filter: blur(1px);
+    will-change: transform;
 }
 
 .profile-image-container:hover .profile-ring {
@@ -3579,6 +3543,11 @@ button {
     border-radius: inherit;
     background: linear-gradient(90deg, transparent 60%, rgba(255, 255, 255, 0.4) 100%);
     animation: skillGlow 2s ease-in-out infinite;
+    animation-play-state: paused;
+}
+
+.skill-card:hover .skill-bar-fill::after {
+    animation-play-state: running;
 }
 
 @keyframes skillGlow {
@@ -5518,19 +5487,10 @@ button {
     transform: rotate(360deg);
 }
 
-/* Gradient Text Animation */
-@keyframes gradient-shift {
-    0%, 100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
+/* Gradient Text Animation — reuses shared gradientShift keyframe */
 .gradient-text {
     background-size: 200% auto;
-    animation: gradient-shift 3s ease infinite;
+    animation: gradientShift 3s ease infinite;
 }
 
 /* ============================================
@@ -6099,20 +6059,17 @@ img:not([loading="lazy"]) {
     width: 100%;
 }
 
-/* Stagger Animations on Scroll */
+/* Stagger Animations on Scroll — transform/opacity only */
 .reveal-stagger > * {
     opacity: 0;
     transform: translateY(25px);
-    filter: blur(3px);
     transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-               transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-               filter 0.45s ease;
+               transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-stagger.in-view > * {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0px);
 }
 
 .reveal-stagger.in-view > *:nth-child(1) { transition-delay: 0.06s; }
@@ -6128,20 +6085,17 @@ img:not([loading="lazy"]) {
 .reveal-stagger.in-view > *:nth-child(11) { transition-delay: 0.66s; }
 .reveal-stagger.in-view > *:nth-child(12) { transition-delay: 0.72s; }
 
-/* Fade Up Animation */
+/* Fade Up Animation — transform/opacity only */
 .reveal-fade-up {
     opacity: 0;
     transform: translateY(40px);
-    filter: blur(4px);
     transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-               filter 0.5s ease;
+               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-fade-up.in-view {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0px);
 }
 
 /* Gradient Text Animation - uses gradient-shift defined earlier */
@@ -6659,10 +6613,11 @@ section {
     border-radius: 50%;
     pointer-events: none;
     z-index: 99998;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-100px, -100px, 0);
     transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.2s ease;
     mix-blend-mode: difference;
     opacity: 0;
+    will-change: transform;
 }
 
 .cursor-ring {
@@ -6675,9 +6630,10 @@ section {
     border-radius: 50%;
     pointer-events: none;
     z-index: 99997;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-100px, -100px, 0);
     transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, opacity 0.2s ease;
     opacity: 0;
+    will-change: transform;
 }
 
 .cursor-dot.visible,
@@ -6838,12 +6794,12 @@ section {
 
 @keyframes fade-out {
     from { opacity: 1; transform: scale(1); }
-    to   { opacity: 0; transform: scale(0.97); filter: blur(4px); }
+    to   { opacity: 0; transform: scale(0.97); }
 }
 
 @keyframes fade-in {
-    from { opacity: 0; transform: scale(1.03); filter: blur(4px); }
-    to   { opacity: 1; transform: scale(1); filter: blur(0); }
+    from { opacity: 0; transform: scale(1.03); }
+    to   { opacity: 1; transform: scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="view-transition" content="same-origin">
+
+    <!-- Primary Meta Tags -->
+    <title>Links | Mohammed Rayyan - All My Links</title>
+    <meta name="description" content="All the important links of Mohammed Rayyan in one place. Social media, portfolio, projects, Ninety5 Studio, and more.">
+    <meta name="keywords" content="Mohammed Rayyan links, linktree, Ninety5 Studio links, social media, portfolio links">
+    <meta name="author" content="Mohammed Rayyan">
+    <meta name="robots" content="index, follow">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <link rel="canonical" href="https://rayyan-x95.github.io/links.html">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN-TN">
+    <meta name="geo.placename" content="Tamil Nadu">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#5b4cdb">
+    <meta name="msapplication-TileColor" content="#5b4cdb">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rayyan-x95.github.io/links.html">
+    <meta property="og:site_name" content="Mohammed Rayyan - Graphic Designer & ROM Developer Portfolio">
+    <meta property="og:title" content="Links | Mohammed Rayyan">
+    <meta property="og:description" content="All the important links in one place — social media, portfolio, projects, and more.">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Rayyan_x95">
+    <meta name="twitter:title" content="Links | Mohammed Rayyan">
+    <meta name="twitter:description" content="All the important links in one place — social media, portfolio, projects, and more.">
+
+    <!-- DNS Prefetch & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></noscript>
+
+    <!-- Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- Main Stylesheet -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Critical Inline Script -->
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0f1a' : '#5b4cdb');
+            } catch(e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
+
+    <!-- Page-specific styles -->
+    <style>
+        .links-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .links-hero {
+            padding: 160px 0 40px;
+            text-align: center;
+        }
+        .links-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 1rem;
+            box-shadow: 0 0 30px rgba(91, 76, 219, 0.3);
+        }
+        .links-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        .links-bio {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            max-width: 420px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+        .links-social-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .links-social-icon {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .links-social-icon:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .links-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 1rem 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .link-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .link-card:hover::before { opacity: 0.06; }
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+        .link-card-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+        .link-card-text {
+            flex: 1;
+            z-index: 1;
+        }
+        .link-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .link-card-desc {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            margin-top: 0.1rem;
+        }
+        .link-card-arrow {
+            color: var(--text-tertiary);
+            transition: transform 0.2s ease;
+            z-index: 1;
+        }
+        .link-card:hover .link-card-arrow { transform: translateX(4px); }
+
+        /* Icon color variants */
+        .link-icon-portfolio { background: linear-gradient(135deg, #5b4cdb, #7c3aed); color: white; }
+        .link-icon-github { background: var(--bg-tertiary); color: var(--text-primary); }
+        .link-icon-linkedin { background: #0a66c2; color: white; }
+        .link-icon-behance { background: #1769ff; color: white; }
+        .link-icon-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+        .link-icon-youtube { background: #ff0000; color: white; }
+        .link-icon-twitter { background: var(--bg-tertiary); color: var(--text-primary); }
+        .link-icon-telegram { background: #0088cc; color: white; }
+        .link-icon-resume { background: linear-gradient(135deg, #10b981, #059669); color: white; }
+        .link-icon-email { background: linear-gradient(135deg, #ea580c, #dc2626); color: white; }
+
+        .links-section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-tertiary);
+            margin-top: 1rem;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Shared Navigation -->
+    <header class="lando-nav" id="navbar">
+        <nav class="lando-nav-container">
+            <a href="index.html" class="lando-logo" aria-label="Home">
+                <div class="logo-stack">
+                    <span class="logo-line-top">MOHAMMED</span>
+                    <span class="logo-line-bottom">RAYYAN</span>
+                </div>
+            </a>
+            <div class="lando-nav-links" id="landoNavLinks">
+                <a href="index.html" class="lando-nav-link" data-section="home">HOME</a>
+                <a href="index.html#about" class="lando-nav-link" data-section="about">ABOUT</a>
+                <a href="projects.html" class="lando-nav-link" data-section="projects">PROJECTS</a>
+                <a href="services.html" class="lando-nav-link" data-section="services">SERVICES</a>
+                <a href="blog.html" class="lando-nav-link" data-section="blog">BLOG</a>
+                <a href="index.html#contact" class="lando-nav-link nav-cta nav-cta-secondary" data-section="contact">CONTACT</a>
+                <a href="resume.html" class="lando-nav-link nav-cta nav-cta-primary" aria-label="View full resume">RESUME</a>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+                <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+            </button>
+            <button class="lando-menu-toggle" id="landoMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main" class="links-page">
+
+        <!-- Hero -->
+        <section class="links-hero">
+            <div class="container">
+                <img src="https://avatars.githubusercontent.com/u/130169767?v=4" alt="Mohammed Rayyan" class="links-avatar" width="120" height="120" decoding="async">
+                <h1 class="links-name">Mohammed Rayyan</h1>
+                <p class="links-bio">Graphic Designer &amp; ROM Developer &bull; Founder of Ninety5 Studio &bull; Engineering Student</p>
+                <div class="links-social-row">
+                    <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" class="links-social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" class="links-social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" class="links-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" class="links-social-icon" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" class="links-social-icon" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                    <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" class="links-social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Links -->
+        <div class="links-container">
+
+            <div class="links-section-label">Portfolio & Work</div>
+
+            <a href="index.html" class="link-card">
+                <div class="link-card-icon link-icon-portfolio"><i class="fas fa-rocket"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">Portfolio Website</div>
+                    <div class="link-card-desc">See all my work in one place</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <a href="projects.html" class="link-card">
+                <div class="link-card-icon link-icon-portfolio"><i class="fas fa-code"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">Projects Gallery</div>
+                    <div class="link-card-desc">Browse my project spotlight</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <a href="resume.html" class="link-card">
+                <div class="link-card-icon link-icon-resume"><i class="fas fa-file-lines"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">Resume / CV</div>
+                    <div class="link-card-desc">Download or view my resume</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <a href="services.html" class="link-card">
+                <div class="link-card-icon link-icon-portfolio"><i class="fas fa-wand-magic-sparkles"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">Hire Me / Services</div>
+                    <div class="link-card-desc">See what I can do for you</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <div class="links-section-label">Social Media</div>
+
+            <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-card-icon link-icon-github"><i class="fab fa-github"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">GitHub</div>
+                    <div class="link-card-desc">Open-source projects & contributions</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-card-icon link-icon-linkedin"><i class="fab fa-linkedin-in"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">LinkedIn</div>
+                    <div class="link-card-desc">Professional network & experience</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-card-icon link-icon-behance"><i class="fab fa-behance"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">Behance</div>
+                    <div class="link-card-desc">Design portfolio & case studies</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-card-icon link-icon-instagram"><i class="fab fa-instagram"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">Instagram</div>
+                    <div class="link-card-desc">Behind the scenes & creative posts</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-card-icon link-icon-youtube"><i class="fab fa-youtube"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">YouTube</div>
+                    <div class="link-card-desc">Tutorials & tech content</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-card-icon link-icon-twitter"><i class="fab fa-x-twitter"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">X (Twitter)</div>
+                    <div class="link-card-desc">Quick updates & tech takes</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <div class="links-section-label">Contact</div>
+
+            <a href="mailto:m.mohammedrayyan@gmail.com" class="link-card">
+                <div class="link-card-icon link-icon-email"><i class="fas fa-envelope"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">Email Me</div>
+                    <div class="link-card-desc">m.mohammedrayyan@gmail.com</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+            <a href="https://t.me/Rayyanx95" target="_blank" rel="noopener noreferrer" class="link-card">
+                <div class="link-card-icon link-icon-telegram"><i class="fab fa-telegram-plane"></i></div>
+                <div class="link-card-text">
+                    <div class="link-card-title">Telegram</div>
+                    <div class="link-card-desc">Quick chat on Telegram</div>
+                </div>
+                <i class="fas fa-arrow-right link-card-arrow"></i>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-line-top">MOHAMMED</span>
+                        <span class="logo-line-bottom">RAYYAN</span>
+                    </div>
+                    <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <nav aria-label="Footer navigation">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="projects.html" class="footer-link">Projects</a>
+                        <a href="services.html" class="footer-link">Services</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="index.html#contact" class="footer-link">Contact</a>
+                    </nav>
+                </div>
+                <div class="footer-social">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="footer-social-links">
+                        <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; <span id="currentYear">2025</span> Mohammed Rayyan. All rights reserved.</p>
+                <p class="footer-credit">Built with passion &amp; clean code</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        (function() {
+            const root = document.documentElement;
+            const btn = document.getElementById('themeToggle');
+            const menuToggle = document.getElementById('landoMenuToggle');
+            const navLinks = document.getElementById('landoNavLinks');
+            const backToTop = document.getElementById('backToTop');
+            const yearEl = document.getElementById('currentYear');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    btn.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+                    var meta = document.querySelector('meta[name="theme-color"]');
+                    if (meta) meta.setAttribute('content', next === 'dark' ? '#0b0f1a' : '#5b4cdb');
+                });
+                btn.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'light' ? 'true' : 'false');
+            }
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.toggle('active');
+                    menuToggle.classList.toggle('active', isOpen);
+                    menuToggle.setAttribute('aria-expanded', isOpen);
+                });
+            }
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    backToTop.classList.toggle('visible', window.scrollY > 400);
+                }, { passive: true });
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

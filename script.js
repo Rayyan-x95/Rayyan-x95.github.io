@@ -157,19 +157,18 @@ if (filterBtns.length && projectCards.length) {
                     if (show) {
                         gsap.set(card, { display: '', clearProps: 'transform' });
                         gsap.fromTo(card, 
-                            { opacity: 0, scale: 0.88, y: 30, filter: 'blur(4px)' },
-                            { opacity: 1, scale: 1, y: 0, filter: 'blur(0px)', duration: 0.5, 
+                            { opacity: 0, scale: 0.88, y: 30 },
+                            { opacity: 1, scale: 1, y: 0, duration: 0.5, 
                               ease: 'power3.out',
-                              clearProps: 'opacity,transform,filter' }
+                              clearProps: 'opacity,transform' }
                         );
                     } else {
                         gsap.to(card, {
                             scale: 0.85,
                             opacity: 0,
-                            filter: 'blur(4px)',
                             duration: 0.3,
                             ease: 'power2.in',
-                            onComplete: () => { card.style.display = 'none'; gsap.set(card, { clearProps: 'filter' }); }
+                            onComplete: () => { card.style.display = 'none'; }
                         });
                     }
                 } else {
@@ -192,7 +191,7 @@ if (filterBtns.length && projectCards.length) {
 const sendBtn = document.getElementById('send-message-btn');
 if (sendBtn) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
+
     // Real-time validation
     const inputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
     inputs.forEach(input => {
@@ -345,7 +344,7 @@ function showNotification(message, type) {
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     // Hero title entrance
     document.querySelector('.hero-title-stacked .hero-line-huge') && gsap.from('.hero-title-stacked .hero-line-huge', {
-        opacity: 0, y: 100, rotationX: 15, filter: 'blur(10px)', duration: 1.2, stagger: 0.2,
+        opacity: 0, y: 100, rotationX: 15, duration: 1.2, stagger: 0.2,
         ease: 'power4.out',
         scrollTrigger: { trigger: '.hero-title-stacked', start: 'top 80%' }
     });
@@ -354,14 +353,14 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     document.querySelectorAll('.project-card').length && gsap.from('.project-card', {
         opacity: 0, y: 70, rotationY: 10, scale: 0.9, duration: 1.1, stagger: 0.12,
         ease: 'power3.out', transformOrigin: 'center center',
-        clearProps: 'opacity,transform,filter',
+        clearProps: 'opacity,transform',
         scrollTrigger: { trigger: '.projects-grid', start: 'top 85%' }
     });
 
-    // Section titles — slide up with clip-path reveal
+    // Section titles — slide up
     document.querySelectorAll('.section-title-bold').forEach(title => {
         gsap.from(title, {
-            opacity: 0, y: 50, filter: 'blur(6px)', duration: 0.9,
+            opacity: 0, y: 50, duration: 0.9,
             ease: 'power3.out',
             scrollTrigger: { trigger: title, start: 'top 88%' }
         });
@@ -455,7 +454,7 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     const statementText = document.querySelector('.statement-text');
     if (statementText) {
         gsap.from(statementText, {
-            opacity: 0, y: 60, scale: 0.96, filter: 'blur(8px)', duration: 1.2,
+            opacity: 0, y: 60, scale: 0.96, duration: 1.2,
             ease: 'power3.out',
             scrollTrigger: { trigger: statementText, start: 'top 85%' }
         });
@@ -647,6 +646,7 @@ if (landoMenuToggle && landoNavLinksContainer) {
 // Magnetic buttons handled by initEnhancedInteractions
 
 const initTiltEffect = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     document.querySelectorAll('.tilt-effect').forEach(el => {
         el.addEventListener('mousemove', (e) => {
             const rect = el.getBoundingClientRect();
@@ -663,6 +663,7 @@ const initTiltEffect = () => {
 };
 
 const initSpotlightEffect = () => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     document.querySelectorAll('.spotlight').forEach(el => {
         el.addEventListener('mousemove', (e) => {
             const rect = el.getBoundingClientRect();
@@ -686,14 +687,16 @@ const initParticleEffects = () => {
     const container = document.getElementById('particleContainer');
     if (!container) return;
     
+    // Respect reduced-motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    
     const createParticle = () => {
         const particle = document.createElement('div');
         particle.className = 'particle';
         
-        // Random positioning and properties
         const startX = Math.random() * window.innerWidth;
         const size = Math.random() * 3 + 2;
-        const duration = Math.random() * 10 + 10;
+        const duration = Math.random() * 12 + 12;
         const delay = Math.random() * 5;
         
         particle.style.cssText = `
@@ -706,18 +709,16 @@ const initParticleEffects = () => {
         `;
         
         container.appendChild(particle);
-        
-        // Remove particle after animation
         setTimeout(() => particle.remove(), (duration + delay) * 1000);
     };
     
-    // Create initial particles
-    for (let i = 0; i < 20; i++) {
-        setTimeout(createParticle, i * 200);
+    // Reduced initial count for better perf
+    for (let i = 0; i < 10; i++) {
+        setTimeout(createParticle, i * 300);
     }
     
-    // Continuously create new particles
-    setInterval(createParticle, 2000);
+    // Slower continuous creation
+    setInterval(createParticle, 4000);
 };
 
 // ============================================
@@ -871,8 +872,12 @@ const initEnhancedTyping = () => {
 // ENHANCED INTERACTIONS
 // ============================================
 const initEnhancedInteractions = () => {
+    // Skip heavy interactive effects when reduced-motion is preferred
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Magnetic buttons with enhanced physics
-    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+    if (!prefersReducedMotion) {
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
         let isAnimating = false;
         let currentX = 0;
         let currentY = 0;
@@ -923,9 +928,11 @@ const initEnhancedInteractions = () => {
             requestAnimationFrame(resetAnimation);
         });
     });
+    }
     
     // Enhanced card tilt effects with smooth spring-back
-    document.querySelectorAll('.minimal-card, .social-card').forEach(card => {
+    if (!prefersReducedMotion) {
+        document.querySelectorAll('.minimal-card, .social-card').forEach(card => {
         let tiltRAF;
         card.addEventListener('mousemove', (e) => {
             if (tiltRAF) cancelAnimationFrame(tiltRAF);
@@ -944,14 +951,18 @@ const initEnhancedInteractions = () => {
             card.style.transform = '';
         });
     });
+    }
 };
 
 // ============================================
 // MICRO-INTERACTIONS
 // ============================================
 const initMicroInteractions = () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // Ripple effect on CTA/primary buttons
-    document.querySelectorAll('.cta-btn-primary, .cta-btn-secondary, .btn-primary, .btn-outline').forEach(btn => {
+    if (!prefersReducedMotion) {
+        document.querySelectorAll('.cta-btn-primary, .cta-btn-secondary, .btn-primary, .btn-outline').forEach(btn => {
         btn.addEventListener('click', function(e) {
             const rect = this.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -971,6 +982,7 @@ const initMicroInteractions = () => {
             setTimeout(() => ripple.remove(), 600);
         });
     });
+    }
 
     // Form input focus — floating label feedback  
     document.querySelectorAll('.contact-form input, .contact-form textarea').forEach(input => {
@@ -1022,8 +1034,8 @@ const initCustomCursor = () => {
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
-        dot.style.left = `${mouseX}px`;
-        dot.style.top = `${mouseY}px`;
+        // Use transform for GPU compositing instead of left/top
+        dot.style.transform = `translate3d(${mouseX - 4}px, ${mouseY - 4}px, 0)`;
         if (!isVisible) {
             dot.classList.add('visible');
             ring.classList.add('visible');
@@ -1031,12 +1043,11 @@ const initCustomCursor = () => {
         }
     });
 
-    // Smooth ring follow with improved easing
+    // Smooth ring follow with GPU-composited transform
     const animateRing = () => {
         ringX += (mouseX - ringX) * 0.12;
         ringY += (mouseY - ringY) * 0.12;
-        ring.style.left = `${ringX}px`;
-        ring.style.top = `${ringY}px`;
+        ring.style.transform = `translate3d(${ringX - 18}px, ${ringY - 18}px, 0)`;
         requestAnimationFrame(animateRing);
     };
     requestAnimationFrame(animateRing);
