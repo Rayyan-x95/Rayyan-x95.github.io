@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="view-transition" content="same-origin">
+
+    <!-- Primary Meta Tags -->
+    <title>Gallery | Mohammed Rayyan - Design Showcase & Portfolio</title>
+    <meta name="description" content="Browse Mohammed Rayyan's design gallery — graphic design, UI/UX mockups, 3D renders, brand identities, and creative work from Ninety5 Studio.">
+    <meta name="keywords" content="Mohammed Rayyan gallery, design portfolio, graphic design showcase, UI mockups, 3D renders, Ninety5 Studio work, brand identity showcase">
+    <meta name="author" content="Mohammed Rayyan">
+    <meta name="robots" content="index, follow, max-snippet:-1">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <link rel="canonical" href="https://rayyan-x95.github.io/gallery.html">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN-TN">
+    <meta name="geo.placename" content="Tamil Nadu">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#5b4cdb">
+    <meta name="msapplication-TileColor" content="#5b4cdb">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rayyan-x95.github.io/gallery.html">
+    <meta property="og:site_name" content="Mohammed Rayyan - Graphic Designer & ROM Developer Portfolio">
+    <meta property="og:title" content="Gallery | Mohammed Rayyan">
+    <meta property="og:description" content="Browse the design gallery — graphic design, UI/UX mockups, 3D renders, and creative work.">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Rayyan_x95">
+    <meta name="twitter:title" content="Gallery | Mohammed Rayyan">
+    <meta name="twitter:description" content="Design gallery — graphic design, UI/UX mockups, 3D renders, and creative work.">
+
+    <!-- DNS Prefetch & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></noscript>
+
+    <!-- Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- Main Stylesheet -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Critical Inline Script -->
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0f1a' : '#5b4cdb');
+            } catch(e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
+
+    <!-- Page-specific styles -->
+    <style>
+        .subpage-hero {
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .subpage-hero .section-number { display: block; margin-bottom: 0.5rem; }
+        .subpage-hero .section-label { display: block; margin-bottom: 0.5rem; }
+
+        /* Filter Tabs */
+        .gallery-filters {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--radius-full, 50px);
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Masonry-like Grid */
+        .gallery-grid {
+            columns: 3;
+            column-gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img { transform: scale(1.03); }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 1.5rem 1rem 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+        .gallery-overlay-category {
+            font-size: 0.8125rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Placeholder for empty gallery */
+        .gallery-placeholder {
+            background: var(--card-bg);
+            border: 2px dashed var(--border-light);
+            border-radius: var(--border-radius);
+            padding: 4rem 2rem;
+            text-align: center;
+            column-span: all;
+        }
+        .gallery-placeholder i { font-size: 3rem; color: var(--text-tertiary); margin-bottom: 1rem; display: block; }
+        .gallery-placeholder h3 { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .gallery-placeholder p { font-size: 1rem; color: var(--text-secondary); max-width: 400px; margin: 0 auto; }
+
+        /* CTA */
+        .cta-section { padding: 4rem 0; text-align: center; }
+        .cta-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .cta-title { font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.75rem; }
+        .cta-desc { font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.75rem 1.75rem; border-radius: var(--radius-md);
+            font-weight: 700; font-size: 0.9375rem; transition: all 0.3s ease; text-decoration: none;
+        }
+        .cta-btn-primary { background: var(--gradient-primary); color: white; }
+        .cta-btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); color: white; }
+        .cta-btn-outline { border: 2px solid var(--border-light); color: var(--text-primary); }
+        .cta-btn-outline:hover { border-color: var(--primary-color); color: var(--primary-color); transform: translateY(-2px); }
+
+        @media (max-width: 1024px) {
+            .gallery-grid { columns: 2; }
+        }
+        @media (max-width: 600px) {
+            .gallery-grid { columns: 1; }
+            .cta-box { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Shared Navigation -->
+    <header class="lando-nav" id="navbar">
+        <nav class="lando-nav-container">
+            <a href="index.html" class="lando-logo" aria-label="Home">
+                <div class="logo-stack">
+                    <span class="logo-line-top">MOHAMMED</span>
+                    <span class="logo-line-bottom">RAYYAN</span>
+                </div>
+            </a>
+            <div class="lando-nav-links" id="landoNavLinks">
+                <a href="index.html" class="lando-nav-link" data-section="home">HOME</a>
+                <a href="about.html" class="lando-nav-link" data-section="about">ABOUT</a>
+                <a href="projects.html" class="lando-nav-link" data-section="projects">PROJECTS</a>
+                <a href="services.html" class="lando-nav-link" data-section="services">SERVICES</a>
+                <a href="blog.html" class="lando-nav-link" data-section="blog">BLOG</a>
+                <a href="contact.html" class="lando-nav-link nav-cta nav-cta-secondary" data-section="contact">CONTACT</a>
+                <a href="resume.html" class="lando-nav-link nav-cta nav-cta-primary" aria-label="View full resume">RESUME</a>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+                <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+            </button>
+            <button class="lando-menu-toggle" id="landoMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <!-- Hero -->
+        <section class="subpage-hero">
+            <div class="container">
+                <span class="section-number">GALLERY</span>
+                <span class="section-label">VISUAL SHOWCASE</span>
+                <h1 class="section-title-bold">MY WORK</h1>
+                <div class="section-divider"></div>
+            </div>
+        </section>
+
+        <!-- Filter + Gallery -->
+        <section class="section">
+            <div class="container">
+
+                <!-- Filter Buttons -->
+                <div class="gallery-filters" role="tablist" aria-label="Filter gallery by category">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+                    <button class="filter-btn" data-filter="graphic-design" role="tab" aria-selected="false">Graphic Design</button>
+                    <button class="filter-btn" data-filter="ui-ux" role="tab" aria-selected="false">UI/UX</button>
+                    <button class="filter-btn" data-filter="3d" role="tab" aria-selected="false">3D Renders</button>
+                    <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false">Branding</button>
+                    <button class="filter-btn" data-filter="web" role="tab" aria-selected="false">Web Design</button>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid" id="galleryGrid">
+
+                    <div class="gallery-item" data-category="graphic-design">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&h=400&fit=crop&q=80" alt="Creative poster design with bold typography and vibrant colors" loading="lazy" width="600" height="400">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Creative Poster Series</div>
+                            <div class="gallery-overlay-category">Graphic Design</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="ui-ux">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=750&fit=crop&q=80" alt="Mobile app UI design mockup with clean interface" loading="lazy" width="600" height="750">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Mobile App Concept</div>
+                            <div class="gallery-overlay-category">UI/UX Design</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="3d">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=500&fit=crop&q=80" alt="3D product render with realistic lighting and materials" loading="lazy" width="600" height="500">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Product Visualization</div>
+                            <div class="gallery-overlay-category">3D Render</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="branding">
+                        <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&h=400&fit=crop&q=80" alt="Brand identity system with logo and stationery design" loading="lazy" width="600" height="400">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Brand Identity System</div>
+                            <div class="gallery-overlay-category">Branding</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="web">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80" alt="Responsive website design displayed on laptop screen" loading="lazy" width="600" height="400">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Portfolio Website</div>
+                            <div class="gallery-overlay-category">Web Design</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="graphic-design">
+                        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=800&fit=crop&q=80" alt="Colorful abstract design composition" loading="lazy" width="600" height="800">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Abstract Composition</div>
+                            <div class="gallery-overlay-category">Graphic Design</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="ui-ux">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4eef1d2fa?w=600&h=400&fit=crop&q=80" alt="Dashboard UI design with data visualization components" loading="lazy" width="600" height="400">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Analytics Dashboard</div>
+                            <div class="gallery-overlay-category">UI/UX Design</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="3d">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=600&fit=crop&q=80" alt="Abstract 3D render with geometric shapes and gradients" loading="lazy" width="600" height="600">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Abstract 3D Scene</div>
+                            <div class="gallery-overlay-category">3D Render</div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="branding">
+                        <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=600&h=450&fit=crop&q=80" alt="Logo design mockup on business card and letterhead" loading="lazy" width="600" height="450">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-title">Startup Branding</div>
+                            <div class="gallery-overlay-category">Branding</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2 class="cta-title">Like What You See?</h2>
+                    <p class="cta-desc">Let's create something stunning together. Whether it's a brand identity, web design, or 3D visualization — I'm ready to bring your vision to life.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="cta-btn cta-btn-primary"><i class="fas fa-envelope"></i> Start a Project</a>
+                        <a href="services.html" class="cta-btn cta-btn-outline"><i class="fas fa-briefcase"></i> View Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-line-top">MOHAMMED</span>
+                        <span class="logo-line-bottom">RAYYAN</span>
+                    </div>
+                    <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <nav aria-label="Footer navigation">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="projects.html" class="footer-link">Projects</a>
+                        <a href="services.html" class="footer-link">Services</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </nav>
+                </div>
+                <div class="footer-social">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="footer-social-links">
+                        <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; <span id="currentYear">2025</span> Mohammed Rayyan. All rights reserved.</p>
+                <p class="footer-credit">Built with passion &amp; clean code</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        (function() {
+            const root = document.documentElement;
+            const btn = document.getElementById('themeToggle');
+            const menuToggle = document.getElementById('landoMenuToggle');
+            const navLinks = document.getElementById('landoNavLinks');
+            const backToTop = document.getElementById('backToTop');
+            const yearEl = document.getElementById('currentYear');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    btn.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+                    var meta = document.querySelector('meta[name="theme-color"]');
+                    if (meta) meta.setAttribute('content', next === 'dark' ? '#0b0f1a' : '#5b4cdb');
+                });
+                btn.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'light' ? 'true' : 'false');
+            }
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.toggle('active');
+                    menuToggle.classList.toggle('active', isOpen);
+                    menuToggle.setAttribute('aria-expanded', isOpen);
+                });
+            }
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    backToTop.classList.toggle('visible', window.scrollY > 400);
+                }, { passive: true });
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Gallery filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(function(filterBtn) {
+                filterBtn.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // Update active state
+                    filterBtns.forEach(function(b) {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-selected', 'false');
+                    });
+                    this.classList.add('active');
+                    this.setAttribute('aria-selected', 'true');
+
+                    // Filter items
+                    galleryItems.forEach(function(item) {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

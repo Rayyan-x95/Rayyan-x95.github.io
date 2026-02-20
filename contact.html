@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="view-transition" content="same-origin">
+
+    <!-- Primary Meta Tags -->
+    <title>Contact | Mohammed Rayyan - Get In Touch</title>
+    <meta name="description" content="Get in touch with Mohammed Rayyan for freelance design, web development, ROM development, or collaboration. Available for new projects and opportunities.">
+    <meta name="keywords" content="contact Mohammed Rayyan, hire graphic designer, hire web developer, freelance developer contact, Ninety5 Studio contact">
+    <meta name="author" content="Mohammed Rayyan">
+    <meta name="robots" content="index, follow, max-snippet:-1">
+    <meta name="referrer" content="origin-when-cross-origin">
+    <link rel="canonical" href="https://rayyan-x95.github.io/contact.html">
+
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="IN-TN">
+    <meta name="geo.placename" content="Tamil Nadu">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#5b4cdb">
+    <meta name="msapplication-TileColor" content="#5b4cdb">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rayyan-x95.github.io/contact.html">
+    <meta property="og:site_name" content="Mohammed Rayyan - Graphic Designer & ROM Developer Portfolio">
+    <meta property="og:title" content="Contact | Mohammed Rayyan">
+    <meta property="og:description" content="Get in touch for freelance design, web development, ROM development, or collaboration.">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@Rayyan_x95">
+    <meta name="twitter:title" content="Contact | Mohammed Rayyan">
+    <meta name="twitter:description" content="Get in touch for freelance design, web development, ROM development, or collaboration.">
+
+    <!-- DNS Prefetch & Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></noscript>
+
+    <!-- Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <!-- Main Stylesheet -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Critical Inline Script -->
+    <script>
+        (function() {
+            try {
+                var theme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                document.documentElement.setAttribute('data-theme', theme);
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0f1a' : '#5b4cdb');
+            } catch(e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
+
+    <!-- Page-specific styles -->
+    <style>
+        .subpage-hero {
+            padding: 140px 0 60px;
+            text-align: center;
+        }
+        .subpage-hero .section-number { display: block; margin-bottom: 0.5rem; }
+        .subpage-hero .section-label { display: block; margin-bottom: 0.5rem; }
+
+        /* Contact Layout */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Contact Info Cards */
+        .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: start;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .contact-card-icon {
+            width: 48px; height: 48px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .contact-card-icon.icon-email { background: linear-gradient(135deg, rgba(91,76,219,0.15), rgba(124,58,237,0.15)); color: var(--primary-color); }
+        .contact-card-icon.icon-location { background: linear-gradient(135deg, rgba(56,189,248,0.15), rgba(59,130,246,0.15)); color: var(--electric-color); }
+        .contact-card-icon.icon-social { background: linear-gradient(135deg, rgba(236,72,153,0.15), rgba(168,85,247,0.15)); color: #ec4899; }
+        .contact-card-icon.icon-availability { background: linear-gradient(135deg, rgba(34,197,94,0.15), rgba(22,163,74,0.15)); color: #22c55e; }
+        .contact-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        .contact-card-value {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .contact-card-value a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-card-value a:hover { text-decoration: underline; }
+
+        /* Social Grid */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .social-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            padding: 1.25rem;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .social-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-color); }
+        .social-card i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .social-card span {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .social-card:hover span { color: var(--primary-color); }
+        .social-github i { color: var(--text-primary); }
+        .social-linkedin i { color: #0A66C2; }
+        .social-instagram i { color: #E4405F; }
+        .social-twitter i { color: var(--text-primary); }
+        .social-behance i { color: #1769FF; }
+        .social-youtube i { color: #FF0000; }
+
+        /* Contact Form */
+        .contact-form-wrapper {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+        }
+        .contact-form-wrapper h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-secondary, var(--card-bg));
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9375rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(91,76,219,0.15);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .form-submit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.9375rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            justify-content: center;
+        }
+        .form-submit:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .form-note {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+            margin-top: 0.75rem;
+            text-align: center;
+        }
+
+        /* FAQ */
+        .faq-section { margin-bottom: 4rem; }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+        .faq-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+        }
+        .faq-question {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        .faq-answer {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .faq-answer a {
+            color: var(--primary-color);
+        }
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .contact-layout { grid-template-columns: 1fr; }
+            .social-grid { grid-template-columns: repeat(2, 1fr); }
+            .form-row { grid-template-columns: 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .social-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Mohammed Rayyan",
+        "email": "mmohammedrayyan0808@gmail.com",
+        "url": "https://rayyan-x95.github.io/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Tamil Nadu",
+          "addressCountry": "IN"
+        }
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Shared Navigation -->
+    <header class="lando-nav" id="navbar">
+        <nav class="lando-nav-container">
+            <a href="index.html" class="lando-logo" aria-label="Home">
+                <div class="logo-stack">
+                    <span class="logo-line-top">MOHAMMED</span>
+                    <span class="logo-line-bottom">RAYYAN</span>
+                </div>
+            </a>
+            <div class="lando-nav-links" id="landoNavLinks">
+                <a href="index.html" class="lando-nav-link" data-section="home">HOME</a>
+                <a href="about.html" class="lando-nav-link" data-section="about">ABOUT</a>
+                <a href="projects.html" class="lando-nav-link" data-section="projects">PROJECTS</a>
+                <a href="services.html" class="lando-nav-link" data-section="services">SERVICES</a>
+                <a href="blog.html" class="lando-nav-link" data-section="blog">BLOG</a>
+                <a href="contact.html" class="lando-nav-link active nav-cta nav-cta-secondary" data-section="contact">CONTACT</a>
+                <a href="resume.html" class="lando-nav-link nav-cta nav-cta-primary" aria-label="View full resume">RESUME</a>
+            </div>
+            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
+                <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+            </button>
+            <button class="lando-menu-toggle" id="landoMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main">
+
+        <!-- Hero -->
+        <section class="subpage-hero">
+            <div class="container">
+                <span class="section-number">CONTACT</span>
+                <span class="section-label">LET'S CONNECT</span>
+                <h1 class="section-title-bold">GET IN TOUCH</h1>
+                <div class="section-divider"></div>
+            </div>
+        </section>
+
+        <!-- Contact Layout -->
+        <section class="section">
+            <div class="container">
+                <div class="contact-layout">
+
+                    <!-- Left: Info + Social -->
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-card-icon icon-email"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h2 class="contact-card-title">Email</h2>
+                                <p class="contact-card-value"><a href="mailto:mmohammedrayyan0808@gmail.com">mmohammedrayyan0808@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-card-icon icon-location"><i class="fas fa-location-dot"></i></div>
+                            <div>
+                                <h2 class="contact-card-title">Location</h2>
+                                <p class="contact-card-value">Tamil Nadu, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-card-icon icon-availability"><i class="fas fa-clock"></i></div>
+                            <div>
+                                <h2 class="contact-card-title">Availability</h2>
+                                <p class="contact-card-value">Available for freelance &amp; contract work. Typical response time: within 24 hours.</p>
+                            </div>
+                        </div>
+
+                        <!-- Social Links Grid -->
+                        <div class="social-grid">
+                            <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" class="social-card social-github" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" class="social-card social-linkedin" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" class="social-card social-instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" class="social-card social-twitter" aria-label="X (Twitter)">
+                                <i class="fab fa-x-twitter"></i>
+                                <span>X / Twitter</span>
+                            </a>
+                            <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" class="social-card social-behance" aria-label="Behance">
+                                <i class="fab fa-behance"></i>
+                                <span>Behance</span>
+                            </a>
+                            <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" class="social-card social-youtube" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <h2><i class="fas fa-paper-plane"></i> Send a Message</h2>
+                        <form id="contactForm" action="https://formspree.io/f/placeholder" method="POST" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName">Name <span aria-hidden="true">*</span></label>
+                                    <input type="text" id="contactName" name="name" placeholder="Your full name" required autocomplete="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email <span aria-hidden="true">*</span></label>
+                                    <input type="email" id="contactEmail" name="email" placeholder="your@email.com" required autocomplete="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactSubject">Subject</label>
+                                <select id="contactSubject" name="subject">
+                                    <option value="" disabled selected>Choose a topic...</option>
+                                    <option value="freelance">Freelance Inquiry</option>
+                                    <option value="collaboration">Collaboration</option>
+                                    <option value="rom-development">ROM Development</option>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="design">Graphic / UI Design</option>
+                                    <option value="general">General Question</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Message <span aria-hidden="true">*</span></label>
+                                <textarea id="contactMessage" name="message" placeholder="Tell me about your project, idea, or question..." required rows="5"></textarea>
+                            </div>
+                            <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+                            <p class="form-note">I'll get back to you within 24 hours. No spam, ever.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section section-bg-secondary faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">FAQ</span>
+                    <span class="section-label">COMMON QUESTIONS</span>
+                    <h2 class="section-title-bold">FREQUENTLY ASKED</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-card">
+                        <h3 class="faq-question">What services do you offer?</h3>
+                        <p class="faq-answer">Full-stack web development, graphic design &amp; branding, Android ROM development, 3D visualization, video production, and UI/UX design. Check the <a href="services.html">Services page</a> for details.</p>
+                    </div>
+                    <div class="faq-card">
+                        <h3 class="faq-question">What's your typical turnaround time?</h3>
+                        <p class="faq-answer">Depends on project complexity. Small projects take 1-2 weeks, medium ones 3-4 weeks, and larger builds 1-2 months. I'll give you a clear timeline upfront.</p>
+                    </div>
+                    <div class="faq-card">
+                        <h3 class="faq-question">Do you work with international clients?</h3>
+                        <p class="faq-answer">Absolutely! I've worked with clients across multiple countries. Timezone differences are managed through async communication and scheduled check-ins.</p>
+                    </div>
+                    <div class="faq-card">
+                        <h3 class="faq-question">Can I see samples of your previous work?</h3>
+                        <p class="faq-answer">Sure — head to the <a href="projects.html">Projects page</a> or my <a href="gallery.html">Gallery</a> to see featured work and case studies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-line-top">MOHAMMED</span>
+                        <span class="logo-line-bottom">RAYYAN</span>
+                    </div>
+                    <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <nav aria-label="Footer navigation">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="projects.html" class="footer-link">Projects</a>
+                        <a href="services.html" class="footer-link">Services</a>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                    </nav>
+                </div>
+                <div class="footer-social">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="footer-social-links">
+                        <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                        <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; <span id="currentYear">2025</span> Mohammed Rayyan. All rights reserved.</p>
+                <p class="footer-credit">Built with passion &amp; clean code</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        (function() {
+            const root = document.documentElement;
+            const btn = document.getElementById('themeToggle');
+            const menuToggle = document.getElementById('landoMenuToggle');
+            const navLinks = document.getElementById('landoNavLinks');
+            const backToTop = document.getElementById('backToTop');
+            const yearEl = document.getElementById('currentYear');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            if (btn) {
+                btn.addEventListener('click', function() {
+                    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    root.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    btn.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
+                    var meta = document.querySelector('meta[name="theme-color"]');
+                    if (meta) meta.setAttribute('content', next === 'dark' ? '#0b0f1a' : '#5b4cdb');
+                });
+                btn.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'light' ? 'true' : 'false');
+            }
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function() {
+                    const isOpen = navLinks.classList.toggle('active');
+                    menuToggle.classList.toggle('active', isOpen);
+                    menuToggle.setAttribute('aria-expanded', isOpen);
+                });
+            }
+            if (backToTop) {
+                window.addEventListener('scroll', function() {
+                    backToTop.classList.toggle('visible', window.scrollY > 400);
+                }, { passive: true });
+                backToTop.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

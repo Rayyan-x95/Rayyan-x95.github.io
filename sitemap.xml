@@ -147,4 +147,49 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- About Page -->
+  <url>
+    <loc>https://rayyan-x95.github.io/about.html</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://avatars.githubusercontent.com/Rayyan-x95</image:loc>
+      <image:title>Mohammed Rayyan - About</image:title>
+      <image:caption>Mohammed Rayyan, Graphic Designer and ROM Developer</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://rayyan-x95.github.io/contact.html</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Testimonials Page -->
+  <url>
+    <loc>https://rayyan-x95.github.io/testimonials.html</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://rayyan-x95.github.io/gallery.html</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Uses Page -->
+  <url>
+    <loc>https://rayyan-x95.github.io/uses.html</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 </urlset>
