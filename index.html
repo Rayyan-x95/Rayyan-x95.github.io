@@ -68,9 +68,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-    <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b7cf7'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230b0f1a'/%3E%3Ctext x='50' y='68' text-anchor='middle' fill='url(%23g)' font-family='Arial,sans-serif' font-weight='900' font-size='46'%3EMR%3C/text%3E%3C/svg%3E">
+    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b7cf7'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230b0f1a'/%3E%3Ctext x='50' y='68' text-anchor='middle' fill='url(%23g)' font-family='Arial,sans-serif' font-weight='900' font-size='46'%3EMR%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b7cf7'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230b0f1a'/%3E%3Ctext x='50' y='68' text-anchor='middle' fill='url(%23g)' font-family='Arial,sans-serif' font-weight='900' font-size='46'%3EMR%3C/text%3E%3C/svg%3E">
     
     <!-- Google Sans Font -->
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
@@ -87,8 +87,8 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     
     <!-- Main Stylesheet -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="assets/css/styles.css" as="style">
+    <link rel="stylesheet" href="assets/css/styles.css">
     
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -325,7 +325,7 @@
         // Prevent FOUC and set theme immediately
         (function() {
             try {
-                var theme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                var theme = localStorage.getItem('theme') || 'dark';
                 document.documentElement.setAttribute('data-theme', theme);
                 var meta = document.querySelector('meta[name="theme-color"]');
                 if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0f1a' : '#5b4cdb');
@@ -339,7 +339,7 @@
             requestIdleCallback(function() {
                 var link = document.createElement('link');
                 link.rel = 'prefetch';
-                link.href = 'script.js';
+                link.href = 'assets/js/script.js';
                 document.head.appendChild(link);
             });
         }
@@ -382,11 +382,11 @@
             <div class="lando-nav-links" id="landoNavLinks">
                 <a href="#home" class="lando-nav-link active" data-section="home">HOME</a>
                 <a href="#about" class="lando-nav-link" data-section="about">ABOUT</a>
-                <a href="projects.html" class="lando-nav-link" data-section="projects">PROJECTS</a>
-                <a href="services.html" class="lando-nav-link" data-section="services">SERVICES</a>
-                <a href="blog.html" class="lando-nav-link" data-section="blog">BLOG</a>
+                <a href="pages/projects.html" class="lando-nav-link" data-section="projects">PROJECTS</a>
+                <a href="pages/services.html" class="lando-nav-link" data-section="services">SERVICES</a>
+                <a href="pages/blog.html" class="lando-nav-link" data-section="blog">BLOG</a>
                 <a href="#contact" class="lando-nav-link nav-cta nav-cta-secondary" data-section="contact">CONTACT</a>
-                <a href="resume.html" class="lando-nav-link nav-cta nav-cta-primary" aria-label="View full resume">RESUME</a>
+                <a href="pages/resume.html" class="lando-nav-link nav-cta nav-cta-primary" aria-label="View full resume">RESUME</a>
             </div>
 
             <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
@@ -426,7 +426,7 @@
                             <div class="ripple"></div>
                         </div>
                         
-                        <h1 id="hero-title" class="hero-title-stacked reveal-fade-up" data-animate="fade-up" data-delay="100">
+                        <h1 id="hero-title" class="hero-title-stacked hero-text-reveal reveal-fade-up" data-animate="fade-up" data-delay="100">
                             <span class="hero-line-huge">GRAPHIC</span>
                             <span class="hero-line-huge gradient-text">DESIGNER</span>
                             <span class="hero-line-accent">& <span id="typing-text">WEB DEVELOPER</span><span class="cursor">|</span></span>
@@ -484,7 +484,7 @@
                                 <p class="connect-subtitle">Follow my journey across platforms</p>
                             </div>
                             <div class="social-cards-grid">
-                                <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" class="social-card github-card" aria-label="GitHub Profile">
+                                <a href="https://github.com/Rayyan-x95" class="social-card github-card" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer">
                                     <div class="social-card-icon">
                                         <i class="fab fa-github"></i>
                                     </div>
@@ -497,7 +497,7 @@
                                     </div>
                                 </a>
                                 
-                                <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" class="social-card linkedin-card" aria-label="LinkedIn Profile">
+                                <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" class="social-card linkedin-card" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer">
                                     <div class="social-card-icon">
                                         <i class="fab fa-linkedin-in"></i>
                                     </div>
@@ -510,7 +510,7 @@
                                     </div>
                                 </a>
                                 
-                                <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" class="social-card behance-card" aria-label="Behance Profile">
+                                <a href="https://www.behance.net/mmohammedrayyan" class="social-card behance-card" aria-label="Behance Profile" target="_blank" rel="noopener noreferrer">
                                     <div class="social-card-icon">
                                         <i class="fab fa-behance"></i>
                                     </div>
@@ -523,7 +523,7 @@
                                     </div>
                                 </a>
                                 
-                                <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" class="social-card youtube-card" aria-label="YouTube Channel">
+                                <a href="https://www.youtube.com/@JUNINZO" class="social-card youtube-card" aria-label="YouTube Channel" target="_blank" rel="noopener noreferrer">
                                     <div class="social-card-icon">
                                         <i class="fab fa-youtube"></i>
                                     </div>
@@ -588,9 +588,13 @@
                 <div class="about-grid reveal-stagger">
                     <div class="flex-col-gap">
                         <h3 class="about-headline">Mohammed Rayyan</h3>
-                        <p class="about-text-clean">Graphic Designer, Engineering Student, and ROM Developer based in Tamil Nadu, India. Founder of Ninety5 &mdash; helping brands come alive with bold, inspiring visuals. Currently pursuing B.E in Computer Science at Dhaanish Ahmed College of Engineering.</p>
-                        <p class="about-text-clean">Building custom Android ROMs (Evolution X, Lunaris, Clover) and native apps with Kotlin. Experienced in HTML, CSS, JS, Python, C/C++, Firebase, and Git &mdash; with 100+ clients and 400+ designs delivered through freelancing.</p>
-                        <p class="about-text-clean">Combining technical engineering with creative design thinking. Proficient in Photoshop, Illustrator, Figma, After Effects, Premiere Pro, Blender, and motion graphics for complete end-to-end delivery.</p>
+                        <p class="about-text-clean"><strong>Graphic Designer, Engineer, & ROM Developer</strong> from Tamil Nadu. As Ninety5's founder, I bring brands to life with bold, inspiring visuals.</p>
+                        <ul class="about-text-list">
+                            <li><i class="fas fa-arrow-right" aria-hidden="true"></i> <strong>Engineering:</strong> Pursuing B.E in CS at Dhaanish Ahmed College of Engineering.</li>
+                            <li><i class="fas fa-arrow-right" aria-hidden="true"></i> <strong>Mobile Dev:</strong> Crafting native Kotlin apps & custom ROMs (Evolution X, Lunaris).</li>
+                            <li><i class="fas fa-arrow-right" aria-hidden="true"></i> <strong>Full-Stack:</strong> Web solutions using React, Node.js, Python, & Firebase.</li>
+                            <li><i class="fas fa-arrow-right" aria-hidden="true"></i> <strong>Creative Design:</strong> End-to-end 3D & UI/UX workflows in Figma, Blender, & Adobe Suite.</li>
+                        </ul>
                         <div class="stats-grid">
                             <div class="stat-card hover-lift animate-scale">
                                 <div class="stat-number">4+</div>
@@ -747,75 +751,7 @@
                             <i class="fab fa-npm" aria-hidden="true"></i>
                             <span>NPM</span>
                         </div>
-                        <!-- Duplicate set for seamless infinite scroll -->
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-python"></i>
-                            <span>Python</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-node-js"></i>
-                            <span>Node.js</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-square-js"></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-android"></i>
-                            <span>Android</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-figma"></i>
-                            <span>Figma</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-git-alt"></i>
-                            <span>Git</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-docker"></i>
-                            <span>Docker</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fas fa-image"></i>
-                            <span>Photoshop</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fas fa-pen-nib"></i>
-                            <span>Illustrator</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fas fa-film"></i>
-                            <span>DaVinci Resolve</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-html5"></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-css3-alt"></i>
-                            <span>CSS3</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fas fa-cube"></i>
-                            <span>Blender</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fas fa-database"></i>
-                            <span>MongoDB</span>
-                        </div>
-                        <div class="logo-loop-item" aria-hidden="true">
-                            <i class="fab fa-npm"></i>
-                            <span>NPM</span>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -888,27 +824,7 @@
                     </div>
                 </div>
 
-                <div class="quick-stats reveal-fade-up">
-                    <div class="quick-stat-item">
-                        <div class="quick-stat-number" data-count="100">0</div>
-                        <div class="quick-stat-label">Clients Served</div>
-                    </div>
-                    <div class="quick-stat-divider"></div>
-                    <div class="quick-stat-item">
-                        <div class="quick-stat-number" data-count="98">0</div>
-                        <div class="quick-stat-label">% Client Retention</div>
-                    </div>
-                    <div class="quick-stat-divider"></div>
-                    <div class="quick-stat-item">
-                        <div class="quick-stat-number" data-count="1756">0</div>
-                        <div class="quick-stat-label">GitHub Contributions</div>
-                    </div>
-                    <div class="quick-stat-divider"></div>
-                    <div class="quick-stat-item">
-                        <div class="quick-stat-number" data-count="6">0</div>
-                        <div class="quick-stat-label">Specializations</div>
-                    </div>
-                </div>
+
             </div>
         </section>
 
@@ -1170,10 +1086,131 @@
             </div>
         </section>
 
-                <section class="section" id="projects">
+        <!-- ============================================
+             GLIMPSE OF NINETY5 — STUDIO TEASER
+             ============================================ -->
+        <section class="section ninety5-glimpse-section" id="ninety5-glimpse">
+            <div class="ninety5-glimpse-bg">
+                <div class="ninety5-noise"></div>
+            </div>
             <div class="container">
                 <div class="section-header reveal-fade-up">
                     <span class="section-number">06</span>
+                    <span class="section-label">THE STUDIO</span>
+                    <h2 class="section-title-bold" style="color: #fff;">GLIMPSE OF NINETY5</h2>
+                    <div class="section-divider" style="background: #fff; opacity: 0.3;"></div>
+                </div>
+
+                <div class="ninety5-teaser reveal-fade-up">
+                    <div class="ninety5-teaser__content">
+                        <div class="ninety5-teaser__brand">
+                            <img src="assets/images/Ninety5.png" alt="Ninety5 Studios Logo" class="ninety5-teaser__logo">
+                        </div>
+                        <h3 class="ninety5-teaser__headline">Design Built for the Digital Era.</h3>
+                        <p class="ninety5-teaser__text">
+                            A new-age creative design studio built for the generation that lives online. 
+                            Ninety5 blends minimalist aesthetics and futuristic design thinking to help brands 
+                            stand out where attention spans are short.
+                        </p>
+                        <div class="ninety5-teaser__actions">
+                            <a href="pages/ninety5.html" class="ninety5-teaser__btn magnetic-btn">Explore the Studio <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="ninety5-teaser__visual">
+                         <img src="assets/images/N.png" alt="Ninety5 Monogram" class="ninety5-teaser__monogram">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section educhain-section" id="educhain" style="padding: 4rem 0;">
+            <div class="educhain-bg-effects">
+                <div class="educhain-grid-overlay"></div>
+                <div class="educhain-glow educhain-glow-1"></div>
+                <div class="educhain-glow educhain-glow-2"></div>
+            </div>
+            <div class="container" style="position:relative;z-index:1;">
+                <div class="section-header reveal-fade-up">
+                    <span class="section-number">07</span>
+                    <span class="section-label">FEATURED PROJECT</span>
+                    <h2 class="section-title-bold">EDUCHAIN ID</h2>
+                    <div class="section-divider educhain-divider"></div>
+                </div>
+
+                <div class="educhain-hero reveal-fade-up" style="margin-bottom:0;">
+                    <div class="educhain-hero__content">
+                        <div class="educhain-hero__brand">
+                            <img src="assets/images/LOGO.png" alt="EduChain ID Logo" class="educhain-logo" width="72" height="72">
+                            <div class="educhain-hero__titles">
+                                <h3 class="educhain-hero__name">EduChain <span class="educhain-accent">ID</span></h3>
+                                <p class="educhain-hero__tagline">Your Verified Academic Identity</p>
+                            </div>
+                        </div>
+                        <p class="educhain-hero__desc">
+                            A verified digital identity and credential platform for students, institutions, and recruiters — powered by RSA digital signatures, W3C Verifiable Credentials, and Decentralized Identifiers.
+                        </p>
+                        <div class="educhain-hero__actions">
+                            <a href="pages/educhain.html" class="educhain-btn educhain-btn--primary magnetic-btn">
+                                <i class="fas fa-arrow-right"></i> Learn More
+                            </a>
+                            <a href="https://github.com/Rayyan-x95/EduChain" target="_blank" rel="noopener noreferrer" class="educhain-btn educhain-btn--outline magnetic-btn">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="educhain-badge-strip">
+                            <span class="educhain-status-badge"><i class="fas fa-circle educhain-pulse"></i> In Active Development</span>
+                            <span class="educhain-tech-badge">Node.js</span>
+                            <span class="educhain-tech-badge">React</span>
+                            <span class="educhain-tech-badge">PostgreSQL</span>
+                            <span class="educhain-tech-badge">Cryptography</span>
+                        </div>
+                    </div>
+                    <div class="educhain-hero__visual">
+                        <div class="educhain-mockup">
+                            <div class="educhain-mockup__screen">
+                                <div class="educhain-mockup__header">
+                                    <div class="educhain-mockup__dots">
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                    <span class="educhain-mockup__url"><i class="fas fa-lock"></i> educhain.eu.org</span>
+                                </div>
+                                <div class="educhain-mockup__body">
+                                    <div class="educhain-mock-card">
+                                        <div class="educhain-mock-avatar"></div>
+                                        <div class="educhain-mock-lines">
+                                            <div class="educhain-mock-line educhain-mock-line--name"></div>
+                                            <div class="educhain-mock-line educhain-mock-line--sub"></div>
+                                        </div>
+                                        <div class="educhain-mock-verified"><i class="fas fa-check-circle"></i></div>
+                                    </div>
+                                    <div class="educhain-mock-cred">
+                                        <div class="educhain-mock-cred-icon"><i class="fas fa-award"></i></div>
+                                        <div class="educhain-mock-lines">
+                                            <div class="educhain-mock-line educhain-mock-line--med"></div>
+                                            <div class="educhain-mock-line educhain-mock-line--short"></div>
+                                        </div>
+                                        <div class="educhain-mock-shield"><i class="fas fa-shield-alt"></i></div>
+                                    </div>
+                                    <div class="educhain-mock-cred">
+                                        <div class="educhain-mock-cred-icon"><i class="fas fa-graduation-cap"></i></div>
+                                        <div class="educhain-mock-lines">
+                                            <div class="educhain-mock-line educhain-mock-line--med"></div>
+                                            <div class="educhain-mock-line educhain-mock-line--short"></div>
+                                        </div>
+                                        <div class="educhain-mock-shield"><i class="fas fa-shield-alt"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <section class="section" id="projects">
+            <div class="container">
+                <div class="section-header reveal-fade-up">
+                    <span class="section-number">08</span>
                     <span class="section-label">PORTFOLIO</span>
                     <h2 class="section-title-bold">FEATURED WORK</h2>
                     <div class="section-divider"></div>
@@ -1194,12 +1231,7 @@
                     <article class="project-card project-hero card-lift tilt-effect spotlight" data-category="web">
                         <div class="project-hero__layout">
                             <div class="project-visual">
-                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=533&fit=crop&q=80"
-                                     srcset="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=267&fit=crop&q=75 400w,
-                                             https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=533&fit=crop&q=80 800w,
-                                             https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80 1200w"
-                                     sizes="(max-width: 600px) 100vw, 66vw"
-                                     alt="Portfolio Website Project" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop&q=80" alt="Portfolio Website Project" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                                 <div class="project-visual__gradient"></div>
                                 <div class="project-badges">
                                     <span class="project-badge badge-live">Live</span>
@@ -1220,7 +1252,7 @@
                                     <a href="https://rayyan-x95.github.io" target="_blank" rel="noopener" class="project-action project-action--primary magnetic-btn" aria-label="View live portfolio website">
                                         <i class="fas fa-external-link-alt"></i> Live Demo
                                     </a>
-                                    <a href="https://github.com/Rayyan-x95/Rayyan-x95.github.io" target="_blank" rel="noopener" class="project-action project-action--outline magnetic-btn" aria-label="View source code on GitHub">
+                                    <a href="https://github.com/Rayyan-x95/Rayyan-x95.github.io" class="project-action project-action--outline magnetic-btn" aria-label="View source code on GitHub" target="_blank" rel="noopener noreferrer">
                                         <i class="fab fa-github"></i> Source
                                     </a>
                                 </div>
@@ -1231,12 +1263,7 @@
                     <!-- TaskZen Web -->
                     <article class="project-card card-lift spotlight" data-category="web">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="TaskZen Productivity App" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&h=800&fit=crop&q=80" alt="TaskZen Productivity App" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                             <div class="project-badges">
                                 <span class="project-badge badge-active">Active</span>
@@ -1251,7 +1278,7 @@
                                 <span class="project-tag">JavaScript</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/Rayyan-x95/TaskZen" target="_blank" rel="noopener" class="project-action project-action--outline magnetic-btn" aria-label="View TaskZen source code">
+                                <a href="https://github.com/Rayyan-x95/TaskZen" class="project-action project-action--outline magnetic-btn" aria-label="View TaskZen source code" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -1261,12 +1288,7 @@
                     <!-- TaskZen Android -->
                     <article class="project-card card-lift spotlight" data-category="android">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="TaskZen Android App" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=800&fit=crop&q=80" alt="TaskZen Android App" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                             <div class="project-badges">
                                 <span class="project-badge badge-new">New</span>
@@ -1280,7 +1302,7 @@
                                 <span class="project-tag">Jetpack Compose</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/Rayyan-x95/TaskZen-Android" target="_blank" rel="noopener" class="project-action project-action--outline magnetic-btn" aria-label="View TaskZen Android source code">
+                                <a href="https://github.com/Rayyan-x95/TaskZen-Android" class="project-action project-action--outline magnetic-btn" aria-label="View TaskZen Android source code" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -1290,12 +1312,7 @@
                     <!-- AI Career Navigator -->
                     <article class="project-card card-lift spotlight" data-category="web">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="AI Career Navigator" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=800&fit=crop&q=80" alt="AI Career Navigator" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                             <div class="project-badges">
                                 <span class="project-badge badge-new">New</span>
@@ -1309,7 +1326,7 @@
                                 <span class="project-tag">AI Integration</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/Rayyan-x95/AI-Career-Navigator" target="_blank" rel="noopener" class="project-action project-action--outline magnetic-btn" aria-label="View AI Career Navigator source code">
+                                <a href="https://github.com/Rayyan-x95/AI-Career-Navigator" class="project-action project-action--outline magnetic-btn" aria-label="View AI Career Navigator source code" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -1319,12 +1336,7 @@
                     <!-- Custom ROMs (Lunaris, Evolution X, Clover) -->
                     <article class="project-card card-lift spotlight" data-category="android">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="Custom Android ROMs - Lunaris, Evolution X, Clover" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=1200&h=800&fit=crop&q=80" alt="Custom Android ROMs" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                             <div class="project-badges">
                                 <span class="project-badge badge-featured">Featured</span>
@@ -1339,10 +1351,10 @@
                                 <span class="project-tag">C++</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/Lunaris-AOSP" target="_blank" rel="noopener" class="project-action project-action--outline magnetic-btn" aria-label="View Lunaris AOSP organization">
+                                <a href="https://github.com/Lunaris-AOSP" class="project-action project-action--outline magnetic-btn" aria-label="View Lunaris AOSP organization" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-github"></i> Lunaris
                                 </a>
-                                <a href="https://sourceforge.net/projects/juninzo/" target="_blank" rel="noopener" class="project-action project-action--primary magnetic-btn" aria-label="Download ROM builds on SourceForge">
+                                <a href="https://sourceforge.net/projects/juninzo/" class="project-action project-action--primary magnetic-btn" aria-label="Download ROM builds on SourceForge" target="_blank" rel="noopener noreferrer">
                                     <i class="fas fa-download"></i> Downloads
                                 </a>
                             </div>
@@ -1352,12 +1364,7 @@
                     <!-- Xiaomi Sweet Device Tree -->
                     <article class="project-card card-lift spotlight" data-category="android">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="Xiaomi Sweet Device Tree" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&h=800&fit=crop&q=80" alt="Xiaomi Sweet Device Tree" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                             <div class="project-badges">
                                 <span class="project-badge badge-active">Active</span>
@@ -1371,7 +1378,7 @@
                                 <span class="project-tag">Device Config</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/Bloody-Sweet-95/android_device_xiaomi_sweet" target="_blank" rel="noopener" class="project-action project-action--outline magnetic-btn" aria-label="View device tree source code">
+                                <a href="https://github.com/Bloody-Sweet-95/android_device_xiaomi_sweet" class="project-action project-action--outline magnetic-btn" aria-label="View device tree source code" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -1381,12 +1388,7 @@
                     <!-- Habitate -->
                     <article class="project-card card-lift spotlight" data-category="android">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="Habitate Habit Tracker" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&h=800&fit=crop&q=80" alt="Habitate Habit Tracker" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                         </div>
                         <div class="project-body">
@@ -1397,7 +1399,7 @@
                                 <span class="project-tag">Android SDK</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/Rayyan-x95/Habitate" target="_blank" rel="noopener" class="project-action project-action--outline magnetic-btn" aria-label="View Habitate source code">
+                                <a href="https://github.com/Rayyan-x95/Habitate" class="project-action project-action--outline magnetic-btn" aria-label="View Habitate source code" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -1407,12 +1409,7 @@
                     <!-- LUT Playground -->
                     <article class="project-card card-lift spotlight" data-category="tools">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="LUT Playground - Color Grading Tool" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&h=800&fit=crop&q=80" alt="LUT Playground" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                         </div>
                         <div class="project-body">
@@ -1424,7 +1421,7 @@
                                 <span class="project-tag">MIT License</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/Rayyan-x95/LUT-Playground" target="_blank" rel="noopener" class="project-action project-action--outline magnetic-btn" aria-label="View LUT Playground source code">
+                                <a href="https://github.com/Rayyan-x95/LUT-Playground" class="project-action project-action--outline magnetic-btn" aria-label="View LUT Playground source code" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -1434,12 +1431,7 @@
                     <!-- F1 Telemetry -->
                     <article class="project-card card-lift spotlight" data-category="tools">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1532906619279-a782cd00838d?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1532906619279-a782cd00838d?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1532906619279-a782cd00838d?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1532906619279-a782cd00838d?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="F1 Telemetry Analysis" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1532906619279-a782cd00838d?w=1200&h=800&fit=crop&q=80" alt="F1 Telemetry Analysis" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1532906619279-a782cd00838d?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1532906619279-a782cd00838d?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1532906619279-a782cd00838d?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                         </div>
                         <div class="project-body">
@@ -1450,7 +1442,7 @@
                                 <span class="project-tag">Telemetry</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/Rayyan-x95/F1-Telemetry" target="_blank" rel="noopener" class="project-action project-action--outline magnetic-btn" aria-label="View F1 Telemetry source code">
+                                <a href="https://github.com/Rayyan-x95/F1-Telemetry" class="project-action project-action--outline magnetic-btn" aria-label="View F1 Telemetry source code" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -1460,12 +1452,7 @@
                     <!-- Resume Generator -->
                     <article class="project-card card-lift spotlight" data-category="tools">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="Resume Generator" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&h=800&fit=crop&q=80" alt="Resume Generator" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                         </div>
                         <div class="project-body">
@@ -1476,7 +1463,7 @@
                                 <span class="project-tag">Utility</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://github.com/Rayyan-x95/Resume-Generator" target="_blank" rel="noopener" class="project-action project-action--outline magnetic-btn" aria-label="View Resume Generator source code">
+                                <a href="https://github.com/Rayyan-x95/Resume-Generator" class="project-action project-action--outline magnetic-btn" aria-label="View Resume Generator source code" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -1486,12 +1473,7 @@
                     <!-- YouTube Channel -->
                     <article class="project-card card-lift spotlight" data-category="video">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="YouTube Video Production" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&h=800&fit=crop&q=80" alt="YouTube Video Production" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                             <div class="project-badges">
                                 <span class="project-badge badge-active">Active</span>
@@ -1506,7 +1488,7 @@
                                 <span class="project-tag">Premiere Pro</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener" class="project-action project-action--primary magnetic-btn" aria-label="Visit YouTube channel">
+                                <a href="https://www.youtube.com/@JUNINZO" class="project-action project-action--primary magnetic-btn" aria-label="Visit YouTube channel" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-youtube"></i> Watch Now
                                 </a>
                             </div>
@@ -1516,12 +1498,7 @@
                     <!-- 3D Design Portfolio -->
                     <article class="project-card card-lift spotlight" data-category="design">
                         <div class="project-visual">
-                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=533&fit=crop&q=80"
-                                 srcset="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=267&fit=crop&q=75 400w,
-                                         https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=533&fit=crop&q=80 800w,
-                                         https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop&q=80 1200w"
-                                 sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                 alt="3D Design Portfolio" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async">
+                            <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=800&fit=crop&q=80" alt="3D Design Portfolio" class="project-visual__img" loading="lazy" width="1200" height="800" decoding="async" srcset="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&auto=format&q=75 400w, https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&q=80 800w, https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&auto=format&q=80 1200w" sizes="(max-width: 600px) 400px, (max-width: 1024px) 800px, 1200px">
                             <div class="project-visual__gradient"></div>
                             <div class="project-badges">
                                 <span class="project-badge badge-featured">Featured</span>
@@ -1536,7 +1513,7 @@
                                 <span class="project-tag">Rendering</span>
                             </div>
                             <div class="project-actions">
-                                <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener" class="project-action project-action--primary magnetic-btn" aria-label="View Behance portfolio">
+                                <a href="https://www.behance.net/mmohammedrayyan" class="project-action project-action--primary magnetic-btn" aria-label="View Behance portfolio" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-behance"></i> View Portfolio
                                 </a>
                             </div>
@@ -1547,10 +1524,75 @@
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section class="section testimonials-section" id="testimonials">
+            <div class="container">
+                <div class="section-header reveal-fade-up">
+                    <span class="section-number">09</span>
+                    <span class="section-label">TESTIMONIALS</span>
+                    <h2 class="section-title-bold">WHAT CLIENTS SAY</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="testimonials-grid reveal-stagger">
+                    <div class="testimonial-card spotlight">
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">&ldquo;Mohammed delivered an exceptional website that exceeded all expectations. The attention to detail in both design and code quality was outstanding. Highly recommend!&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Satisfied Client</span>
+                                <span class="testimonial-role">Web Development Project</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card spotlight">
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">&ldquo;The branding and design work Rayyan produced for our startup was world-class. Fast turnaround, creative vision, and great communication throughout the entire project.&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Startup Founder</span>
+                                <span class="testimonial-role">Branding & Design</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card spotlight">
+                        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">&ldquo;Best developer I've worked with on Fiverr! Clean code, pixel-perfect designs, and always available for revisions. Already booked for our next project.&rdquo;</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div class="testimonial-info">
+                                <span class="testimonial-name">Repeat Client</span>
+                                <span class="testimonial-role">Full-Stack Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="section section-bg-secondary" id="experience">
             <div class="container">
                 <div class="section-header reveal-fade-up">
-                    <span class="section-number">07</span>
+                    <span class="section-number">10</span>
                     <span class="section-label">EXPERIENCE</span>
                     <h2 class="section-title-bold">PROFESSIONAL JOURNEY</h2>
                     <div class="section-divider"></div>
@@ -1635,7 +1677,7 @@
         <section class="section lando-journey-section">
             <div class="container">
                 <div class="section-header reveal-fade-up">
-                    <span class="section-number">08</span>
+                    <span class="section-number">11</span>
                     <span class="section-label">JOURNEY</span>
                     <h2 class="section-title-bold">THE STORY SO FAR</h2>
                     <div class="section-divider"></div>
@@ -1644,32 +1686,32 @@
                     <div class="journey-card">
                         <div class="journey-year">2021</div>
                         <div class="journey-title">THE BEGINNING</div>
-                        <p class="journey-description">Started coding journey with HTML, CSS, and JavaScript. Built first portfolio website and discovered passion for web development.</p>
+                        <p class="journey-description">Mastered HTML, CSS, & JS. Launched my first portfolio and discovered a deep passion for web engineering.</p>
                     </div>
                     <div class="journey-card">
                         <div class="journey-year">2022</div>
                         <div class="journey-title">GOING DEEPER</div>
-                        <p class="journey-description">Mastered React, Python, and Node.js. Launched YouTube channel for tech tutorials. Started freelancing and delivered first client projects.</p>
+                        <p class="journey-description">Expanded into React, Python, & Node.js. Started my tech YouTube channel and rapidly scaled a freelance client base.</p>
                     </div>
                     <div class="journey-card">
                         <div class="journey-year">2023</div>
                         <div class="journey-title">EXPANSION</div>
-                        <p class="journey-description">Dove into Android AOSP development and custom ROM building. Learned 3D design with Blender. Expanded into video production with DaVinci Resolve.</p>
+                        <p class="journey-description">Ventured into Android AOSP & custom ROMs. Adopted 3D visualization via Blender and advanced video post-production.</p>
                     </div>
                     <div class="journey-card">
                         <div class="journey-year">2024</div>
                         <div class="journey-title">PROFESSIONAL GROWTH</div>
-                        <p class="journey-description">Delivered 30+ production projects. Built comprehensive design systems. Established reputation for enterprise-grade solutions.</p>
+                        <p class="journey-description">Architected 30+ enterprise-grade solutions. Developed holistic design systems for scalable modern brands.</p>
                     </div>
                     <div class="journey-card">
                         <div class="journey-year">2025</div>
                         <div class="journey-title">LEVELING UP</div>
-                        <p class="journey-description">Started B.E in Computer Science &amp; Engineering. Scaled Ninety5 Studio to 100+ clients and 400+ designs. Crossed 1,756 GitHub contributions.</p>
+                        <p class="journey-description">Commenced B.E in CS. Scaled Ninety5 Studio to 100+ global clients while reaching 1.7k+ GitHub contributions.</p>
                     </div>
                     <div class="journey-card">
                         <div class="journey-year">2026</div>
                         <div class="journey-title">PRESENT DAY</div>
-                        <p class="journey-description">Pushing boundaries in AI/ML, full-stack development, and design engineering. Continuing to grow Ninety5 Studio while pursuing my degree. Building the future, one commit at a time.</p>
+                        <p class="journey-description">Innovating with AI/ML & full-stack architectures. Growing Ninety5 Studio &ndash; building the future, one commit at a time.</p>
                     </div>
                 </div>
             </div>
@@ -1678,7 +1720,7 @@
         <section class="section" id="contact">
             <div class="container">
                 <div class="section-header reveal-fade-up">
-                    <span class="section-number">09</span>
+                    <span class="section-number">12</span>
                     <span class="section-label">CONTACT</span>
                     <h2 class="section-title-bold">LET'S WORK TOGETHER</h2>
                     <div class="section-divider"></div>
@@ -1713,39 +1755,42 @@
                                 <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                                 <span>Tamil Nadu, India</span>
                             </div>
-                            <a href="https://www.linkedin.com/company/ninety5-studio" target="_blank" rel="noopener" class="contact-detail-item">
+                            <a href="https://www.linkedin.com/company/ninety5-studio" class="contact-detail-item" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-linkedin" aria-hidden="true"></i>
                                 <span>Ninety5 Studio on LinkedIn</span>
                             </a>
                         </div>
 
                         <div class="contact-socials">
-                            <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener" class="contact-social-link magnetic-btn" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener" class="contact-social-link magnetic-btn" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Rayyan-x95" class="contact-social-link magnetic-btn" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" class="contact-social-link magnetic-btn" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                             <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener" class="contact-social-link magnetic-btn" aria-label="Instagram profile"><i class="fab fa-instagram"></i></a>
                             <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener" class="contact-social-link magnetic-btn" aria-label="X (Twitter) profile"><i class="fab fa-x-twitter"></i></a>
-                            <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener" class="contact-social-link magnetic-btn" aria-label="Behance portfolio"><i class="fab fa-behance"></i></a>
-                            <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener" class="contact-social-link magnetic-btn" aria-label="YouTube channel"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.behance.net/mmohammedrayyan" class="contact-social-link magnetic-btn" aria-label="Behance portfolio" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
+                            <a href="https://www.youtube.com/@JUNINZO" class="contact-social-link magnetic-btn" aria-label="YouTube channel" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
 
                     <!-- Form Panel -->
                     <div class="contact-form-panel">
-                        <form class="contact-form" id="contactForm" action="https://forms-backend.coeffx.tech/api/v1/submit/02b00925-5609-44d7-b7ba-5dce2e7e561d" method="POST" novalidate>
+                        <form class="contact-form" id="contactForm" action="https://forms-backend.coeffx.tech/api/v1/submit/02b00925-5609-44d7-b7ba-5dce2e7e561d" method="POST">
                             <h4 class="contact-form-title">Send a message</h4>
                             <div class="form-group">
                                 <label for="name" class="form-label">Name</label>
                                 <input id="name" type="text" class="form-input validate" name="name" required aria-required="true" autocomplete="name" placeholder="Your name">
+                                <span class="form-error-msg" id="name-error">Please enter your name</span>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="form-label">Email</label>
-                                <input id="email" type="email" class="form-input validate" name="email" required aria-required="true" autocomplete="email" placeholder="you@example.com">
+                                <input id="email" type="email" class="form-input validate" name="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" aria-required="true" autocomplete="email" placeholder="you@example.com">
+                                <span class="form-error-msg" id="email-error">Please enter a valid email address</span>
                             </div>
                             <div class="form-group">
                                 <label for="message" class="form-label">Message</label>
-                                <textarea id="message" class="form-textarea validate" name="message" required aria-required="true" rows="5" placeholder="Tell me about your project..."></textarea>
+                                <textarea id="message" class="form-textarea validate" name="message" required minlength="10" aria-required="true" rows="5" placeholder="Tell me about your project..."></textarea>
+                                <span class="form-error-msg" id="message-error">Please enter a message (at least 10 characters)</span>
                             </div>
-                            <button type="button" class="contact-submit-btn magnetic-btn" id="send-message-btn">
+                            <button type="submit" class="contact-submit-btn magnetic-btn" id="send-message-btn">
                                 Send Message <i class="fas fa-paper-plane"></i>
                             </button>
                             <p class="contact-form-note"><i class="fas fa-clock" aria-hidden="true"></i> I typically respond within 24 hours</p>
@@ -1758,39 +1803,65 @@
 
     <footer class="site-footer" role="contentinfo">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
+            <div class="footer-grid">
+                <div class="footer-brand-column">
                     <div class="footer-logo">
                         <span class="logo-line-top">MOHAMMED</span>
                         <span class="logo-line-bottom">RAYYAN</span>
                     </div>
-                    <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5.</p>
-                </div>
-                <div class="footer-links">
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <nav aria-label="Footer navigation">
-                        <a href="#home" class="footer-link">Home</a>
-                        <a href="projects.html" class="footer-link">Projects</a>
-                        <a href="services.html" class="footer-link">Services</a>
-                        <a href="blog.html" class="footer-link">Blog</a>
-                        <a href="#contact" class="footer-link">Contact</a>
-                    </nav>
-                </div>
-                <div class="footer-social">
-                    <h4 class="footer-heading">Connect</h4>
+                    <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5 Studio.</p>
                     <div class="footer-social-links">
-                        <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Rayyan-x95" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance"></i></a>
-                        <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
+                
+                <div class="footer-links-column">
+                    <h4 class="footer-heading">NAVIGATION</h4>
+                    <nav class="footer-nav">
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="pages/about.html" class="footer-link">About Me</a>
+                        <a href="pages/services.html" class="footer-link">Services</a>
+                        <a href="pages/blog.html" class="footer-link">Insights</a>
+                        <a href="pages/contact.html" class="footer-link">Contact</a>
+                    </nav>
+                </div>
+
+                <div class="footer-links-column">
+                    <h4 class="footer-heading">WORK</h4>
+                    <nav class="footer-nav">
+                        <a href="pages/projects.html" class="footer-link">Portfolio</a>
+                        <a href="pages/educhain.html" class="footer-link">EduChain ID</a>
+                        <a href="pages/ninety5.html" class="footer-link">Ninety5 Studio</a>
+                        <a href="pages/gallery.html" class="footer-link">Design Gallery</a>
+                        <a href="pages/testimonials.html" class="footer-link">Testimonials</a>
+                    </nav>
+                </div>
+
+                <div class="footer-links-column">
+                    <h4 class="footer-heading">EXTRAS</h4>
+                    <nav class="footer-nav">
+                        <a href="pages/uses.html" class="footer-link">Uses / Setup</a>
+                        <a href="pages/resume.html" class="footer-link">Resume</a>
+                        <a href="pages/links.html" class="footer-link">Bio Links</a>
+                        <a href="pages/404.html" class="footer-link">Lost? (404)</a>
+                    </nav>
+                </div>
             </div>
+            
             <div class="footer-bottom">
-                <p class="footer-copyright">&copy; <span id="currentYear">2025</span> Mohammed Rayyan. All rights reserved.</p>
-                <p class="footer-credit">Built with passion &amp; clean code</p>
+                <div class="footer-bottom-info">
+                    <p class="footer-copyright">&copy; <span id="currentYear">2026</span> Mohammed Rayyan. All rights reserved.</p>
+                    <p class="footer-credit">Handcrafted with <i class="fas fa-heart" style="color: #ff4d4d;"></i> &amp; clean code.</p>
+                </div>
+                <div class="footer-tech-stack">
+                    <span class="tech-mini-badge">HTML5</span>
+                    <span class="tech-mini-badge">CSS3</span>
+                    <span class="tech-mini-badge">GSAP</span>
+                    <span class="tech-mini-badge">Lenis</span>
+                </div>
             </div>
         </div>
     </footer>
@@ -1813,6 +1884,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/dist/lenis.min.js" defer></script>
     
     <!-- Main Script -->
-    <script src="script.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
 </body>
 </html>

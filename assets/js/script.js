@@ -137,12 +137,12 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
 
 
 // ============================================
-// PROJECT FILTERING
+// PROJECT & GALLERY FILTERING
 // ============================================
 const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
+const filterItems = document.querySelectorAll('.project-card, .gallery-item');
 
-if (filterBtns.length && projectCards.length) {
+if (filterBtns.length && filterItems.length) {
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => b.classList.remove('active'));
@@ -150,29 +150,29 @@ if (filterBtns.length && projectCards.length) {
             
             const filter = btn.dataset.filter;
             
-            projectCards.forEach(card => {
-                const show = filter === 'all' || card.dataset.category === filter;
+            filterItems.forEach(item => {
+                const show = filter === 'all' || item.dataset.category === filter;
                 
                 if (typeof gsap !== 'undefined') {
                     if (show) {
-                        gsap.set(card, { display: '', clearProps: 'transform' });
-                        gsap.fromTo(card, 
+                        gsap.set(item, { display: '', clearProps: 'transform' });
+                        gsap.fromTo(item, 
                             { opacity: 0, scale: 0.88, y: 30 },
                             { opacity: 1, scale: 1, y: 0, duration: 0.5, 
                               ease: 'power3.out',
                               clearProps: 'opacity,transform' }
                         );
                     } else {
-                        gsap.to(card, {
+                        gsap.to(item, {
                             scale: 0.85,
                             opacity: 0,
                             duration: 0.3,
                             ease: 'power2.in',
-                            onComplete: () => { card.style.display = 'none'; }
+                            onComplete: () => { item.style.display = 'none'; }
                         });
                     }
                 } else {
-                    Object.assign(card.style, {
+                    Object.assign(item.style, {
                         display: show ? 'block' : 'none',
                         opacity: show ? '1' : '0',
                         transform: show ? 'scale(1)' : 'scale(0.8)'
@@ -180,7 +180,7 @@ if (filterBtns.length && projectCards.length) {
                 }
             });
             
-            typeof ScrollTrigger !== 'undefined' && setTimeout(ScrollTrigger.refresh, 500);
+            if (typeof ScrollTrigger !== 'undefined') setTimeout(() => ScrollTrigger.refresh(), 500);
         });
     });
 }
@@ -229,19 +229,28 @@ if (sendBtn) {
         
         let isValid = true;
 
+        // Clear previous errors
+        document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error', 'has-success'));
+
         if (!name) {
-            nameInput.classList.add('invalid');
+            nameInput.closest('.form-group')?.classList.add('has-error');
             isValid = false;
+        } else {
+            nameInput.closest('.form-group')?.classList.add('has-success');
         }
         
         if (!email || !emailRegex.test(email)) {
-            emailInput.classList.add('invalid');
+            emailInput.closest('.form-group')?.classList.add('has-error');
             isValid = false;
+        } else {
+            emailInput.closest('.form-group')?.classList.add('has-success');
         }
         
         if (!message) {
-            messageInput.classList.add('invalid');
+            messageInput.closest('.form-group')?.classList.add('has-error');
             isValid = false;
+        } else {
+            messageInput.closest('.form-group')?.classList.add('has-success');
         }
 
         if (!isValid) {
@@ -275,7 +284,10 @@ if (sendBtn) {
                 showNotification('Message sent successfully!', 'success');
                 
                 form.reset();
-                inputs.forEach(input => input.classList.remove('valid', 'invalid'));
+                inputs.forEach(input => {
+                    input.classList.remove('valid', 'invalid');
+                    input.closest('.form-group')?.classList.remove('has-error', 'has-success');
+                });
                 
                 setTimeout(() => {
                     sendBtn.innerHTML = originalBtnContent;
@@ -299,7 +311,10 @@ if (sendBtn) {
             
             setTimeout(() => {
                 form?.reset();
-                inputs.forEach(input => input.classList.remove('valid', 'invalid'));
+                inputs.forEach(input => {
+                    input.classList.remove('valid', 'invalid');
+                    input.closest('.form-group')?.classList.remove('has-error', 'has-success');
+                });
                 sendBtn.innerHTML = originalBtnContent;
                 sendBtn.classList.remove('green', 'disabled');
                 sendBtn.disabled = false;
@@ -474,6 +489,21 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         opacity: 0, y: 30, scale: 0.9, duration: 0.8, stagger: 0.1,
         ease: 'back.out(1.5)', delay: 0.8
     });
+
+    // Testimonial stat cards entrance
+    document.querySelectorAll('.testimonial-stat-card').length && gsap.from('.testimonial-stat-card', {
+        opacity: 0, y: 50, scale: 0.9, duration: 1, stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: '.testimonial-stats-container', start: 'top 85%' }
+    });
+
+    // Testimonial grid items entrance
+    document.querySelectorAll('.testimonial-card').length && gsap.from('.testimonial-card', {
+        opacity: 0, y: 60, scale: 0.95, duration: 1.1, stagger: 0.12,
+        ease: 'power3.out',
+        clearProps: 'opacity,transform',
+        scrollTrigger: { trigger: '.testimonials-grid', start: 'top 82%' }
+    });
 }
 
 // ============================================
@@ -530,10 +560,12 @@ const initCounterAnimations = () => {
         counter.dataset.animated = 'true';
         
         const { target, prefix, suffix } = parseCounterMeta(counter);
-        const start = performance.now();
+        const duration = typeof CONFIG !== 'undefined' ? CONFIG.COUNTER_DURATION : 1800;
+        let start = null;
         
         const updateCounter = (currentTime) => {
-            const progress = Math.min((currentTime - start) / CONFIG.COUNTER_DURATION, 1);
+            if (!start) start = currentTime;
+            const progress = Math.min((currentTime - start) / duration, 1);
             const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
             const value = Math.floor(eased * target).toLocaleString();
             counter.textContent = `${prefix}${value}${suffix}`;
@@ -602,25 +634,42 @@ if (landoNavbar) {
 }
 
 if (landoNavLinks.length) {
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    
     const updateActiveLink = throttle(() => {
         const scrollY = window.pageYOffset;
-        document.querySelectorAll('section[id]').forEach(section => {
-            const { offsetTop, offsetHeight, id } = section;
-            if (scrollY >= offsetTop - 150 && scrollY < offsetTop - 150 + offsetHeight) {
-                landoNavLinks.forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
-            }
-        });
+        const isIndex = currentPath === 'index.html' || currentPath === '';
+        
+        let foundSection = false;
+        if (isIndex) {
+            document.querySelectorAll('section[id]').forEach(section => {
+                const { offsetTop, offsetHeight, id } = section;
+                if (scrollY >= offsetTop - 150 && scrollY < offsetTop - 150 + offsetHeight) {
+                    foundSection = true;
+                    landoNavLinks.forEach(link => {
+                        const href = link.getAttribute('href');
+                        link.classList.toggle('active', href === `#${id}` || href === `index.html#${id}`);
+                    });
+                }
+            });
+        }
+        
+        // If not on index or not in a section, highlight based on filename
+        if (!foundSection) {
+            landoNavLinks.forEach(link => {
+                const href = link.getAttribute('href').split('#')[0];
+                const isActive = href === currentPath || (currentPath === 'index.html' && href === '#home');
+                link.classList.toggle('active', isActive);
+            });
+        }
     }, CONFIG.THROTTLE_DELAY);
     
     lenis ? lenis.on('scroll', updateActiveLink) : window.addEventListener('scroll', updateActiveLink);
+    // Initial call
+    updateActiveLink();
     
     landoNavLinks.forEach(link => {
         link.addEventListener('click', () => {
-            landoNavLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-            
             if (landoNavLinksContainer && window.innerWidth <= 1024) {
                 landoNavLinksContainer.classList.remove('active');
                 landoMenuToggle?.classList.remove('active');
@@ -1172,8 +1221,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!card) return;
         const onLoad = () => { img.classList.add('loaded'); card.classList.add('loaded'); };
         img.complete ? onLoad() : img.addEventListener('load', onLoad);
-        img.addEventListener('error', onLoad); // hide shimmer on error too
+        img.addEventListener('error', () => {
+            // Show fallback UI on error
+            card.classList.add('stats-error', 'loaded');
+            if (!card.querySelector('.github-stats-fallback')) {
+                const fallback = document.createElement('div');
+                fallback.className = 'github-stats-fallback';
+                fallback.innerHTML = '<i class="fab fa-github"></i><p>Stats temporarily unavailable</p><button class="retry-stats-btn" style="margin-top:0.5rem;padding:0.4rem 1rem;border:1px solid var(--border-color);border-radius:8px;background:transparent;color:var(--text-secondary);cursor:pointer;font-size:0.8rem;">Retry</button>';
+                card.appendChild(fallback);
+                fallback.querySelector('.retry-stats-btn')?.addEventListener('click', () => {
+                    card.classList.remove('stats-error');
+                    img.src = img.src + '&retry=' + Date.now();
+                });
+            }
+        });
     });
+
+    // Testimonials GSAP animation
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        document.querySelectorAll('.testimonial-card').length && gsap.from('.testimonial-card', {
+            opacity: 0, y: 50, scale: 0.95, duration: 0.9, stagger: 0.12,
+            ease: 'power3.out',
+            clearProps: 'opacity,transform',
+            scrollTrigger: { trigger: '.testimonials-grid', start: 'top 85%' }
+        });
+    }
 
     // Auto-update copyright year
     const yearEl = document.getElementById('currentYear');

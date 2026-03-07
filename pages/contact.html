@@ -26,9 +26,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-    <link rel="alternate icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b7cf7'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230b0f1a'/%3E%3Ctext x='50' y='68' text-anchor='middle' fill='url(%23g)' font-family='Arial,sans-serif' font-weight='900' font-size='46'%3EMR%3C/text%3E%3C/svg%3E">
+    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b7cf7'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230b0f1a'/%3E%3Ctext x='50' y='68' text-anchor='middle' fill='url(%23g)' font-family='Arial,sans-serif' font-weight='900' font-size='46'%3EMR%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b7cf7'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230b0f1a'/%3E%3Ctext x='50' y='68' text-anchor='middle' fill='url(%23g)' font-family='Arial,sans-serif' font-weight='900' font-size='46'%3EMR%3C/text%3E%3C/svg%3E">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -64,18 +64,21 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <!-- Main Stylesheet -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="../assets/css/styles.css" as="style">
+    <link rel="stylesheet" href="../assets/css/styles.css">
 
     <!-- Critical Inline Script -->
     <script>
+        // Prevent FOUC and set theme immediately
         (function() {
             try {
-                var theme = localStorage.getItem('theme') || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+                var theme = localStorage.getItem('theme') || 'dark';
                 document.documentElement.setAttribute('data-theme', theme);
                 var meta = document.querySelector('meta[name="theme-color"]');
                 if (meta) meta.setAttribute('content', theme === 'dark' ? '#0b0f1a' : '#5b4cdb');
-            } catch(e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+            } catch(e) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
         })();
     </script>
 
@@ -307,30 +310,53 @@
 </head>
 <body>
 
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+    <div class="particle-container" id="particleContainer"></div>
+    
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">MR</div>
+            <div class="loader-progress-bar">
+                <div class="loader-progress" id="loaderProgress"></div>
+            </div>
+        </div>
+    </div>
+
     <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
 
     <!-- Shared Navigation -->
     <header class="lando-nav" id="navbar">
         <nav class="lando-nav-container">
-            <a href="index.html" class="lando-logo" aria-label="Home">
+            <a href="../index.html" class="lando-logo" aria-label="Home">
                 <div class="logo-stack">
                     <span class="logo-line-top">MOHAMMED</span>
                     <span class="logo-line-bottom">RAYYAN</span>
                 </div>
             </a>
+
             <div class="lando-nav-links" id="landoNavLinks">
-                <a href="index.html" class="lando-nav-link" data-section="home">HOME</a>
+                <a href="../index.html" class="lando-nav-link" data-section="home">HOME</a>
                 <a href="about.html" class="lando-nav-link" data-section="about">ABOUT</a>
                 <a href="projects.html" class="lando-nav-link" data-section="projects">PROJECTS</a>
                 <a href="services.html" class="lando-nav-link" data-section="services">SERVICES</a>
                 <a href="blog.html" class="lando-nav-link" data-section="blog">BLOG</a>
-                <a href="contact.html" class="lando-nav-link active nav-cta nav-cta-secondary" data-section="contact">CONTACT</a>
+                <a href="ninety5.html" class="lando-nav-link" data-section="studio">STUDIO</a>
+                <a href="contact.html" class="lando-nav-link nav-cta nav-cta-secondary" data-section="contact">CONTACT</a>
                 <a href="resume.html" class="lando-nav-link nav-cta nav-cta-primary" aria-label="View full resume">RESUME</a>
             </div>
+
             <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle theme">
                 <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
                 <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
             </button>
+
             <button class="lando-menu-toggle" id="landoMenuToggle" aria-label="Toggle menu" aria-expanded="false">
                 <span class="menu-line"></span>
                 <span class="menu-line"></span>
@@ -382,11 +408,11 @@
 
                         <!-- Social Links Grid -->
                         <div class="social-grid">
-                            <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" class="social-card social-github" aria-label="GitHub">
+                            <a href="https://github.com/Rayyan-x95" class="social-card social-github" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-github"></i>
                                 <span>GitHub</span>
                             </a>
-                            <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" class="social-card social-linkedin" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" class="social-card social-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-linkedin-in"></i>
                                 <span>LinkedIn</span>
                             </a>
@@ -398,11 +424,11 @@
                                 <i class="fab fa-x-twitter"></i>
                                 <span>X / Twitter</span>
                             </a>
-                            <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" class="social-card social-behance" aria-label="Behance">
+                            <a href="https://www.behance.net/mmohammedrayyan" class="social-card social-behance" aria-label="Behance" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-behance"></i>
                                 <span>Behance</span>
                             </a>
-                            <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" class="social-card social-youtube" aria-label="YouTube">
+                            <a href="https://www.youtube.com/@JUNINZO" class="social-card social-youtube" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-youtube"></i>
                                 <span>YouTube</span>
                             </a>
@@ -481,85 +507,89 @@
 
     </main>
 
-    <!-- Shared Footer -->
-    <footer class="site-footer" role="contentinfo">
+            <footer class="site-footer" role="contentinfo">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
+            <div class="footer-grid">
+                <div class="footer-brand-column">
                     <div class="footer-logo">
                         <span class="logo-line-top">MOHAMMED</span>
                         <span class="logo-line-bottom">RAYYAN</span>
                     </div>
-                    <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5.</p>
+                    <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5 Studio.</p>
+                    <div class="footer-social-links">
+                        <a href="https://github.com/Rayyan-x95" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <h4 class="footer-heading">Quick Links</h4>
-                    <nav aria-label="Footer navigation">
-                        <a href="index.html" class="footer-link">Home</a>
-                        <a href="projects.html" class="footer-link">Projects</a>
+                
+                <div class="footer-links-column">
+                    <h4 class="footer-heading">NAVIGATION</h4>
+                    <nav class="footer-nav">
+                        <a href="../index.html" class="footer-link">Home</a>
+                        <a href="about.html" class="footer-link">About Me</a>
                         <a href="services.html" class="footer-link">Services</a>
-                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="blog.html" class="footer-link">Insights</a>
                         <a href="contact.html" class="footer-link">Contact</a>
                     </nav>
                 </div>
-                <div class="footer-social">
-                    <h4 class="footer-heading">Connect</h4>
-                    <div class="footer-social-links">
-                        <a href="https://github.com/Rayyan-x95" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/mohammed-rayyan1948/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/rayyan.x95/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/rayyan_x95" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://www.behance.net/mmohammedrayyan" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance"></i></a>
-                        <a href="https://www.youtube.com/@JUNINZO" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
+
+                <div class="footer-links-column">
+                    <h4 class="footer-heading">WORK</h4>
+                    <nav class="footer-nav">
+                        <a href="projects.html" class="footer-link">Portfolio</a>
+                        <a href="educhain.html" class="footer-link">EduChain ID</a>
+                        <a href="ninety5.html" class="footer-link">Ninety5 Studio</a>
+                        <a href="gallery.html" class="footer-link">Design Gallery</a>
+                        <a href="testimonials.html" class="footer-link">Testimonials</a>
+                    </nav>
+                </div>
+
+                <div class="footer-links-column">
+                    <h4 class="footer-heading">EXTRAS</h4>
+                    <nav class="footer-nav">
+                        <a href="uses.html" class="footer-link">Uses / Setup</a>
+                        <a href="resume.html" class="footer-link">Resume</a>
+                        <a href="links.html" class="footer-link">Bio Links</a>
+                        <a href="404.html" class="footer-link">Lost? (404)</a>
+                    </nav>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p class="footer-copyright">&copy; <span id="currentYear">2025</span> Mohammed Rayyan. All rights reserved.</p>
-                <p class="footer-credit">Built with passion &amp; clean code</p>
+                <div class="footer-bottom-info">
+                    <p class="footer-copyright">&copy; <span id="currentYear">2026</span> Mohammed Rayyan. All rights reserved.</p>
+                    <p class="footer-credit">Handcrafted with <i class="fas fa-heart" style="color: #ff4d4d;"></i> &amp; clean code.</p>
+                </div>
+                <div class="footer-tech-stack">
+                    <span class="tech-mini-badge">HTML5</span>
+                    <span class="tech-mini-badge">CSS3</span>
+                    <span class="tech-mini-badge">GSAP</span>
+                    <span class="tech-mini-badge">Lenis</span>
+                </div>
             </div>
         </div>
     </footer>
 
-    <button id="backToTop" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-    <script>
-        (function() {
-            const root = document.documentElement;
-            const btn = document.getElementById('themeToggle');
-            const menuToggle = document.getElementById('landoMenuToggle');
-            const navLinks = document.getElementById('landoNavLinks');
-            const backToTop = document.getElementById('backToTop');
-            const yearEl = document.getElementById('currentYear');
-            if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-            if (btn) {
-                btn.addEventListener('click', function() {
-                    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                    root.setAttribute('data-theme', next);
-                    localStorage.setItem('theme', next);
-                    btn.setAttribute('aria-pressed', next === 'light' ? 'true' : 'false');
-                    var meta = document.querySelector('meta[name="theme-color"]');
-                    if (meta) meta.setAttribute('content', next === 'dark' ? '#0b0f1a' : '#5b4cdb');
-                });
-                btn.setAttribute('aria-pressed', root.getAttribute('data-theme') === 'light' ? 'true' : 'false');
-            }
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function() {
-                    const isOpen = navLinks.classList.toggle('active');
-                    menuToggle.classList.toggle('active', isOpen);
-                    menuToggle.setAttribute('aria-expanded', isOpen);
-                });
-            }
-            if (backToTop) {
-                window.addEventListener('scroll', function() {
-                    backToTop.classList.toggle('visible', window.scrollY > 400);
-                }, { passive: true });
-                backToTop.addEventListener('click', function() {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            }
-        })();
-    </script>
+    <!-- Animation Libraries - Optimized -->
+    <!-- GSAP Core + Essential Plugins Only -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
+    
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+    
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.29/dist/lenis.min.js" defer></script>
+    
+    <!-- Main Script -->
+    <script src="../assets/js/script.js" defer></script>
 </body>
 </html>
