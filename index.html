@@ -27,6 +27,7 @@
     <link rel="canonical" href="https://rayyan-x95.github.io/">
     
     <!-- DNS Prefetch & Preconnect for Performance -->
+    <link rel="preload" href="assets/images/Asset 10.png" as="image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
@@ -68,9 +69,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b7cf7'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230b0f1a'/%3E%3Ctext x='50' y='68' text-anchor='middle' fill='url(%23g)' font-family='Arial,sans-serif' font-weight='900' font-size='46'%3EMR%3C/text%3E%3C/svg%3E">
-    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b7cf7'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230b0f1a'/%3E%3Ctext x='50' y='68' text-anchor='middle' fill='url(%23g)' font-family='Arial,sans-serif' font-weight='900' font-size='46'%3EMR%3C/text%3E%3C/svg%3E">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%238b7cf7'/%3E%3Cstop offset='100%25' stop-color='%23a78bfa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230b0f1a'/%3E%3Ctext x='50' y='68' text-anchor='middle' fill='url(%23g)' font-family='Arial,sans-serif' font-weight='900' font-size='46'%3EMR%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" href="assets/images/Asset 10.png">
+    <link rel="alternate icon" href="assets/images/Asset 10.png">
+    <link rel="apple-touch-icon" href="assets/images/Asset 10.png">
     
     <!-- Google Sans Font -->
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@8..144,100..1000&family=Inter:opsz,wght@14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
@@ -87,8 +88,8 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     
     <!-- Main Stylesheet -->
-    <link rel="preload" href="assets/css/styles.css" as="style">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preload" href="assets/css/styles.min.css" as="style">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
     
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -357,7 +358,9 @@
     <!-- Preloader -->
     <div class="preloader" id="preloader">
         <div class="loader-content">
-            <div class="loader-logo">MR</div>
+            <div class="loader-logo">
+                <img src="assets/images/Ninety5 Logo.png" alt="Ninety5 Studio Logo" height="64" style="display: block; margin: 0 auto; filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));">
+            </div>
             <div class="loader-progress-bar">
                 <div class="loader-progress" id="loaderProgress"></div>
             </div>
@@ -372,15 +375,11 @@
 
     <header class="lando-nav" id="navbar">
         <nav class="lando-nav-container">
-            <a href="#home" class="lando-logo" aria-label="Home">
-                <div class="logo-stack">
-                    <span class="logo-line-top">MOHAMMED</span>
-                    <span class="logo-line-bottom">RAYYAN</span>
-                </div>
+            <a href="#home" class="lando-logo" aria-label="Home" style="display: flex; align-items: center;">
+                <img src="assets/images/Asset 10.png" alt="Mohammed Rayyan" height="32" style="display: block; width: auto; max-height: 32px; filter: invert(1) brightness(2); transition: filter 0.3s ease;">
             </a>
 
             <div class="lando-nav-links" id="landoNavLinks">
-                <a href="#home" class="lando-nav-link active" data-section="home">HOME</a>
                 <a href="#about" class="lando-nav-link" data-section="about">ABOUT</a>
                 <a href="pages/projects.html" class="lando-nav-link" data-section="projects">PROJECTS</a>
                 <a href="pages/services.html" class="lando-nav-link" data-section="services">SERVICES</a>
@@ -642,22 +641,13 @@
                 </div>
                 <div class="github-stats-grid reveal-stagger">
                     <div class="github-stat-card spotlight">
-                        <picture>
-                            <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-sigma-five.vercel.app/api?username=Rayyan-x95&show_icons=true&theme=default&hide_border=true&bg_color=00000000">
-                            <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Rayyan-x95&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000" alt="GitHub Stats" loading="lazy" width="495" height="195" class="github-stats-img" id="githubStatsImg">
-                        </picture>
+                        <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Rayyan-x95&show_icons=true&theme=dark&hide_border=true&bg_color=00000000" alt="GitHub Stats" loading="lazy" width="495" height="195" class="github-stats-img" id="githubStatsImg">
                     </div>
                     <div class="github-stat-card spotlight">
-                        <picture>
-                            <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=Rayyan-x95&theme=default&hide_border=true&background=00000000">
-                            <img src="https://streak-stats.demolab.com/?user=Rayyan-x95&theme=tokyonight&hide_border=true&background=00000000" alt="GitHub Streak" loading="lazy" width="495" height="195" class="github-stats-img" id="githubStreakImg">
-                        </picture>
+                        <img src="https://streak-stats.demolab.com/?user=Rayyan-x95&theme=dark&hide_border=true&background=00000000" alt="GitHub Streak" loading="lazy" width="495" height="195" class="github-stats-img" id="githubStreakImg">
                     </div>
                     <div class="github-stat-card github-stat-card-wide spotlight">
-                        <picture>
-                            <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Rayyan-x95&layout=compact&theme=default&hide_border=true&bg_color=00000000">
-                            <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Rayyan-x95&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000" alt="Top Languages" loading="lazy" width="495" height="195" class="github-stats-img" id="githubLangsImg">
-                        </picture>
+                        <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Rayyan-x95&layout=compact&theme=dark&hide_border=true&bg_color=00000000" alt="Top Languages" loading="lazy" width="495" height="195" class="github-stats-img" id="githubLangsImg">
                     </div>
                 </div>
             </div>
@@ -1104,7 +1094,7 @@
                 <div class="ninety5-teaser reveal-fade-up">
                     <div class="ninety5-teaser__content">
                         <div class="ninety5-teaser__brand">
-                            <img src="assets/images/Ninety5.png" alt="Ninety5 Studios Logo" class="ninety5-teaser__logo">
+                            <img src="assets/images/Ninety5 Text.png" alt="Ninety5 Studios Logo" class="ninety5-teaser__logo">
                         </div>
                         <h3 class="ninety5-teaser__headline">Design Built for the Digital Era.</h3>
                         <p class="ninety5-teaser__text">
@@ -1117,7 +1107,7 @@
                         </div>
                     </div>
                     <div class="ninety5-teaser__visual">
-                         <img src="assets/images/N.png" alt="Ninety5 Monogram" class="ninety5-teaser__monogram">
+                         <img src="assets/images/Ninety5 Logo.png" alt="Ninety5 Monogram" class="ninety5-teaser__monogram">
                     </div>
                 </div>
             </div>
@@ -1805,9 +1795,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand-column">
-                    <div class="footer-logo">
-                        <span class="logo-line-top">MOHAMMED</span>
-                        <span class="logo-line-bottom">RAYYAN</span>
+                    <div class="footer-logo" style="margin-bottom: 1rem;">
+                        <img src="assets/images/Asset 10.png" alt="Mohammed Rayyan" width="126" height="48" style="display: block; filter: invert(1) brightness(2); transition: filter 0.3s ease; object-fit: contain;">
                     </div>
                     <p class="footer-tagline">Graphic Designer &amp; Engineering Student. Founder of Ninety5 Studio.</p>
                     <div class="footer-social-links">

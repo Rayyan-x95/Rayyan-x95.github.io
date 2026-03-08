@@ -29,7 +29,7 @@ if (themeToggleBtn) {
 
         // Update GitHub stats images theme
         document.querySelectorAll('.github-stats-img').forEach(img => {
-            const newTheme = theme === 'dark' ? 'tokyonight' : 'default';
+            const newTheme = theme === 'dark' ? 'dark' : 'default';
             img.src = img.src.replace(/theme=[^&]+/, 'theme=' + newTheme);
             const source = img.closest('picture')?.querySelector('source');
             if (source) {
@@ -43,9 +43,9 @@ if (themeToggleBtn) {
         applyTheme(current === 'dark' ? 'light' : 'dark');
     });
 
-    // Initialize theme state on button (theme already set by critical inline script)
+    // Initialize theme state and Github SVG parameters on page load
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-    themeToggleBtn.setAttribute('aria-pressed', currentTheme === 'dark' ? 'true' : 'false');
+    applyTheme(currentTheme);
 }
 
 // ============================================

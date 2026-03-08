@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 718.15 272.48">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        fill: #10182a;
+        font-family: Sora-Bold, Sora;
+        font-size: 116px;
+        font-variation-settings: 'wght' 700;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1" data-name="Layer 1">
+    <text class="cls-3" transform="translate(0 100.34)"><tspan x="0" y="0">Mohammed</tspan><tspan x="0" y="139.2">R</tspan><tspan class="cls-1" x="84.68" y="139.2">a</tspan><tspan x="152.42" y="139.2">y</tspan><tspan class="cls-2" x="218.54" y="139.2">y</tspan><tspan x="283.62" y="139.2">an</tspan></text>
+  </g>
+</svg>
